@@ -67,7 +67,7 @@ class TestON:
         self.test_target = None
         self.lastcommand = None
         self.testDir = tests_path 
-        self.configFile = config_path + "ofa.cfg" 
+        self.configFile = config_path + "teston.cfg" 
         self.parsingClass = "xmlparser"
         self.parserPath = core_path + "/xmlparser"
         self.loggerPath = core_path + "/logger"
@@ -107,7 +107,7 @@ class TestON:
     
     def configparser(self):
         '''
-        It will parse the config file (ofa.cfg) and return as dictionary
+        It will parse the config file (teston.cfg) and return as dictionary
         '''
         matchFileName = re.match(r'(.*)\.cfg', self.configFile, re.M | re.I)
         if matchFileName:
@@ -495,8 +495,8 @@ def verifyParams():
 def load_parser() :
     '''
     It facilitates the loading customised parser for topology and params file.
-    It loads parser mentioned in tab named parser of ofa.cfg file.
-    It also loads default xmlparser if no parser have specified in ofa.cfg file.
+    It loads parser mentioned in tab named parser of teston.cfg file.
+    It also loads default xmlparser if no parser have specified in teston.cfg file.
 
     '''
     confighash = main.configDict
@@ -552,8 +552,8 @@ def load_defaultParser():
 def load_logger() :
     '''
     It facilitates the loading customised parser for topology and params file.
-    It loads parser mentioned in tab named parser of ofa.cfg file.
-    It also loads default xmlparser if no parser have specified in ofa.cfg file.
+    It loads parser mentioned in tab named parser of teston.cfg file.
+    It also loads default xmlparser if no parser have specified in teston.cfg file.
 
     '''
     confighash = main.configDict
