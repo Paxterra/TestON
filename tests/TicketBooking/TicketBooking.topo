@@ -1,0 +1,15 @@
+<TOPOLOGY>
+
+    <COMPONENT>
+        <BitlaSoftReservationPage>
+
+            <host> localhost </host>
+            <selenium_port> 4444 </selenium_port>
+            <url> http://www.tsop1.bitlasoft.com/ </url>
+            
+            <type>WebDriver</type>
+            <COMPONENTS>
+            </COMPONENTS>   
+        </BitlaSoftReservationPage>        
+    </COMPONENT>
+</TOPOLOGY>

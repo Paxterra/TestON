@@ -1,0 +1,22 @@
+CASE 1
+
+     NAME "Using assert to verify the result"
+     STEP "Using assert_equal to verify the result is equivalent or not"
+     expect = main.TRUE
+     actual = main.TRUE
+     ASSERT actual EQUALS expect ONPASS "expect is equal to actual" ONFAIL "expect is not equal to actual"
+     
+     STEP "Using assert_matches to verify the result matches or not"
+     expect = "Res(.*)"
+     actual = "Result"
+     ASSERT actual MATCHES expect ONPASS "expect is macthes to actual" ONFAIL "expect is not matches to actual"
+
+     STEP "Using assert_greater to verify the result greater or not"
+     expect = 10
+     actual = 5
+     ASSERT actual GREATER THAN expect ONPASS "expect is greater than the actual" ONFAIL "expect is not greater than the actual"
+
+     STEP "Using assert_lesser to verify the result lesser or not"
+     expect = 5
+     actual = 10
+     ASSERT actual LESSER THAN expect ONPASS "expect is lesser than the actual" ONFAIL "expect is not lesser than the actual"

@@ -1,0 +1,150 @@
+
+                                +----------------+
+------------------------------ { Script And Files }  ------------------------------
+                                +----------------+
+
+	Script Log File : /home/paxterra/Desktop/TestON/logs/PoxTest_11_Mar_2013_12_54_18/PoxTest_11_Mar_2013_12_54_18.log
+	Report Log File : /home/paxterra/Desktop/TestON/logs/PoxTest_11_Mar_2013_12_54_18/PoxTest_11_Mar_2013_12_54_18.rpt
+	POX2 Session Log : /home/paxterra/Desktop/TestON/logs/PoxTest_11_Mar_2013_12_54_18/POX2.session
+	NetGear Session Log : /home/paxterra/Desktop/TestON/logs/PoxTest_11_Mar_2013_12_54_18/NetGear.session
+	Mininet1 Session Log : /home/paxterra/Desktop/TestON/logs/PoxTest_11_Mar_2013_12_54_18/Mininet1.session
+	Test Script :/home/paxterra/Desktop/TestON/Tests/PoxTest.py
+	Test Params : /home/paxterra/Desktop/TestON/Tests/PoxTest.params
+	Topology : /home/paxterra/Desktop/TestON/Tests/PoxTest.tpl
+                              +------------------+
+---------------------------  { Script Exec Params }  ---------------------------
+                              +------------------+
+
+	
+	'CASE1': 
+	'src': 'h2'
+	 'controller': 'c1'
+	 'destination': 'h2'
+	 'target': 'h3'
+	 'STEP1': 
+	'host': 'h2'
+	
+	
+	 'mail': 'anil4haart@gmail.com
+	paxweb@paxterrasolutions.com'
+	 'testcases': '1'
+	
+
+                               +---------------+
+----------------------------- { Components Used }  -----------------------------
+                               +---------------+
+	POX2-Test Target
+	NetGear
+	Mininet1
+
+
+                              +--------+
+---------------------------- { Topology }  ----------------------------
+                              +--------+
+
+	
+	'POX2': 
+	'host': '192.168.56.101'
+	 'user': 'openflow'
+	 'COMPONENTS': 
+	'samples.of_tutorial': None
+	 'pox_lib_location': '/home/openflow/pox/'
+	
+	 'test_target': '1'
+	 'password': 'openflow'
+	 'type': 'PoxCliDriver'
+	
+	 'NetGear': 
+	'host': '192.168.150.21'
+	 'password': 'pax@123'
+	 'type': 'RemoteSysDriver'
+	 'user': 'paxterra'
+	 'COMPONENTS': ''
+	
+	 'Mininet1': 
+	'host': '192.168.56.101'
+	 'password': 'openflow'
+	 'type': 'MininetCliDriver'
+	 'user': 'openflow'
+	 'COMPONENTS': 
+	'topo': 'single'
+	 'topocount': '3'
+	 'switch': 'ovsk'
+	 'controller': 'remote'
+	
+	
+	
+------------------------------------------------------------
+
+
+******************************
+ CASE INIT 
+******************************
+
+2013-03-11 12:54:18,815 - PoxTest - INFO - Creating component Handle: POX2
+2013-03-11 12:54:19,670 - PoxTest - INFO - ssh connection asked for password, gave password
+2013-03-11 12:54:20,134 - PoxTest - INFO - ssh connection asked for password, gave password
+2013-03-11 12:54:21,886 - PoxTest - INFO - Entering into POX hierarchy
+2013-03-11 12:54:21,994 - PoxTest - INFO - Expected Prompt Found
+2013-03-11 12:54:21,994 - PoxTest - INFO - launching POX controller with given components
+2013-03-11 12:54:22,539 - PoxTest - INFO - Expected Prompt Found
+2013-03-11 12:54:22,639 - PoxTest - INFO - Creating component Handle: NetGear
+2013-03-11 12:54:23,199 - PoxTest - INFO - ssh connection asked for password, gave password
+2013-03-11 12:54:25,243 - PoxTest - INFO - Expected Prompt Found
+2013-03-11 12:54:35,350 - PoxTest - ERROR - Expected Prompt not found , Time Out!!
+2013-03-11 12:54:35,451 - PoxTest - INFO - Expected Prompt Found
+2013-03-11 12:54:35,551 - PoxTest - INFO - Expected Prompt Found
+2013-03-11 12:54:35,552 - PoxTest - INFO - Creating component Handle: Mininet1
+2013-03-11 12:54:35,826 - PoxTest - INFO - ssh connection asked for password, gave password
+2013-03-11 12:54:36,298 - PoxTest - INFO - ssh connection asked for password, gave password
+2013-03-11 12:54:36,506 - PoxTest - INFO - Clearing any residual state or processes
+2013-03-11 12:54:38,079 - PoxTest - INFO - Expected Prompt Found
+2013-03-11 12:54:38,079 - PoxTest - INFO - password is being asked
+2013-03-11 12:54:38,079 - PoxTest - INFO - Assertion Passed
+2013-03-11 12:54:38,180 - PoxTest - INFO - Expected Prompt Found
+2013-03-11 12:54:41,182 - PoxTest - INFO - Expected Prompt Found
+2013-03-11 12:54:41,182 - PoxTest - INFO - Network is being launched
+2013-03-11 12:54:41,183 - PoxTest - INFO - Assertion Passed
+
+
+******************************
+ Result summary for Testcase1
+******************************
+
+
+[2013-03-11 12:54:41.285330] [PoxTest] [CASE]  Checking the control flow of POX
+
+[2013-03-11 12:54:41.285627] [PoxTest] [STEP]  INIT : Initializing the test case :Checking the control flow of POX
+
+[2013-03-11 12:54:41.286032] [PoxTest] [STEP]  1.1: Checking the host reachability using pingHost
+2013-03-11 12:54:41,610 - PoxTest - INFO - Expected Prompt Found
+2013-03-11 12:54:41,611 - PoxTest - INFO - No Packet loss
+2013-03-11 12:54:41,611 - PoxTest - INFO - Assertion Passed
+2013-03-11 12:54:41,611 - PoxTest - INFO - PING SUCCESS WITH NO PACKET LOSS
+2013-03-11 12:54:41,612 - PoxTest - INFO - Verifying the Expected is equal to the actual or not using assert_equal
+2013-03-11 12:54:41,612 - PoxTest - INFO - Ping executed successfully
+2013-03-11 12:54:41,612 - PoxTest - INFO - Assertion Passed
+
+
+*****************************
+ Result: Pass 
+*****************************
+
+
+
+
+*************************************
+	Test Execution Summary
+
+************************************* 
+
+ Test Start           : 11 Mar 2013 12:54:18
+ Test End             : 11 Mar 2013 12:54:41
+ Execution Time       : 0:00:22.797484
+ Total tests planned  : 1
+ Total tests RUN      : 1
+ Total Pass           : 1
+ Total Fail           : 0
+ Total No Result      : 0
+ Success Percentage   : 100%
+ Execution Result     : 100%

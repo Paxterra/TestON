@@ -1,0 +1,60 @@
+
+                                +----------------+
+------------------------------ { Script And Files }  ------------------------------
+                                +----------------+
+
+	Script Log File : /home/paxterra/Desktop/TestON/logs/Assert_11_Mar_2013_12_53_31/Assert_11_Mar_2013_12_53_31.log
+	Report Log File : /home/paxterra/Desktop/TestON/logs/Assert_11_Mar_2013_12_53_31/Assert_11_Mar_2013_12_53_31.rpt
+	Test Script :/home/paxterra/Desktop/TestON/Tests/Assert.py
+	Test Params : /home/paxterra/Desktop/TestON/Tests/Assert.params
+	Topology : /home/paxterra/Desktop/TestON/Tests/Assert.tpl
+                              +------------------+
+---------------------------  { Script Exec Params }  ---------------------------
+                              +------------------+
+
+	
+	'testcases': '1'
+	
+
+                               +---------------+
+----------------------------- { Components Used }  -----------------------------
+                               +---------------+
+
+
+                              +--------+
+---------------------------- { Topology }  ----------------------------
+                              +--------+
+
+	
+------------------------------------------------------------
+
+******************************
+ CASE INIT 
+******************************
+
+******************************
+ Result summary for Testcase1
+******************************
+
+[REPORT] [11 Mar 2013 12:53:31] expect is not greater than the actual
+[REPORT] [11 Mar 2013 12:53:31] expect is not lesser than the actual
+*****************************
+ Result: Failed 
+*****************************
+
+
+*************************************
+	Test Execution Summary
+
+************************************* 
+
+ Test Start           : 11 Mar 2013 12:53:31
+ Test End             : 11 Mar 2013 12:53:31
+ Execution Time       : 0:00:00.007843
+ Total tests planned  : 1
+ Total tests RUN      : 1
+ Total Pass           : 0
+ Total Fail           : 1
+ Total No Result      : 0
+ Success Percentage   : 0%
+ Execution Result     : 100%

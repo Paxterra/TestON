@@ -1,0 +1,106 @@
+
+                                +----------------+
+------------------------------ { Script And Files }  ------------------------------
+                                +----------------+
+
+	Script Log File : /home/paxterra/Desktop/TestON/logs/PoxTest_11_Mar_2013_12_54_18/PoxTest_11_Mar_2013_12_54_18.log
+	Report Log File : /home/paxterra/Desktop/TestON/logs/PoxTest_11_Mar_2013_12_54_18/PoxTest_11_Mar_2013_12_54_18.rpt
+	POX2 Session Log : /home/paxterra/Desktop/TestON/logs/PoxTest_11_Mar_2013_12_54_18/POX2.session
+	NetGear Session Log : /home/paxterra/Desktop/TestON/logs/PoxTest_11_Mar_2013_12_54_18/NetGear.session
+	Mininet1 Session Log : /home/paxterra/Desktop/TestON/logs/PoxTest_11_Mar_2013_12_54_18/Mininet1.session
+	Test Script :/home/paxterra/Desktop/TestON/Tests/PoxTest.py
+	Test Params : /home/paxterra/Desktop/TestON/Tests/PoxTest.params
+	Topology : /home/paxterra/Desktop/TestON/Tests/PoxTest.tpl
+                              +------------------+
+---------------------------  { Script Exec Params }  ---------------------------
+                              +------------------+
+
+	
+	'CASE1': 
+	'src': 'h2'
+	 'controller': 'c1'
+	 'destination': 'h2'
+	 'target': 'h3'
+	 'STEP1': 
+	'host': 'h2'
+	
+	
+	 'mail': 'anil4haart@gmail.com
+	paxweb@paxterrasolutions.com'
+	 'testcases': '1'
+	
+
+                               +---------------+
+----------------------------- { Components Used }  -----------------------------
+                               +---------------+
+	POX2-Test Target
+	NetGear
+	Mininet1
+
+
+                              +--------+
+---------------------------- { Topology }  ----------------------------
+                              +--------+
+
+	
+	'POX2': 
+	'host': '192.168.56.101'
+	 'user': 'openflow'
+	 'COMPONENTS': 
+	'samples.of_tutorial': None
+	 'pox_lib_location': '/home/openflow/pox/'
+	
+	 'test_target': '1'
+	 'password': 'openflow'
+	 'type': 'PoxCliDriver'
+	
+	 'NetGear': 
+	'host': '192.168.150.21'
+	 'password': 'pax@123'
+	 'type': 'RemoteSysDriver'
+	 'user': 'paxterra'
+	 'COMPONENTS': ''
+	
+	 'Mininet1': 
+	'host': '192.168.56.101'
+	 'password': 'openflow'
+	 'type': 'MininetCliDriver'
+	 'user': 'openflow'
+	 'COMPONENTS': 
+	'topo': 'single'
+	 'topocount': '3'
+	 'switch': 'ovsk'
+	 'controller': 'remote'
+	
+	
+	
+------------------------------------------------------------
+
+******************************
+ CASE INIT 
+******************************
+
+******************************
+ Result summary for Testcase1
+******************************
+
+*****************************
+ Result: Pass 
+*****************************
+
+
+*************************************
+	Test Execution Summary
+
+************************************* 
+
+ Test Start           : 11 Mar 2013 12:54:18
+ Test End             : 11 Mar 2013 12:54:41
+ Execution Time       : 0:00:22.797484
+ Total tests planned  : 1
+ Total tests RUN      : 1
+ Total Pass           : 1
+ Total Fail           : 0
+ Total No Result      : 0
+ Success Percentage   : 100%
+ Execution Result     : 100%

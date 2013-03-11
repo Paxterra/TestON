@@ -1,0 +1,13 @@
+CASE 1
+    NAME "Testing the configuration of the host"
+    STEP "Host IP Checking using checkIP"
+    STORE ON Mininet1 DO checkIP USING CASE['destination'] IN result
+    STEP "Verifying the result"
+    ASSERT result EQUALS main.TRUE ONPASS "Host h2 IP address configured" ONFAIL "Host h2 IP address didn't configured"
+
+CASE 2
+    NAME "Testing Reachabilty of all the hosts"
+    STEP "Checking Hosts reachability by using pingall"
+    STORE ON Mininet1 DO pingall IN result
+    STEP "Verifying the result"
+    ASSERT result EQUALS main.TRUE ONPASS "All hosts are reacchable" ONFAIL "Hosts are not reachable"

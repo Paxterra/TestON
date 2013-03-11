@@ -1,0 +1,152 @@
+2013-03-11 12:54:36,027  Mininet1  : INFO    : 
+                                +----------------+
+------------------------------ { Script And Files }  ------------------------------
+                                +----------------+
+
+	Script Log File : /home/paxterra/Desktop/TestON/logs/PoxTest_11_Mar_2013_12_54_18/PoxTest_11_Mar_2013_12_54_18.log
+	Report Log File : /home/paxterra/Desktop/TestON/logs/PoxTest_11_Mar_2013_12_54_18/PoxTest_11_Mar_2013_12_54_18.rpt
+	POX2 Session Log : /home/paxterra/Desktop/TestON/logs/PoxTest_11_Mar_2013_12_54_18/POX2.session
+	NetGear Session Log : /home/paxterra/Desktop/TestON/logs/PoxTest_11_Mar_2013_12_54_18/NetGear.session
+	Mininet1 Session Log : /home/paxterra/Desktop/TestON/logs/PoxTest_11_Mar_2013_12_54_18/Mininet1.session
+	Test Script :/home/paxterra/Desktop/TestON/Tests/PoxTest.py
+	Test Params : /home/paxterra/Desktop/TestON/Tests/PoxTest.params
+	Topology : /home/paxterra/Desktop/TestON/Tests/PoxTest.tpl
+                              +------------------+
+---------------------------  { Script Exec Params }  ---------------------------
+                              +------------------+
+
+	
+	'CASE1': 
+	'src': 'h2'
+	 'controller': 'c1'
+	 'destination': 'h2'
+	 'target': 'h3'
+	 'STEP1': 
+	'host': 'h2'
+	
+	
+	 'mail': 'anil4haart@gmail.com
+	paxweb@paxterrasolutions.com'
+	 'testcases': '1'
+	
+
+                               +---------------+
+----------------------------- { Components Used }  -----------------------------
+                               +---------------+
+	POX2-Test Target
+	NetGear
+	Mininet1
+
+
+                              +--------+
+---------------------------- { Topology }  ----------------------------
+                              +--------+
+
+	
+	'POX2': 
+	'host': '192.168.56.101'
+	 'user': 'openflow'
+	 'COMPONENTS': 
+	'samples.of_tutorial': None
+	 'pox_lib_location': '/home/openflow/pox/'
+	
+	 'test_target': '1'
+	 'password': 'openflow'
+	 'type': 'PoxCliDriver'
+	
+	 'NetGear': 
+	'host': '192.168.150.21'
+	 'password': 'pax@123'
+	 'type': 'RemoteSysDriver'
+	 'user': 'paxterra'
+	 'COMPONENTS': ''
+	
+	 'Mininet1': 
+	'host': '192.168.56.101'
+	 'password': 'openflow'
+	 'type': 'MininetCliDriver'
+	 'user': 'openflow'
+	 'COMPONENTS': 
+	'topo': 'single'
+	 'topocount': '3'
+	 'switch': 'ovsk'
+	 'controller': 'remote'
+	
+	
+	
+------------------------------------------------------------
+
+[Kteston> openflow@192.168.56.101's password: openflow
+
+
+sudo mn -c
+Welcome to Ubuntu 11.10 (GNU/Linux 3.0.0-12-server x86_64)
+
+ * Documentation:  https://help.ubuntu.com/11.10/serverguide/C
+
+ System information disabled due to load higher than 1.0
+New release '12.04 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+Last login: Mon Mar 11 08:24:20 2013 from 192.168.56.1
+
+
+sudo mn -c
+]0;openflow@ETH-Tutorial: ~openflow@ETH-Tutorial:~$ 
+]0;openflow@ETH-Tutorial: ~openflow@ETH-Tutorial:~$ 
+]0;openflow@ETH-Tutorial: ~openflow@ETH-Tutorial:~$ sudo mn -c
+[sudo] password for openflow: openflow
+sudo mn --topo single,3 --mac --switch ovsk --controller remote
+
+sudo mn --topo single,3 --mac --switch ovsk --controller remote
+*** Removing excess controllers/ofprotocols/ofdatapaths/pings/noxes
+killall -9 controller ofprotocol ofdatapath ping nox_core lt-nox_core ovs-openflowd udpbwtest 2> /dev/null
+*** Removing junk from /tmp
+rm -f /tmp/vconn* /tmp/vlogs* /tmp/*.out /tmp/*.log
+*** Removing old screen sessions
+*** Removing excess kernel datapaths
+ps ax | egrep -o 'dp[0-9]+' | sed 's/dp/nl:/'
+*** Removing all links of the pattern foo-ethX
+ip link show | egrep -o '(\w+-eth\w+)'
+*** Cleanup complete.
+]0;openflow@ETH-Tutorial: ~openflow@ETH-Tutorial:~$ sudo mn --topo single,3 --mac --switch ovsk --controlle r remote
+*** Loading openvswitch_mod
+*** Adding controller
+*** Creating network
+*** Adding hosts:
+h2 h3 h4 
+*** Adding switches:
+s1 
+*** Adding links:
+(s1, h2) (s1, h3) (s1, h4) 
+*** Configuring hosts
+h2 h3 h4 
+*** Starting controller
+*** Starting 1 switches
+s1 
+*** Starting CLI:
+mininet> 2013-03-11 12:54:41,285  Mininet1  : INFO    : 
+****************************************
+Start of Test Case1 : 
+2013-03-11 12:54:41,285  Mininet1  : INFO    :  Checking the control flow of POX
+****************************************
+
+2013-03-11 12:54:41,285  Mininet1  : INFO    : 
+---------------------------------------------
+Start of Step INIT : Initializing the test case :Checking the control flow of POX
+---------------------------------------------
+
+2013-03-11 12:54:41,286  Mininet1  : INFO    : 
+---------------------------------------------
+Start of Step 1.1: Checking the host reachability using pingHost
+---------------------------------------------
+
+h2 ping -c1 h3
+h2 ping -c1 h3
+PING 10.0.0.3 (10.0.0.3) 56(84) bytes of data.
+64 bytes from 10.0.0.3: icmp_req=1 ttl=64 time=163 ms
+
+--- 10.0.0.3 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 163.204/163.204/163.204/0.000 ms
+mininet> 

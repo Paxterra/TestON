@@ -1,0 +1,49 @@
+Welcome to Vyatta
+vyatta@192.168.56.81's password: vyatta
+
+pmshell
+Linux vyatta 3.3.8-1-586-vyatta #1 SMP Mon Nov 12 12:04:28 PST 2012 i686
+Welcome to Vyatta.
+This system is open-source software. The exact distribution terms for 
+each module comprising the full system are described in the individual 
+files in /usr/share/doc/*/copyright.
+Last login: Sun Feb 17 06:37:29 2013 from 192.168.56.1
+pmshell
+]0;vyatta@vyatta: ~vyatta@vyatta:~$ pmshell
+
+  Invalid command: [pmshell]
+
+]0;vyatta@vyatta: ~vyatta@vyatta:~$ 1
+
+1
+
+  Invalid command: [1]
+
+]0;vyatta@vyatta: ~vyatta@vyatta:~$ 
+]0;vyatta@vyatta: ~vyatta@vyatta:~$ 
+]0;vyatta@vyatta: ~vyatta@vyatta:~$ show ?
+show [?1h=[m
+Possible completions:[m
+  arp           Show Address Resolution Protocol (ARP) information[m
+  bridge        Show bridging information[m
+  cluster       Show clustering information[m
+  configuration Show running configuration[m
+  conntrack     Show conntrack entries in the conntrack table [m
+  conntrack-sync[m
+                Show connection syncing information[m
+  date          Show system date and time[m
+  dhcp          Show Dynamic Host Configuration Protocol (DHCP) information[m
+  dhcpv6        Show status related to DHCPv6[m
+  disk          Show status of disk device[m
+  dns           Show Domain Name Server (DNS) information[m
+  file          Show files for a particular image[m
+  firewall      Show firewall information[m
+  flow-accounting[m
+                Show flow accounting statistics[m
+  hardware      Show system hardware details[m
+  history       show command history[m
+  host          Show host information[m
+  incoming      Show ethernet input-policy information[m
+  interfaces    Show network interface information[m
+:[K[K  ip            Show IPv4 routing information[m
+:[K

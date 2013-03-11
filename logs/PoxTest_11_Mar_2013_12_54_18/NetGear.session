@@ -1,0 +1,124 @@
+2013-03-11 12:54:22,665  NetGear   : INFO    : 
+                                +----------------+
+------------------------------ { Script And Files }  ------------------------------
+                                +----------------+
+
+	Script Log File : /home/paxterra/Desktop/TestON/logs/PoxTest_11_Mar_2013_12_54_18/PoxTest_11_Mar_2013_12_54_18.log
+	Report Log File : /home/paxterra/Desktop/TestON/logs/PoxTest_11_Mar_2013_12_54_18/PoxTest_11_Mar_2013_12_54_18.rpt
+	POX2 Session Log : /home/paxterra/Desktop/TestON/logs/PoxTest_11_Mar_2013_12_54_18/POX2.session
+	NetGear Session Log : /home/paxterra/Desktop/TestON/logs/PoxTest_11_Mar_2013_12_54_18/NetGear.session
+	Mininet1 Session Log : /home/paxterra/Desktop/TestON/logs/PoxTest_11_Mar_2013_12_54_18/Mininet1.session
+	Test Script :/home/paxterra/Desktop/TestON/Tests/PoxTest.py
+	Test Params : /home/paxterra/Desktop/TestON/Tests/PoxTest.params
+	Topology : /home/paxterra/Desktop/TestON/Tests/PoxTest.tpl
+                              +------------------+
+---------------------------  { Script Exec Params }  ---------------------------
+                              +------------------+
+
+	
+	'CASE1': 
+	'src': 'h2'
+	 'controller': 'c1'
+	 'destination': 'h2'
+	 'target': 'h3'
+	 'STEP1': 
+	'host': 'h2'
+	
+	
+	 'mail': 'anil4haart@gmail.com
+	paxweb@paxterrasolutions.com'
+	 'testcases': '1'
+	
+
+                               +---------------+
+----------------------------- { Components Used }  -----------------------------
+                               +---------------+
+	POX2-Test Target
+	NetGear
+	Mininet1
+
+
+                              +--------+
+---------------------------- { Topology }  ----------------------------
+                              +--------+
+
+	
+	'POX2': 
+	'host': '192.168.56.101'
+	 'user': 'openflow'
+	 'COMPONENTS': 
+	'samples.of_tutorial': None
+	 'pox_lib_location': '/home/openflow/pox/'
+	
+	 'test_target': '1'
+	 'password': 'openflow'
+	 'type': 'PoxCliDriver'
+	
+	 'NetGear': 
+	'host': '192.168.150.21'
+	 'password': 'pax@123'
+	 'type': 'RemoteSysDriver'
+	 'user': 'paxterra'
+	 'COMPONENTS': ''
+	
+	 'Mininet1': 
+	'host': '192.168.56.101'
+	 'password': 'openflow'
+	 'type': 'MininetCliDriver'
+	 'user': 'openflow'
+	 'COMPONENTS': 
+	'topo': 'single'
+	 'topocount': '3'
+	 'switch': 'ovsk'
+	 'controller': 'remote'
+	
+	
+	
+------------------------------------------------------------
+
+[Kteston> paxterra@192.168.150.21's password: pax@123
+
+
+
+Linux paxterra-desktop 2.6.32-45-generic-pae #104-Ubuntu SMP Tue Feb 19 21:36:53 UTC 2013 i686 GNU/Linux
+Ubuntu 10.04.4 LTS
+
+Welcome to Ubuntu!
+ * Documentation:  https://help.ubuntu.com/
+
+4 packages can be updated.
+2 updates are security updates.
+
+New release 'precise' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+You have mail.
+Last login: Thu Mar  7 19:37:35 2013 from 192.168.150.21
+
+
+
+
+]0;paxterra@paxterra-desktop: ~paxterra@paxterra-desktop:~$ 
+]0;paxterra@paxterra-desktop: ~paxterra@paxterra-desktop:~$ 
+]0;paxterra@paxterra-desktop: ~paxterra@paxterra-desktop:~$ 
+]0;paxterra@paxterra-desktop: ~paxterra@paxterra-desktop:~$ 
+]0;paxterra@paxterra-desktop: ~paxterra@paxterra-desktop:~$ ssh vyatta@192.164.56.81
+ssh vyatta@192.164.56.81
+vyatta
+reboot
+2013-03-11 12:54:41,285  NetGear   : INFO    : 
+****************************************
+Start of Test Case1 : 
+2013-03-11 12:54:41,285  NetGear   : INFO    :  Checking the control flow of POX
+****************************************
+
+2013-03-11 12:54:41,285  NetGear   : INFO    : 
+---------------------------------------------
+Start of Step INIT : Initializing the test case :Checking the control flow of POX
+---------------------------------------------
+
+2013-03-11 12:54:41,286  NetGear   : INFO    : 
+---------------------------------------------
+Start of Step 1.1: Checking the host reachability using pingHost
+---------------------------------------------
+
