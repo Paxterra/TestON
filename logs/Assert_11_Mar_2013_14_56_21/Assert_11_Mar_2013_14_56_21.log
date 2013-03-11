@@ -1,0 +1,88 @@
+
+                                +----------------+
+------------------------------ { Script And Files }  ------------------------------
+                                +----------------+
+
+	Script Log File : /home/paxterra/Documents/TestON_Workspace/TestON/logs/Assert_11_Mar_2013_14_56_21/Assert_11_Mar_2013_14_56_21.log
+	Report Log File : /home/paxterra/Documents/TestON_Workspace/TestON/logs/Assert_11_Mar_2013_14_56_21/Assert_11_Mar_2013_14_56_21.rpt
+	Test Script :/home/paxterra/Documents/TestON_Workspace/TestON/Tests/Assert.py
+	Test Params : /home/paxterra/Documents/TestON_Workspace/TestON/Tests/Assert.params
+	Topology : /home/paxterra/Documents/TestON_Workspace/TestON/Tests/Assert.tpl
+                              +------------------+
+---------------------------  { Script Exec Params }  ---------------------------
+                              +------------------+
+
+	
+	'testcases': '1'
+	
+
+                               +---------------+
+----------------------------- { Components Used }  -----------------------------
+                               +---------------+
+
+
+                              +--------+
+---------------------------- { Topology }  ----------------------------
+                              +--------+
+
+	
+------------------------------------------------------------
+
+
+******************************
+ CASE INIT 
+******************************
+
+
+
+******************************
+ Result summary for Testcase1
+******************************
+
+
+[2013-03-11 14:56:21.272912] [Assert] [CASE]  Using assert to verify the result
+
+[2013-03-11 14:56:21.273012] [Assert] [STEP]  INIT : Initializing the test case :Using assert to verify the result
+
+[2013-03-11 14:56:21.273159] [Assert] [STEP]  1.1: Using assert_equal to verify the result is equivalent or not
+2013-03-11 14:56:21,273 - Assert - INFO - Verifying the Expected is equal to the actual or not using assert_equal
+2013-03-11 14:56:21,274 - Assert - INFO - expect is equal to actual
+2013-03-11 14:56:21,274 - Assert - INFO - Assertion Passed
+
+[2013-03-11 14:56:21.274427] [Assert] [STEP]  1.2: Using assert_matches to verify the result matches or not
+2013-03-11 14:56:21,274 - Assert - INFO - expect is macthes to actual
+2013-03-11 14:56:21,274 - Assert - INFO - Assertion Passed
+
+[2013-03-11 14:56:21.274993] [Assert] [STEP]  1.3: Using assert_greater to verify the result greater or not
+2013-03-11 14:56:21,275 - Assert - INFO - Verifying the Expected is Greater than the actual or not using assert_greater
+2013-03-11 14:56:21,275 - Assert - ERROR - expect is not greater than the actual
+2013-03-11 14:56:21,275 - Assert - WARNING - Assertion Failed
+
+[2013-03-11 14:56:21.275663] [Assert] [STEP]  1.4: Using assert_lesser to verify the result lesser or not
+2013-03-11 14:56:21,275 - Assert - INFO - Verifying the Expected is Lesser than the actual or not using assert_lesser
+2013-03-11 14:56:21,275 - Assert - ERROR - expect is not lesser than the actual
+2013-03-11 14:56:21,276 - Assert - WARNING - Assertion Failed
+
+
+*****************************
+ Result: Failed 
+*****************************
+
+
+
+
+*************************************
+	Test Execution Summary
+
+************************************* 
+
+ Test Start           : 11 Mar 2013 14:56:21
+ Test End             : 11 Mar 2013 14:56:21
+ Execution Time       : 0:00:00.006624
+ Total tests planned  : 1
+ Total tests RUN      : 1
+ Total Pass           : 0
+ Total Fail           : 1
+ Total No Result      : 0
+ Success Percentage   : 0%
+ Execution Result     : 100%

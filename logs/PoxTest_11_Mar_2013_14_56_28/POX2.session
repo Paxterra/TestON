@@ -1,0 +1,123 @@
+2013-03-11 14:56:29,215  POX2      : INFO    : 
+                                +----------------+
+------------------------------ { Script And Files }  ------------------------------
+                                +----------------+
+
+	Script Log File : /home/paxterra/Documents/TestON_Workspace/TestON/logs/PoxTest_11_Mar_2013_14_56_28/PoxTest_11_Mar_2013_14_56_28.log
+	Report Log File : /home/paxterra/Documents/TestON_Workspace/TestON/logs/PoxTest_11_Mar_2013_14_56_28/PoxTest_11_Mar_2013_14_56_28.rpt
+	POX2 Session Log : /home/paxterra/Documents/TestON_Workspace/TestON/logs/PoxTest_11_Mar_2013_14_56_28/POX2.session
+	NetGear Session Log : /home/paxterra/Documents/TestON_Workspace/TestON/logs/PoxTest_11_Mar_2013_14_56_28/NetGear.session
+	Mininet1 Session Log : /home/paxterra/Documents/TestON_Workspace/TestON/logs/PoxTest_11_Mar_2013_14_56_28/Mininet1.session
+	Test Script :/home/paxterra/Documents/TestON_Workspace/TestON/Tests/PoxTest.py
+	Test Params : /home/paxterra/Documents/TestON_Workspace/TestON/Tests/PoxTest.params
+	Topology : /home/paxterra/Documents/TestON_Workspace/TestON/Tests/PoxTest.tpl
+                              +------------------+
+---------------------------  { Script Exec Params }  ---------------------------
+                              +------------------+
+
+	
+	'CASE1': 
+	'src': 'h2'
+	 'controller': 'c1'
+	 'destination': 'h2'
+	 'target': 'h3'
+	 'STEP1': 
+	'host': 'h2'
+	
+	
+	 'mail': 'anil4haart@gmail.com
+	paxweb@paxterrasolutions.com'
+	 'testcases': '1'
+	
+
+                               +---------------+
+----------------------------- { Components Used }  -----------------------------
+                               +---------------+
+	POX2-Test Target
+	NetGear
+	Mininet1
+
+
+                              +--------+
+---------------------------- { Topology }  ----------------------------
+                              +--------+
+
+	
+	'POX2': 
+	'host': '192.168.56.101'
+	 'user': 'openflow'
+	 'COMPONENTS': 
+	'samples.of_tutorial': None
+	 'pox_lib_location': '/home/openflow/pox/'
+	
+	 'test_target': '1'
+	 'password': 'openflow'
+	 'type': 'PoxCliDriver'
+	
+	 'NetGear': 
+	'host': '192.168.150.21'
+	 'password': 'pax@123'
+	 'type': 'RemoteSysDriver'
+	 'user': 'paxterra'
+	 'COMPONENTS': ''
+	
+	 'Mininet1': 
+	'host': '192.168.56.101'
+	 'password': 'openflow'
+	 'type': 'MininetCliDriver'
+	 'user': 'openflow'
+	 'COMPONENTS': 
+	'topo': 'single'
+	 'topocount': '3'
+	 'switch': 'ovsk'
+	 'controller': 'remote'
+	
+	
+	
+------------------------------------------------------------
+
+[Kteston> openflow@192.168.56.101's password: openflow
+
+
+Welcome to Ubuntu 11.10 (GNU/Linux 3.0.0-12-server x86_64)
+
+ * Documentation:  https://help.ubuntu.com/11.10/serverguide/C
+
+  System information as of Mon Mar 11 10:26:30 CET 2013
+
+  System load:  0.0               Processes:           70
+  Usage of /:   65.8% of 5.90GB   Users logged in:     1
+  Memory usage: 8%                IP address for eth0: 10.0.2.15
+  Swap usage:   0%                IP address for eth1: 192.168.56.101
+
+  Graph this data and manage this system at https://landscape.canonical.com/
+New release '12.04 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+Last login: Mon Mar 11 08:24:36 2013 from 192.168.56.1
+
+
+]0;openflow@ETH-Tutorial: ~openflow@ETH-Tutorial:~$ 
+]0;openflow@ETH-Tutorial: ~openflow@ETH-Tutorial:~$ 
+]0;openflow@ETH-Tutorial: ~openflow@ETH-Tutorial:~$ cd /home/openflow/pox/
+cd /home/openflow/pox/
+]0;openflow@ETH-Tutorial: ~/poxopenflow@ETH-Tutorial:~/pox$ ./pox.py samples.of_tutorial
+./pox.py samples.of_tutorial
+POX 0.0.0 / Copyright 2011 James McCauley
+DEBUG:core:POX 0.0.0 going up...
+2013-03-11 14:56:51,257  POX2      : INFO    : 
+****************************************
+Start of Test Case1 : 
+2013-03-11 14:56:51,257  POX2      : INFO    :  Checking the control flow of POX
+****************************************
+
+2013-03-11 14:56:51,258  POX2      : INFO    : 
+---------------------------------------------
+Start of Step INIT : Initializing the test case :Checking the control flow of POX
+---------------------------------------------
+
+2013-03-11 14:56:51,258  POX2      : INFO    : 
+---------------------------------------------
+Start of Step 1.1: Checking the host reachability using pingHost
+---------------------------------------------
+

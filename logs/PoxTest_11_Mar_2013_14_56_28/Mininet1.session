@@ -1,16 +1,16 @@
-2013-03-11 12:54:36,027  Mininet1  : INFO    : 
+2013-03-11 14:56:45,095  Mininet1  : INFO    : 
                                 +----------------+
 ------------------------------ { Script And Files }  ------------------------------
                                 +----------------+
 
-	Script Log File : /home/paxterra/Desktop/TestON/logs/PoxTest_11_Mar_2013_12_54_18/PoxTest_11_Mar_2013_12_54_18.log
-	Report Log File : /home/paxterra/Desktop/TestON/logs/PoxTest_11_Mar_2013_12_54_18/PoxTest_11_Mar_2013_12_54_18.rpt
-	POX2 Session Log : /home/paxterra/Desktop/TestON/logs/PoxTest_11_Mar_2013_12_54_18/POX2.session
-	NetGear Session Log : /home/paxterra/Desktop/TestON/logs/PoxTest_11_Mar_2013_12_54_18/NetGear.session
-	Mininet1 Session Log : /home/paxterra/Desktop/TestON/logs/PoxTest_11_Mar_2013_12_54_18/Mininet1.session
-	Test Script :/home/paxterra/Desktop/TestON/Tests/PoxTest.py
-	Test Params : /home/paxterra/Desktop/TestON/Tests/PoxTest.params
-	Topology : /home/paxterra/Desktop/TestON/Tests/PoxTest.tpl
+	Script Log File : /home/paxterra/Documents/TestON_Workspace/TestON/logs/PoxTest_11_Mar_2013_14_56_28/PoxTest_11_Mar_2013_14_56_28.log
+	Report Log File : /home/paxterra/Documents/TestON_Workspace/TestON/logs/PoxTest_11_Mar_2013_14_56_28/PoxTest_11_Mar_2013_14_56_28.rpt
+	POX2 Session Log : /home/paxterra/Documents/TestON_Workspace/TestON/logs/PoxTest_11_Mar_2013_14_56_28/POX2.session
+	NetGear Session Log : /home/paxterra/Documents/TestON_Workspace/TestON/logs/PoxTest_11_Mar_2013_14_56_28/NetGear.session
+	Mininet1 Session Log : /home/paxterra/Documents/TestON_Workspace/TestON/logs/PoxTest_11_Mar_2013_14_56_28/Mininet1.session
+	Test Script :/home/paxterra/Documents/TestON_Workspace/TestON/Tests/PoxTest.py
+	Test Params : /home/paxterra/Documents/TestON_Workspace/TestON/Tests/PoxTest.params
+	Topology : /home/paxterra/Documents/TestON_Workspace/TestON/Tests/PoxTest.tpl
                               +------------------+
 ---------------------------  { Script Exec Params }  ---------------------------
                               +------------------+
@@ -84,11 +84,18 @@ Welcome to Ubuntu 11.10 (GNU/Linux 3.0.0-12-server x86_64)
 
  * Documentation:  https://help.ubuntu.com/11.10/serverguide/C
 
- System information disabled due to load higher than 1.0
+  System information as of Mon Mar 11 10:26:46 CET 2013
+
+  System load:  0.0               Processes:           75
+  Usage of /:   65.8% of 5.90GB   Users logged in:     1
+  Memory usage: 11%               IP address for eth0: 10.0.2.15
+  Swap usage:   0%                IP address for eth1: 192.168.56.101
+
+  Graph this data and manage this system at https://landscape.canonical.com/
 New release '12.04 LTS' available.
 Run 'do-release-upgrade' to upgrade to it.
 
-Last login: Mon Mar 11 08:24:20 2013 from 192.168.56.1
+Last login: Mon Mar 11 10:26:31 2013 from 192.168.56.1
 
 
 sudo mn -c
@@ -108,9 +115,11 @@ rm -f /tmp/vconn* /tmp/vlogs* /tmp/*.out /tmp/*.log
 ps ax | egrep -o 'dp[0-9]+' | sed 's/dp/nl:/'
 *** Removing all links of the pattern foo-ethX
 ip link show | egrep -o '(\w+-eth\w+)'
+ip link del s1-eth1
+ip link del s1-eth2
+ip link del s1-eth3
 *** Cleanup complete.
 ]0;openflow@ETH-Tutorial: ~openflow@ETH-Tutorial:~$ sudo mn --topo single,3 --mac --switch ovsk --controlle r remote
-*** Loading openvswitch_mod
 *** Adding controller
 *** Creating network
 *** Adding hosts:
@@ -125,18 +134,18 @@ h2 h3 h4
 *** Starting 1 switches
 s1 
 *** Starting CLI:
-mininet> 2013-03-11 12:54:41,285  Mininet1  : INFO    : 
+mininet> 2013-03-11 14:56:51,257  Mininet1  : INFO    : 
 ****************************************
 Start of Test Case1 : 
-2013-03-11 12:54:41,285  Mininet1  : INFO    :  Checking the control flow of POX
+2013-03-11 14:56:51,258  Mininet1  : INFO    :  Checking the control flow of POX
 ****************************************
 
-2013-03-11 12:54:41,285  Mininet1  : INFO    : 
+2013-03-11 14:56:51,258  Mininet1  : INFO    : 
 ---------------------------------------------
 Start of Step INIT : Initializing the test case :Checking the control flow of POX
 ---------------------------------------------
 
-2013-03-11 12:54:41,286  Mininet1  : INFO    : 
+2013-03-11 14:56:51,258  Mininet1  : INFO    : 
 ---------------------------------------------
 Start of Step 1.1: Checking the host reachability using pingHost
 ---------------------------------------------
@@ -144,9 +153,9 @@ Start of Step 1.1: Checking the host reachability using pingHost
 h2 ping -c1 h3
 h2 ping -c1 h3
 PING 10.0.0.3 (10.0.0.3) 56(84) bytes of data.
-64 bytes from 10.0.0.3: icmp_req=1 ttl=64 time=163 ms
+64 bytes from 10.0.0.3: icmp_req=1 ttl=64 time=40.1 ms
 
 --- 10.0.0.3 ping statistics ---
 1 packets transmitted, 1 received, 0% packet loss, time 0ms
-rtt min/avg/max/mdev = 163.204/163.204/163.204/0.000 ms
+rtt min/avg/max/mdev = 40.113/40.113/40.113/0.000 ms
 mininet> 
