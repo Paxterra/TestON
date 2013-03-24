@@ -1,0 +1,150 @@
+2013-03-24 17:53:28,763  FloodLight: INFO    : 
+                                +----------------+
+------------------------------ { Script And Files }  ------------------------------
+                                +----------------+
+
+	Script Log File : /home/paxterra/Documents/TestON_Workspace/TestON/logs/FVProtoSlicing_24_Mar_2013_17_53_03/FVProtoSlicing_24_Mar_2013_17_53_03.log
+	Report Log File : /home/paxterra/Documents/TestON_Workspace/TestON/logs/FVProtoSlicing_24_Mar_2013_17_53_03/FVProtoSlicing_24_Mar_2013_17_53_03.rpt
+	FlowVisor Session Log : /home/paxterra/Documents/TestON_Workspace/TestON/logs/FVProtoSlicing_24_Mar_2013_17_53_03/FlowVisor.session
+	FloodLight Session Log : /home/paxterra/Documents/TestON_Workspace/TestON/logs/FVProtoSlicing_24_Mar_2013_17_53_03/FloodLight.session
+	Pax_DPVM1 Session Log : /home/paxterra/Documents/TestON_Workspace/TestON/logs/FVProtoSlicing_24_Mar_2013_17_53_03/Pax_DPVM1.session
+	Test Script :/home/paxterra/Documents/TestON_Workspace/TestON/Tests/FVProtoSlicing.py
+	Test Params : /home/paxterra/Documents/TestON_Workspace/TestON/Tests/FVProtoSlicing.params
+	Topology : /home/paxterra/Documents/TestON_Workspace/TestON/Tests/FVProtoSlicing.tpl
+                              +------------------+
+---------------------------  { Script Exec Params }  ---------------------------
+                              +------------------+
+
+	
+	'CASE1': 
+	'dl_type': '0x800'
+	 'tp_dst': '22'
+	 'controller': 'c1'
+	 'nw_src': '10.0.0.2'
+	 'permissions': '4'
+	 'src': 'h2'
+	 'slice': 'SSH'
+	 'target': 'h3'
+	 'destination': 'h2'
+	 'nw_proto': '6'
+	 'STEP1': 
+	'host': 'h2'
+	
+	
+	 'mail': 'anil4haart@gmail.com
+	paxweb@paxterrasolutions.com'
+	 'testcases': '1'
+	
+
+                               +---------------+
+----------------------------- { Components Used }  -----------------------------
+                               +---------------+
+	FlowVisor
+	FloodLight
+	Pax_DPVM1
+
+
+                              +--------+
+---------------------------- { Topology }  ----------------------------
+                              +--------+
+
+	
+	'FlowVisor': 
+	'remote_user_name': 'Paxterra'
+	 'COMPONENTS': ''
+	 'user': 'paxterra'
+	 'remote_ip_address': '24.6.49.222'
+	 'remote_port': '6500'
+	 'remote_pwd': '0nLab_gu3st'
+	 'password': '0nLab_gu3st'
+	 'type': 'FlowVisorCliDriver'
+	 'host': '10.128.4.2'
+	 'fvadmin_pwd': None
+	
+	 'FloodLight': 
+	'remote_user_name': 'Paxterra'
+	 'COMPONENTS': ''
+	 'user': 'paxterra'
+	 'remote_ip_address': '24.6.49.222'
+	 'remote_port': '6500'
+	 'remote_pwd': '0nLab_gu3st'
+	 'password': '0nLab_gu3st'
+	 'type': 'RemoteVMDriver'
+	 'host': '10.128.4.3'
+	
+	 'Pax_DPVM1': 
+	'remote_user_name': 'Paxterra'
+	 'COMPONENTS': ''
+	 'user': 'paxterra'
+	 'remote_ip_address': '24.6.49.222'
+	 'remote_port': '6500'
+	 'remote_pwd': '0nLab_gu3st'
+	 'password': '0nLab_gu3st'
+	 'type': 'RemoteVMDriver'
+	 'host': '10.128.4.5'
+	
+	
+------------------------------------------------------------
+
+[Kteston> Paxterra@24.6.49.222's password: 0nLab_gu3st
+
+
+
+
+
+
+
+[1;1HMicrosoft Windows [Version 6.1.7601][2;1HCopyright (c) 2009 Microsoft Corporation.  All rights reserved.[4;1HC:\Windows\system32>SET CYGWIN=notty
+[4;21H[4;1HC:\Windows\system32>SE[4;24H[4;1HC:\Windows\system32>SET[4;26H[4;23H[4;1HC:\Windows\system32>SET CY[4;28H[4;24H[4;1HC:\Windows\system32>SET CYG[4;29H[4;25H[4;1HC:\Windows\system32>SET CYGWI[4;31H[4;26H[4;1HC:\Windows\system32>SET CYGWIN[4;31H[4;27H[4;1HC:\Windows\system32>SET CYGWIN=[4;32H[4;28H[4;1HC:\Windows\system32>SET CYGWIN=n[4;34H[4;29H[4;1HC:\Windows\system32>SET CYGWIN=not[4;36H[4;30H[4;1HC:\Windows\system32>SET CYGWIN=notty[4;37H[4;31H[4;37H[4;32H[4;37H[4;33H
+ssh paxterra@10.128.4.3
+
+[4;37H[4;34H[4;37H[4;35H[4;37H[4;36H[4;37H[5;1H[6;1HC:\Windows\system32>[6;21H[6;1HC:\Windows\system32>ss[6;24H[6;22H[6;1HC:\Windows\system32>ssh[6;26H[6;23H[6;1HC:\Windows\system32>ssh pa[6;28H[6;24H[6;1HC:\Windows\system32>ssh pax[6;28H[6;25H[6;1HC:\Windows\system32>ssh paxt[6;29H[6;26H[6;30H[6;27H[6;1HC:\Windows\system32>ssh paxter[6;32H[6;28H[6;1HC:\Windows\system32>ssh paxterra[6;34H[6;29H[6;1HC:\Windows\system32>ssh paxterra@1[6;36H[6;30H[6;1HC:\Windows\system32>ssh paxterra@10.[6;38H[6;31H[6;1HC:\Windows\system32>ssh paxterra@10.12[6;40H[6;32H[6;1HC:\Windows\system32>ssh paxterra@10.128.[6;42H[6;33H[6;1HC:\Windows\system32>ssh paxterra@10.128.4.[6;44H[6;34H[6;1HC:\Windows\system32>ssh paxterra@10.128.4.3[6;44H[6;35H[6;44H[6;36H[6;44H[6;37H[6;44H[6;38H[6;44H[6;39H[6;44H[6;40H[6;44H[6;41H[6;44H[6;42H[6;44H[6;43H[6;44H[6;1H[7;1H0nLab_gu3st
+[7;1Hpaxterra@10.128.4.3's password:[7;33H[8;1H[8;1HWelcome to Ubuntu 12.04.2 LTS (GNU/Linux 3.2.0-29-generic x86_64)[8;66H[8;1H[9;1H[10;1H[10;1H * Documentation:  https://help.ubuntu.com/[10;44H[10;1H[11;1H[12;1H[12;1H  System information as of Sun Mar 24 13:44:09 PDT 2013[12;56H[12;1H[13;1H[14;1H[14;1H  System load:    0.0              Processes:           94[14;59H[14;1H[15;1H[15;1H  Usage of /home: 8.3% of 5.35GB   Users logged in:     1[15;58H[15;1H[16;1H[16;1H  Memory usage:   7%               IP address for eth0: 10.128.4.3[16;67H[16;1H[17;1H[17;1H  Swap usage:     0%               IP address for eth1: 10.129.1.1[17;1H[18;1H[19;1H[19;1H  Graph this data and manage this system at https://landscape.canonical.com/[19;77H[20;1H[21;1H[21;1H40 packages can be updated.[21;28H[21;1H[22;1H[22;1H31 updates are security updates.[22;33H[22;1H[23;1H[24;1H[24;1HLast login: Sun Mar 24 13:39:18 2013 from 10.1.10.253[24;1H[25;1H[25;1Hpaxterra@FloodLightPAX:~$2013-03-24 17:54:18,417  FloodLight: INFO    : 
+****************************************
+Start of Test Case1 : 
+2013-03-24 17:54:18,418  FloodLight: INFO    : 
+---------------------------------------------
+Start of Step INIT : Initializing the test case :1
+---------------------------------------------
+
+2013-03-24 17:54:18,418  FloodLight: INFO    : 
+---------------------------------------------
+Start of Step 1.1: remove flowspace by USING 'removeFlowSpace' by specifying either id or 'all'
+---------------------------------------------
+
+2013-03-24 17:54:25,684  FloodLight: INFO    : 
+---------------------------------------------
+End of Step  1.1: remove flowspace by USING 'removeFlowSpace' by specifying either id or 'all'
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.2: Adding FlowSpace
+---------------------------------------------
+
+2013-03-24 17:54:50,012  FloodLight: INFO    : 
+---------------------------------------------
+End of Step  1.2: Adding FlowSpace
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.3: Showing the flowSpace USING 'listFlowSpace'
+---------------------------------------------
+
+2013-03-24 17:54:52,592  FloodLight: INFO    : 
+---------------------------------------------
+End of Step  1.3: Showing the flowSpace USING 'listFlowSpace'
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.4: Showing the connected devices by USING 'listDevices'
+---------------------------------------------
+
+2013-03-24 17:54:55,181  FloodLight: INFO    : 
+---------------------------------------------
+End of Step  1.4: Showing the connected devices by USING 'listDevices'
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.5: Verifying the Slice, by checking SSH is happening to the destination or not
+---------------------------------------------
+

@@ -25,16 +25,7 @@
                 <samples.of_tutorial></samples.of_tutorial>
             </COMPONENTS>
         </POX2>
-        <NetGear>
-            <host> 192.168.150.21 </host>
-            <user>  paxterra </user>
-            <password> pax@123 </password>
-            <type> RemoteSysDriver </type>
-            
-            <COMPONENTS>
-               
-            </COMPONENTS>
-        </NetGear>
+
         
     </COMPONENT>
 </TOPOLOGY>

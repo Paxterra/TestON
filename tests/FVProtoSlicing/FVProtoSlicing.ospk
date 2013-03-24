@@ -1,0 +1,29 @@
+CASE 1
+
+    
+    STEP "remove flowspace by USING 'removeFlowSpace' by specifying either id or 'all'"
+    ON FlowVisor DO removeFlowSpace USING "all"
+    
+    STEP "Adding FlowSpace"
+    ON FlowVisor DO addFlowSpace USING "any 100 dl_type=0x806,dl_src=9e:f5:8b:78:c3:93,nw_dst=10.128.4.6 Slice:SSH=4"
+    ON FlowVisor DO addFlowSpace USING "any 100 dl_type=0x806,dl_src=d2:df:f1:53:d4:49,nw_dst=10.128.4.5 Slice:SSH=4"
+    ON FlowVisor DO addFlowSpace USING "any 100 dl_type=0x800,nw_proto=6,nw_src=10.128.4.6,tp_dst=22 Slice:SSH=4"
+    ON FlowVisor DO addFlowSpace USING "any 100 dl_type=0x800,nw_proto=6,nw_src=10.128.4.5,tp_dst=22 Slice:SSH=4"
+    ON FlowVisor DO addFlowSpace USING "any 100 dl_type=0x800,nw_proto=6,nw_src=10.128.4.6,tp_src=22 Slice:SSH=4"
+    ON FlowVisor DO addFlowSpace USING "any 100 dl_type=0x800,nw_proto=6,nw_src=10.128.4.5,tp_src=22 Slice:SSH=4"
+   
+    STEP "Showing the flowSpace USING 'listFlowSpace'"
+    ON FlowVisor DO listFlowSpace USING 
+    
+    STEP "Showing the connected devices by USING 'listDevices'"
+    ON FlowVisor DO listDevices
+    
+    STEP "Verifying the Slice, by checking SSH is happening to the destination or not"
+    ON Pax_DPVM1 DO execute USING cmd AS "ssh paxterra@10.128.4.6",prompt AS "ssword:",timeout AS 10
+    
+    ON Pax_DPVM1 DO execute USING cmd AS "\r",prompt AS "\$",timeout AS 10
+    ON Pax_DPVM1 DO execute USING cmd AS "ssh paxterra@10.128.4.6",prompt AS "ssword:",timeout AS 10
+    
+    ON Pax_DPVM1 DO execute USING cmd AS "0nLab_gu3st",prompt AS "\$",timeout AS 10
+    ON Pax_DPVM1 DO execute USING cmd AS "\r",prompt AS "\$",timeout AS 10
+    ON Pax_DPVM1 DO execute USING cmd AS "ifconfig -a",prompt AS "\$",timeout AS 10

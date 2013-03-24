@@ -125,10 +125,16 @@ class CLI(Component):
                 indexMore = self.handle.expect(["^:$", expectPrompt], timeout = timeoutVar)
                 self.LASTRSP = self.LASTRSP + self.handle.before
         
-        main.last_response = self.LASTRSP
+        main.last_response = self.remove_contol_chars(self.LASTRSP)
         return self.LASTRSP
     
-        
+    def remove_contol_chars(self,response):
+        #RE_XML_ILLEGAL = '([\u0000-\u0008\u000b-\u000c\u000e-\u001f\ufffe-\uffff])|([%s-%s][^%s-%s])|([^%s-%s][%s-%s])|([%s-%s]$)|(^[%s-%s])'%(unichr(0xd800),unichr(0xdbff),unichr(0xdc00),unichr(0xdfff),unichr(0xd800),unichr(0xdbff),unichr(0xdc00),unichr(0xdfff),unichr(0xd800),unichr(0xdbff),unichr(0xdc00),unichr(0xdfff))  
+        #response = re.sub(RE_XML_ILLEGAL, "\n", response) 
+        response = re.sub(r"[\x01-\x1F\x7F]", "", response)
+        #response = re.sub(r"\[\d+\;1H", "\n", response)
+        response = re.sub(r"\[\d+\;\d+H", "", response)
+        return response
         
     def runAsSudoUser(self,handle,pwd,default):
         

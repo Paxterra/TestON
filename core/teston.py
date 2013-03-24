@@ -333,8 +333,11 @@ class TestON:
         self.stepName = stepDesc
 
         stepName = " "+str(self.CurrentTestCaseNumber)+"."+str(self.stepCount)+": "+ str(stepDesc) + ""
-        if self.stepCount == 0:
-            stepName = " INIT : Initializing the test case :"+self.CurrentTestCase
+        try :
+            if self.stepCount == 0:
+                stepName = " INIT : Initializing the test case :"+self.CurrentTestCase
+        except AttributeError:
+                stepName = " INIT : Initializing the test case :"+str(self.CurrentTestCaseNumber)
             
         self.log.step(stepName)
         stepHeader = ""
@@ -379,6 +382,110 @@ class TestON:
                 counter  = counter + 1
                 self.TOTAL_TC_PLANNED = counter
                 
+    def response_parser(self,response, return_format):
+        ''' It will load the default response parser '''
+        response_dict = {}
+        response_dict = self.response_to_dict(response, return_format)
+        return_format_string = self.dict_to_return_format(response,return_format,response_dict)   
+        return return_format_string
+    
+    def response_to_dict(self,response,return_format):
+        
+        response_dict = {}
+        json_match = re.search('^\s*{', response)
+        xml_match = re.search('^\s*\<', response)
+        ini_match = re.search('^\s*\[', response)
+        if json_match :
+            main.log.info(" Response is in 'JSON' format and Converting to '"+return_format+"' format")
+            # Formatting the json string 
+            
+            response = re.sub(r"{\s*'?(\w)", r'{"\1', response)
+            response = re.sub(r",\s*'?(\w)", r',"\1', response)
+            response = re.sub(r"(\w)'?\s*:", r'\1":', response)
+            response = re.sub(r":\s*'(\w)'\s*([,}])", r':"\1"\2', response)
+            
+            try :
+                import json
+                response_dict = json.loads(response)
+            except Exception , e :
+                print e
+                main.log.error("Json Parser is unable to parse the string")
+            return response_dict
+        
+        elif ini_match :
+            main.log.info(" Response is in 'INI' format and Converting to '"+return_format+"' format")
+            from configobj import ConfigObj
+            response_file = open("respnse_file.temp",'w')
+            response_file.write(response)
+            response_file.close() 
+            response_dict = ConfigObj("respnse_file.temp")
+            return response_dict
+            
+        elif xml_match :
+            main.log.info(" Response is in 'XML' format and Converting to '"+return_format+"' format")
+            try :
+                from core import dicttoobject
+                response_dict = xmldict.xml_to_dict("<response> "+str(response)+" </response>")
+            except Exception, e:
+                main.log.error(e)
+            return response_dict
+        
+    def dict_to_return_format(self,response,return_format,response_dict):
+        
+        if return_format =='table' :
+            ''' Will return in table format'''
+            to_do = "Call the table output formatter"
+            global response_table
+            response_table = '\n'
+            response_table = response_table +'\t'.join(response_dict)+"\n"
+            
+            def get_table(value_to_convert):
+                ''' This will parse the dictionary recusrsively and print as table format'''
+                table_data = ""
+                if type(value_to_convert) == dict :
+                    table_data = table_data +'\t'.join(value_to_convert)+"\n"
+                    for temp_val in value_to_convert.values() :
+                        table_data = table_data + get_table(temp_val)
+                else :
+                    table_data = table_data + str(value_to_convert) +"\t"
+                return table_data 
+            
+            for value in response_dict.values() :
+                response_table =  response_table + get_table(value)
+                
+
+                
+            #response_table = response_table + '\t'.join(response_dict.values())
+                
+            return response_table
+        
+        elif return_format =='config':
+            ''' Will return in config format'''
+            to_do = 'Call dict to config coverter'
+            response_string = str(response_dict)
+            print response_string
+            response_config = re.sub(",", "\n\t", response_string)
+            response_config = re.sub("u\'", "\'", response_config)
+            response_config = re.sub("{", "", response_config)
+            response_config = re.sub("}", "\n", response_config)
+            response_config = re.sub(":", " =", response_config)
+            return "[response]\n\t "+response_config
+            
+        elif return_format == 'xml':
+            ''' Will return in xml format'''
+            from core import dicttoobject
+            response_xml = xmldict.dict_to_xml(response_dict)
+            response_xml = re.sub(">\s*<", ">\n<", response_xml)
+            return "\n"+response_xml
+        
+        elif return_format == 'json':
+            ''' Will return in json format'''
+            to_do = 'Call dict to xml coverter'
+            import json
+            response_json = json.dumps(response_dict)
+            return response_json
+        
+        
     def exit(self):
         __builtin__.testthread = None
         sys.exit()
@@ -595,6 +702,25 @@ def load_defaultlogger():
     except ImportError:
         print sys.exc_info()[1]
         main.exit()    
+
+def load_defaultlogger():
+    '''
+    It will load the default parser which is xml parser to parse the params and topology file.
+    '''
+    moduleList = main.loggerPath.split("/")
+    newModule = ".".join([moduleList[len(moduleList) - 2],moduleList[len(moduleList) - 1]])
+    try :
+        loggerClass = main.loggerClass 
+        loggerModule = __import__(newModule, globals(), locals(), [loggerClass], -1)
+        loggerClass = getattr(loggerModule, loggerClass)
+        main.logger = loggerClass()
+
+    except ImportError:
+        print sys.exc_info()[1]
+        main.exit()
+
+
+
 
 def _echo(self):
     print "THIS IS ECHO"

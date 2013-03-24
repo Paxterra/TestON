@@ -21,7 +21,10 @@ def xml_to_dict(root_or_str, strict=True):
     if isinstance(root, str):
         import xml.etree.cElementTree as ElementTree
         root = ElementTree.XML(root_or_str)
-    return {root.tag: _from_xml(root, strict)}
+    try :
+        return {root.tag: _from_xml(root, strict)}
+    except :
+        return None
 
 def dict_to_xml(dict_xml):
     """

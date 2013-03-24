@@ -1,0 +1,52 @@
+<TOPOLOGY>
+    <COMPONENT>
+ 
+        <FlowVisor>
+            <remote_user_name> Paxterra </remote_user_name>
+            <remote_ip_address>24.6.49.222</remote_ip_address>
+            <remote_port>6500</remote_port>
+            <remote_pwd>0nLab_gu3st</remote_pwd>
+            <host>10.128.4.2</host>
+            <user> paxterra </user>
+            <fvadmin_pwd></fvadmin_pwd>
+            <password>0nLab_gu3st</password>
+            <type>FlowVisorCliDriver</type>
+            <COMPONENTS>
+            </COMPONENTS>
+               
+        </FlowVisor>   
+      
+        
+        <FloodLight>
+            <remote_user_name> Paxterra </remote_user_name>
+            <remote_ip_address>24.6.49.222</remote_ip_address>
+            <remote_port>6500</remote_port>
+            <remote_pwd>0nLab_gu3st</remote_pwd>
+            <host>10.128.4.3</host>
+            <user> paxterra </user>
+            <password>0nLab_gu3st</password>
+            <type>RemoteVMDriver</type>
+            <COMPONENTS>
+            </COMPONENTS>
+               
+        </FloodLight> 
+        
+        <Pax_DPVM1>
+            <remote_user_name> Paxterra </remote_user_name>
+            <remote_ip_address>24.6.49.222</remote_ip_address>
+            <remote_port>6500</remote_port>
+            <remote_pwd>0nLab_gu3st</remote_pwd>
+            <host>10.128.4.5</host>
+            <user> paxterra </user>
+            <password>0nLab_gu3st</password>
+            <type>RemoteVMDriver</type>
+            <COMPONENTS>
+            </COMPONENTS>
+               
+        </Pax_DPVM1>
+               
+      
+               
+    </COMPONENT>
+    
+</TOPOLOGY>

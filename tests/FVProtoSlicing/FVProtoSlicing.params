@@ -1,0 +1,21 @@
+<PARAMS>
+    <testcases> [1]</testcases>
+    <mail> anil4haart@gmail.com,paxweb@paxterrasolutions.com</mail>
+    <CASE1>
+    
+        <dl_type> 0x800 </dl_type> 
+        <nw_proto> 6 </nw_proto>
+        <nw_src> 10.0.0.2 </nw_src>
+        <tp_dst> 22 </tp_dst>
+        <slice> SSH </slice> 
+        <permissions> 4 </permissions>
+        
+        <destination> h2</destination>
+        <src>h2</src>
+        <target> h3 </target>
+        <controller> c1 </controller>
+        <STEP1>
+            <host> h2</host>
+        </STEP1> 
+    </CASE1>
+</PARAMS>
