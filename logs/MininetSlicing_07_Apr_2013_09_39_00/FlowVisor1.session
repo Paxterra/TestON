@@ -1,0 +1,340 @@
+2013-04-07 09:39:00,081  FlowVisor1: INFO    : 
+                                +----------------+
+------------------------------ { Script And Files }  ------------------------------
+                                +----------------+
+
+	Script Log File : /home/paxterra/Documents/TestON_Workspace/TestON/logs/MininetSlicing_07_Apr_2013_09_39_00/MininetSlicing_07_Apr_2013_09_39_00.log
+	Report Log File : /home/paxterra/Documents/TestON_Workspace/TestON/logs/MininetSlicing_07_Apr_2013_09_39_00/MininetSlicing_07_Apr_2013_09_39_00.rpt
+	FlowVisor1 Session Log : /home/paxterra/Documents/TestON_Workspace/TestON/logs/MininetSlicing_07_Apr_2013_09_39_00/FlowVisor1.session
+	POX2 Session Log : /home/paxterra/Documents/TestON_Workspace/TestON/logs/MininetSlicing_07_Apr_2013_09_39_00/POX2.session
+	Mininet1 Session Log : /home/paxterra/Documents/TestON_Workspace/TestON/logs/MininetSlicing_07_Apr_2013_09_39_00/Mininet1.session
+	Test Script :/home/paxterra/Documents/TestON_Workspace/TestON/Tests/MininetSlicing.py
+	Test Params : /home/paxterra/Documents/TestON_Workspace/TestON/Tests/MininetSlicing.params
+	Topology : /home/paxterra/Documents/TestON_Workspace/TestON/Tests/MininetSlicing.tpl
+                              +------------------+
+---------------------------  { Script Exec Params }  ---------------------------
+                              +------------------+
+
+	
+	'CASE1': 
+	'dl_type': '0x800'
+	 'nw_proto': '6'
+	 'slice': 'SSH'
+	 'destination_password': 'openflow'
+	 'tp_dst': '22'
+	 'destination_port': '22'
+	 'permissions': '4'
+	 'nw_src': '10.0.0.2'
+	 'destination_host': '10.0.0.4'
+	 'destination_username': 'openflow'
+	
+	 'mail': 'paxweb@paxterrasolutions.com'
+	 'testcases': '1'
+	
+
+                               +---------------+
+----------------------------- { Components Used }  -----------------------------
+                               +---------------+
+	POX2-Test Target
+	FlowVisor1
+	Mininet1
+
+
+                              +--------+
+---------------------------- { Topology }  ----------------------------
+                              +--------+
+
+	
+	'FlowVisor1': 
+	'host': '192.168.56.101'
+	 'user': 'openflow'
+	 'COMPONENTS': ''
+	 'password': 'openflow'
+	 'type': 'FlowVisorDriver'
+	 'fvadmin_pwd': None
+	
+	 'POX2': 
+	'host': '192.168.56.102'
+	 'user': 'openflow'
+	 'COMPONENTS': 
+	'samples.of_tutorial': None
+	 'pox_lib_location': '/home/openflow/pox/'
+	
+	 'test_target': '1'
+	 'password': 'openflow'
+	 'type': 'PoxCliDriver'
+	
+	 'Mininet1': 
+	'host': '192.168.56.101'
+	 'password': 'openflow'
+	 'type': 'MininetCliDriver'
+	 'user': 'openflow'
+	 'COMPONENTS': 
+	'topo': 'single'
+	 'topocount': '3'
+	 'switch': 'ovsk'
+	 'controller': 'remote'
+	
+	
+	
+------------------------------------------------------------
+
+[Kteston> openflow@192.168.56.101's password: openflow
+
+
+
+Welcome to Ubuntu 11.10 (GNU/Linux 3.0.0-12-server x86_64)
+
+ * Documentation:  https://help.ubuntu.com/11.10/serverguide/C
+
+  System information as of Sun Apr  7 06:09:00 CEST 2013
+
+  System load:  0.98              Processes:           55
+  Usage of /:   70.3% of 5.90GB   Users logged in:     1
+  Memory usage: 5%                IP address for eth0: 10.0.2.15
+  Swap usage:   0%                IP address for eth1: 192.168.56.101
+
+  Graph this data and manage this system at https://landscape.canonical.com/
+New release '12.04 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+Last login: Sun Apr  7 06:08:38 2013 from 192.168.56.1
+
+
+
+
+]0;openflow@ETH-Tutorial: ~openflow@ETH-Tutorial:~$ 
+]0;openflow@ETH-Tutorial: ~openflow@ETH-Tutorial:~$ 
+cd /home/openflow/flowvisor/scripts/
+./flowvisor.sh &
+]0;openflow@ETH-Tutorial: ~openflow@ETH-Tutorial:~$ 
+]0;openflow@ETH-Tutorial: ~openflow@ETH-Tutorial:~$ 
+]0;openflow@ETH-Tutorial: ~openflow@ETH-Tutorial:~$ cd /home/openflow/flowvisor/scripts/
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ ./flowvisor.sh &
+[1] 887
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ Starting FlowVisor
+--- Setting logging level to NOTE
+2013-04-07 09:39:15,342  FlowVisor1: INFO    : 
+****************************************
+Start of Test Case1 : 
+2013-04-07 09:39:15,342  FlowVisor1: INFO    :  Verifying 'SSH protocol' based slicing
+****************************************
+
+2013-04-07 09:39:15,343  FlowVisor1: INFO    : 
+---------------------------------------------
+Start of Step INIT : Initializing the test case :Verifying 'SSH protocol' based slicing
+---------------------------------------------
+
+2013-04-07 09:39:15,343  FlowVisor1: INFO    : 
+---------------------------------------------
+Start of Step 1.1: Deleting the flowspace by using 'removeFlowSpace'
+---------------------------------------------
+
+clear
+clear
+[H[2J]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ ./fvctl.sh listFlowSpace 
+./fvctl.sh listFlowSpace 
+Enter fvadmin's passwd: 
+
+
+Got reply:
+rule 0: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_src=f6:d8:6c:cd:cf:08,dl_type=0x806,nw_dst=10.0.0.4,nw_proto=6]],actionsList=[Slice:SSH=4],id=[11],priority=[100],]
+rule 1: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_src=ea:47:5a:3d:a3:00,dl_type=0x806,nw_dst=10.0.0.1,nw_proto=6]],actionsList=[Slice:SSH=4],id=[12],priority=[100],]
+rule 2: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_type=0x800,nw_src=10.0.0.1,nw_proto=6]],actionsList=[Slice:SSH=4],id=[13],priority=[100],]
+rule 3: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_type=0x800,nw_src=10.0.0.4,nw_proto=6]],actionsList=[Slice:SSH=4],id=[14],priority=[100],]
+rule 4: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_type=0x800,nw_src=10.0.0.1,nw_proto=6,tp_dst=22]],actionsList=[Slice:SSH=4],id=[15],priority=[100],]
+rule 5: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_type=0x800,nw_src=10.0.0.4,nw_proto=6,tp_dst=22]],actionsList=[Slice:SSH=4],id=[16],priority=[100],]
+rule 6: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_type=0x800,nw_src=10.0.0.1,nw_proto=6,tp_src=22]],actionsList=[Slice:SSH=4],id=[17],priority=[100],]
+rule 7: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_type=0x800,nw_src=10.0.0.4,nw_proto=6,tp_src=22]],actionsList=[Slice:SSH=4],id=[18],priority=[100],]
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ clear
+
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ clear./fvctl.sh removeFlowSpace 11
+
+[H[2J]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ ./fvctl.sh removeFlowSpace 11
+Enter fvadmin's passwd: 
+
+
+success: 11
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ 
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ clear
+./fvctl.sh removeFlowSpace 12
+clear
+[H[2J]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ ./fvctl.sh removeFlowSpace 12
+Enter fvadmin's passwd: 
+
+
+success: 12
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ 
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ clear
+./fvctl.sh removeFlowSpace 13
+clear
+[H[2J]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ ./fvctl.sh removeFlowSpace 13
+Enter fvadmin's passwd: 
+
+
+success: 13
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ 
+clear
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ clear./fvctl.sh removeFlowSpace 14
+
+[H[2J]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ ./fvctl.sh removeFlowSpace 14
+Enter fvadmin's passwd: 
+
+
+success: 14
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ 
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ clear
+./fvctl.sh removeFlowSpace 15
+clear
+[H[2J]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ ./fvctl.sh removeFlowSpace 15
+Enter fvadmin's passwd: 
+
+
+success: 15
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ 
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ clear
+./fvctl.sh removeFlowSpace 16
+clear
+[H[2J]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ ./fvctl.sh removeFlowSpace 16
+Enter fvadmin's passwd: 
+
+
+success: 16
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ 
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ clear
+./fvctl.sh removeFlowSpace 17
+clear
+[H[2J]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ ./fvctl.sh removeFlowSpace 17
+Enter fvadmin's passwd: 
+
+
+success: 17
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ 
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ clear
+./fvctl.sh removeFlowSpace 18
+clear
+[H[2J]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ ./fvctl.sh removeFlowSpace 18
+Enter fvadmin's passwd: 
+
+
+success: 18
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ 
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ 2013-04-07 09:39:32,225  FlowVisor1: INFO    : 
+---------------------------------------------
+End of Step  1.1: Deleting the flowspace by using 'removeFlowSpace'
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.2: Showing the connected devices by USING 'listDevices'
+---------------------------------------------
+
+2013-04-07 09:39:32,226  FlowVisor1: INFO    : 
+---------------------------------------------
+End of Step  1.2: Showing the connected devices by USING 'listDevices'
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.3: Verifying SSH is happening to the destination or not
+---------------------------------------------
+
+2013-04-07 09:39:53,092  FlowVisor1: INFO    : 
+---------------------------------------------
+End of Step  1.3: Verifying SSH is happening to the destination or not
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.4: Adding FlowSpace to create the slice of the Network
+---------------------------------------------
+
+./fvctl.sh addFlowSpace any 100 dl_type=0x806,nw_proto=6,dl_src=fa:9d:0f:16:8c:b,nw_dst=10.0.0.4 Slice:SSH=4
+./fvctl.sh addFlowSpace any 100 dl_ty pe=0x806,nw_proto=6,dl_src=fa:9d:0f:16:8c:b,nw_dst=10.0.0.4 Slice:SSH=4
+Enter fvadmin's passwd: 
+
+
+success: 19
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ 
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ ./fvctl.sh addFlowSpace any 100 dl_type=0x806,nw_proto=6,dl_src=b6:0c:c0:bb:bf:a,nw_dst=10.0.0.1 Slice:SSH=4
+./fvctl.sh addFlowSpace any 100 dl_ty pe=0x806,nw_proto=6,dl_src=b6:0c:c0:bb:bf:a,nw_dst=10.0.0.1 Slice:SSH=4
+Enter fvadmin's passwd: 
+
+
+success: 20
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ 
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ ./fvctl.sh addFlowSpace any 100 dl_type=0x800,nw_proto=6,nw_src=10.0.0.1 Slice:SSH=4
+./fvctl.sh addFlowSpace any 100 dl_ty pe=0x800,nw_proto=6,nw_src=10.0.0.1 Slice:SSH=4
+Enter fvadmin's passwd: 
+
+
+success: 21
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ 
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ ./fvctl.sh addFlowSpace any 100 dl_type=0x800,nw_proto=6,nw_src=10.0.0.4 Slice:SSH=4
+./fvctl.sh addFlowSpace any 100 dl_ty pe=0x800,nw_proto=6,nw_src=10.0.0.4 Slice:SSH=4
+Enter fvadmin's passwd: 
+
+
+success: 22
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ 
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ ./fvctl.sh addFlowSpace any 100 dl_type=0x800,nw_proto=6,nw_src=10.0.0.1,tp_dst=22 Slice:SSH=4
+./fvctl.sh addFlowSpace any 100 dl_ty pe=0x800,nw_proto=6,nw_src=10.0.0.1,tp_dst=22 Slice:SSH=4
+Enter fvadmin's passwd: 
+
+
+success: 23
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ 
+./fvctl.sh addFlowSpace any 100 dl_type=0x800,nw_proto=6,nw_src=10.0.0.4,tp_dst=22 Slice:SSH=4
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ ./fvctl.sh addFlowSpace any 100 dl_ty pe=0x800,nw_proto=6,nw_src=10.0.0.4,tp_dst=22 Slice:SSH=4
+Enter fvadmin's passwd: 
+
+
+success: 24
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ 
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ ./fvctl.sh addFlowSpace any 100 dl_type=0x800,nw_proto=6,tp_src=22,nw_src=10.0.0.1 Slice:SSH=4
+./fvctl.sh addFlowSpace any 100 dl_ty pe=0x800,nw_proto=6,tp_src=22,nw_src=10.0.0.1 Slice:SSH=4
+Enter fvadmin's passwd: 
+
+
+success: 25
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ 
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ ./fvctl.sh addFlowSpace any 100 dl_type=0x800,nw_proto=6,tp_src=22,nw_src=10.0.0.4 Slice:SSH=4
+./fvctl.sh addFlowSpace any 100 dl_ty pe=0x800,nw_proto=6,tp_src=22,nw_src=10.0.0.4 Slice:SSH=4
+Enter fvadmin's passwd: 
+
+
+success: 26
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ 
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ 2013-04-07 09:40:04,760  FlowVisor1: INFO    : 
+---------------------------------------------
+End of Step  1.4: Adding FlowSpace to create the slice of the Network
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.5: Showing the flowSpace USING 'listFlowSpace'
+---------------------------------------------
+
+clear
+./fvctl.sh listFlowSpace 
+clear
+[H[2J]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ ./fvctl.sh listFlowSpace 
+Enter fvadmin's passwd: 
+
+
+Got reply:
+rule 0: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_src=fa:9d:0f:16:8c:0b,dl_type=0x806,nw_dst=10.0.0.4,nw_proto=6]],actionsList=[Slice:SSH=4],id=[19],priority=[100],]
+rule 1: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_src=b6:0c:c0:bb:bf:0a,dl_type=0x806,nw_dst=10.0.0.1,nw_proto=6]],actionsList=[Slice:SSH=4],id=[20],priority=[100],]
+rule 2: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_type=0x800,nw_src=10.0.0.1,nw_proto=6]],actionsList=[Slice:SSH=4],id=[21],priority=[100],]
+rule 3: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_type=0x800,nw_src=10.0.0.4,nw_proto=6]],actionsList=[Slice:SSH=4],id=[22],priority=[100],]
+rule 4: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_type=0x800,nw_src=10.0.0.1,nw_proto=6,tp_dst=22]],actionsList=[Slice:SSH=4],id=[23],priority=[100],]
+rule 5: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_type=0x800,nw_src=10.0.0.4,nw_proto=6,tp_dst=22]],actionsList=[Slice:SSH=4],id=[24],priority=[100],]
+rule 6: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_type=0x800,nw_src=10.0.0.1,nw_proto=6,tp_src=22]],actionsList=[Slice:SSH=4],id=[25],priority=[100],]
+rule 7: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_type=0x800,nw_src=10.0.0.4,nw_proto=6,tp_src=22]],actionsList=[Slice:SSH=4],id=[26],priority=[100],]
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ 
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ 2013-04-07 09:40:06,104  FlowVisor1: INFO    : 
+---------------------------------------------
+End of Step  1.5: Showing the flowSpace USING 'listFlowSpace'
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.6: Verifying SSH is happening to the destination or not
+---------------------------------------------
+
+kill -9 887

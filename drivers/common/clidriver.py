@@ -34,7 +34,7 @@ class CLI(Component):
         if self.port:
             self.handle =pexpect.spawn('ssh -p '+self.port+' '+self.user_name+'@'+self.ip_address,maxread=50000)
         else :
-            self.handle =pexpect.spawn('ssh '+self.user_name+'@'+self.ip_address,maxread=50000)
+            self.handle =pexpect.spawn('ssh -X '+self.user_name+'@'+self.ip_address,maxread=50000)
             
         self.handle.logfile = self.logfile_handler
         i=self.handle.expect([ssh_newkey,'password:',pexpect.EOF,pexpect.TIMEOUT,refused],120)
@@ -95,7 +95,7 @@ class CLI(Component):
         index = self.handle.expect([expectPrompt, "--More--", 'Command not found.', pexpect.TIMEOUT,"^:$"], timeout = timeoutVar)
         if index == 0:
             self.LASTRSP = self.LASTRSP + self.handle.before
-            main.log.info("Expected Prompt Found")
+            main.log.info("Executed :"+cmd+"\n \t\t\t\t Expected Prompt '"+ expectPrompt+"' Found")
         elif index == 1:
             self.LASTRSP = self.LASTRSP + self.handle.before
             self.handle.send(args["MORE"])
@@ -110,7 +110,7 @@ class CLI(Component):
             main.log.error("Command not found")
             self.LASTRSP = self.LASTRSP + self.handle.before
         elif index ==3:
-            main.log.error("Expected Prompt not found , Time Out!!") 
+            #main.log.error("Expected Prompt not found , Time Out!!") 
             return main.FALSE
         
         elif index == 4:

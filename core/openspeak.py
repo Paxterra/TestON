@@ -136,6 +136,7 @@ class OpenSpeak:
         experimentalMatch = re.match("EXPERIMENTAL\s+MODE\s+(\w+)",line,flags=0)
         repeatMatch = re.match("\s*REPEAT\s+(\d+)\s+TIMES", line, flags=0)
         
+        response_pasrse = re.match("\s*PARSE\s+(\w+)\s+AS\s+(\w+)\s+INTO\s+(\w+)", line, flags=0)
        
         if caseMatch :
             self.CurrentStep = 0
@@ -204,8 +205,12 @@ class OpenSpeak:
                 indent = " " *(4 + 4 * (self.flag-1)) 
                 resultString = resultString + indent + "elif " + operand + self.translate_if_else_operator(conditionoperator=operator) + value + ":" 
                 self.flag = self.flag + 1
-
-                   
+        elif response_pasrse :
+            output_string = response_pasrse.group(1)
+            req_format = response_pasrse.group(2)
+            store_in = response_pasrse.group(3)
+            resultString = resultString + indent + store_in +'= main.response_parser('+output_string+",\""+req_format+"\")" 
+            self.flag = self.flag + 1 
 
         return resultString
 
@@ -321,6 +326,7 @@ class OpenSpeak:
         paramsMatch = re.match("PARAMS\[(.*)\]|STEP\[(.*)\]|TOPO\[(.*)\]|CASE\[(.*)\]|LAST_RESULT|LAST_RESPONSE",args["MESSAGE"],flags=0)
         stringMatch = re.match("\s*\"(.*)\"\s*$",args["MESSAGE"],flags=0)
         stringWidVariableMatch = re.match("\"(.*)\"\s+\+\s+(.*)",args["MESSAGE"],flags=0)
+        varRefMatch = re.search("\<(\w+)\>",args["MESSAGE"],flags=0)
         if paramsMatch :
             resultString = resultString + self.translate_parameters(parameters=args["MESSAGE"])
         elif stringMatch :
@@ -329,11 +335,13 @@ class OpenSpeak:
             quoteWord = stringWidVariableMatch.group(1)
             variableRef = stringWidVariableMatch.group(2)
             varMatch = re.search("PARAMS\[(.*)\]|STEP\[(.*)\]|TOPO\[(.*)\]|CASE\[(.*)\]",variableRef,flags=0)
-            varRefMatch = re.search("<(\w+)>",variableRef,flags=0)  
+            varRefMatch = re.search("\<(\w+)\>",variableRef,flags=0)  
             if varMatch :
                 resultString = resultString + "\"" + quoteWord + "\"" + " + " + self.translate_parameters(parameters=variableRef)
             elif varRefMatch :
                 resultString = resultString + "\"" + quoteWord + "\"" +  " + " + varRefMatch.group(1)
+        elif varRefMatch:
+            resultString = resultString + varRefMatch.group(1)
         else : 
             print "\nError : Syntax error , Not defined way to give log message" + args["MESSAGE"] 
 

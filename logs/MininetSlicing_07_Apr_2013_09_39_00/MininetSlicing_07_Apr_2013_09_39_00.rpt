@@ -1,0 +1,109 @@
+
+                                +----------------+
+------------------------------ { Script And Files }  ------------------------------
+                                +----------------+
+
+	Script Log File : /home/paxterra/Documents/TestON_Workspace/TestON/logs/MininetSlicing_07_Apr_2013_09_39_00/MininetSlicing_07_Apr_2013_09_39_00.log
+	Report Log File : /home/paxterra/Documents/TestON_Workspace/TestON/logs/MininetSlicing_07_Apr_2013_09_39_00/MininetSlicing_07_Apr_2013_09_39_00.rpt
+	FlowVisor1 Session Log : /home/paxterra/Documents/TestON_Workspace/TestON/logs/MininetSlicing_07_Apr_2013_09_39_00/FlowVisor1.session
+	POX2 Session Log : /home/paxterra/Documents/TestON_Workspace/TestON/logs/MininetSlicing_07_Apr_2013_09_39_00/POX2.session
+	Mininet1 Session Log : /home/paxterra/Documents/TestON_Workspace/TestON/logs/MininetSlicing_07_Apr_2013_09_39_00/Mininet1.session
+	Test Script :/home/paxterra/Documents/TestON_Workspace/TestON/Tests/MininetSlicing.py
+	Test Params : /home/paxterra/Documents/TestON_Workspace/TestON/Tests/MininetSlicing.params
+	Topology : /home/paxterra/Documents/TestON_Workspace/TestON/Tests/MininetSlicing.tpl
+                              +------------------+
+---------------------------  { Script Exec Params }  ---------------------------
+                              +------------------+
+
+	
+	'CASE1': 
+	'dl_type': '0x800'
+	 'nw_proto': '6'
+	 'slice': 'SSH'
+	 'destination_password': 'openflow'
+	 'tp_dst': '22'
+	 'destination_port': '22'
+	 'permissions': '4'
+	 'nw_src': '10.0.0.2'
+	 'destination_host': '10.0.0.4'
+	 'destination_username': 'openflow'
+	
+	 'mail': 'paxweb@paxterrasolutions.com'
+	 'testcases': '1'
+	
+
+                               +---------------+
+----------------------------- { Components Used }  -----------------------------
+                               +---------------+
+	POX2-Test Target
+	FlowVisor1
+	Mininet1
+
+
+                              +--------+
+---------------------------- { Topology }  ----------------------------
+                              +--------+
+
+	
+	'FlowVisor1': 
+	'host': '192.168.56.101'
+	 'user': 'openflow'
+	 'COMPONENTS': ''
+	 'password': 'openflow'
+	 'type': 'FlowVisorDriver'
+	 'fvadmin_pwd': None
+	
+	 'POX2': 
+	'host': '192.168.56.102'
+	 'user': 'openflow'
+	 'COMPONENTS': 
+	'samples.of_tutorial': None
+	 'pox_lib_location': '/home/openflow/pox/'
+	
+	 'test_target': '1'
+	 'password': 'openflow'
+	 'type': 'PoxCliDriver'
+	
+	 'Mininet1': 
+	'host': '192.168.56.101'
+	 'password': 'openflow'
+	 'type': 'MininetCliDriver'
+	 'user': 'openflow'
+	 'COMPONENTS': 
+	'topo': 'single'
+	 'topocount': '3'
+	 'switch': 'ovsk'
+	 'controller': 'remote'
+	
+	
+	
+------------------------------------------------------------
+
+******************************
+ CASE INIT 
+******************************
+
+******************************
+ Result summary for Testcase1
+******************************
+
+*****************************
+ Result: Pass 
+*****************************
+
+
+*************************************
+	Test Execution Summary
+
+************************************* 
+
+ Test Start           : 07 Apr 2013 09:39:00
+ Test End             : 07 Apr 2013 09:40:30
+ Execution Time       : 0:01:30.026764
+ Total tests planned  : 1
+ Total tests RUN      : 1
+ Total Pass           : 1
+ Total Fail           : 0
+ Total No Result      : 0
+ Success Percentage   : 100%
+ Execution Result     : 100%

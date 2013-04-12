@@ -23,6 +23,7 @@ class RemoteSysDriver(CLI):
         self.name = self.options['name']
 
         self.handle = super(RemoteSysDriver,self).connect(user_name = self.user_name, ip_address = self.ip_address,port = self.port, pwd = self.pwd)
+        '''
         if self.handle:
             self.execute(cmd= "\r",prompt= "\$|>|#",timeout= 10)
             self.execute(cmd= "ssh -l paxterra 10.128.4.1",prompt= "paxterra@10.128.4.1's password:",timeout= 10)
@@ -35,5 +36,5 @@ class RemoteSysDriver(CLI):
             
             #self.execute(cmd = "~.",prompt= ".*",timeout= 10)
         return main.TRUE
-    
+        '''
 

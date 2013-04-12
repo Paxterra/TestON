@@ -1,0 +1,277 @@
+2013-04-07 09:39:09,148  Mininet1  : INFO    : 
+                                +----------------+
+------------------------------ { Script And Files }  ------------------------------
+                                +----------------+
+
+	Script Log File : /home/paxterra/Documents/TestON_Workspace/TestON/logs/MininetSlicing_07_Apr_2013_09_39_00/MininetSlicing_07_Apr_2013_09_39_00.log
+	Report Log File : /home/paxterra/Documents/TestON_Workspace/TestON/logs/MininetSlicing_07_Apr_2013_09_39_00/MininetSlicing_07_Apr_2013_09_39_00.rpt
+	FlowVisor1 Session Log : /home/paxterra/Documents/TestON_Workspace/TestON/logs/MininetSlicing_07_Apr_2013_09_39_00/FlowVisor1.session
+	POX2 Session Log : /home/paxterra/Documents/TestON_Workspace/TestON/logs/MininetSlicing_07_Apr_2013_09_39_00/POX2.session
+	Mininet1 Session Log : /home/paxterra/Documents/TestON_Workspace/TestON/logs/MininetSlicing_07_Apr_2013_09_39_00/Mininet1.session
+	Test Script :/home/paxterra/Documents/TestON_Workspace/TestON/Tests/MininetSlicing.py
+	Test Params : /home/paxterra/Documents/TestON_Workspace/TestON/Tests/MininetSlicing.params
+	Topology : /home/paxterra/Documents/TestON_Workspace/TestON/Tests/MininetSlicing.tpl
+                              +------------------+
+---------------------------  { Script Exec Params }  ---------------------------
+                              +------------------+
+
+	
+	'CASE1': 
+	'dl_type': '0x800'
+	 'nw_proto': '6'
+	 'slice': 'SSH'
+	 'destination_password': 'openflow'
+	 'tp_dst': '22'
+	 'destination_port': '22'
+	 'permissions': '4'
+	 'nw_src': '10.0.0.2'
+	 'destination_host': '10.0.0.4'
+	 'destination_username': 'openflow'
+	
+	 'mail': 'paxweb@paxterrasolutions.com'
+	 'testcases': '1'
+	
+
+                               +---------------+
+----------------------------- { Components Used }  -----------------------------
+                               +---------------+
+	POX2-Test Target
+	FlowVisor1
+	Mininet1
+
+
+                              +--------+
+---------------------------- { Topology }  ----------------------------
+                              +--------+
+
+	
+	'FlowVisor1': 
+	'host': '192.168.56.101'
+	 'user': 'openflow'
+	 'COMPONENTS': ''
+	 'password': 'openflow'
+	 'type': 'FlowVisorDriver'
+	 'fvadmin_pwd': None
+	
+	 'POX2': 
+	'host': '192.168.56.102'
+	 'user': 'openflow'
+	 'COMPONENTS': 
+	'samples.of_tutorial': None
+	 'pox_lib_location': '/home/openflow/pox/'
+	
+	 'test_target': '1'
+	 'password': 'openflow'
+	 'type': 'PoxCliDriver'
+	
+	 'Mininet1': 
+	'host': '192.168.56.101'
+	 'password': 'openflow'
+	 'type': 'MininetCliDriver'
+	 'user': 'openflow'
+	 'COMPONENTS': 
+	'topo': 'single'
+	 'topocount': '3'
+	 'switch': 'ovsk'
+	 'controller': 'remote'
+	
+	
+	
+------------------------------------------------------------
+
+[Kteston> openflow@192.168.56.101's password: openflow
+
+
+sudo mn -c
+Welcome to Ubuntu 11.10 (GNU/Linux 3.0.0-12-server x86_64)
+
+ * Documentation:  https://help.ubuntu.com/11.10/serverguide/C
+
+  System information as of Sun Apr  7 06:09:09 CEST 2013
+
+  System load:  0.9               Processes:           59
+  Usage of /:   70.3% of 5.90GB   Users logged in:     1
+  Memory usage: 13%               IP address for eth0: 10.0.2.15
+  Swap usage:   0%                IP address for eth1: 192.168.56.101
+
+  Graph this data and manage this system at https://landscape.canonical.com/
+New release '12.04 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+Last login: Sun Apr  7 06:09:01 2013 from 192.168.56.1
+
+
+sudo mn -c
+]0;openflow@ETH-Tutorial: ~openflow@ETH-Tutorial:~$ 
+]0;openflow@ETH-Tutorial: ~openflow@ETH-Tutorial:~$ 
+]0;openflow@ETH-Tutorial: ~openflow@ETH-Tutorial:~$ sudo mn -c
+[sudo] password for openflow: openflow
+
+*** Removing excess controllers/ofprotocols/ofdatapaths/pings/noxes
+killall -9 controller ofprotocol ofdatapath ping nox_core lt-nox_core ovs-openflowd udpbwtest 2> /dev/null
+*** Removing junk from /tmp
+rm -f /tmp/vconn* /tmp/vlogs* /tmp/*.out /tmp/*.log
+*** Removing old screen sessions
+*** Removing excess kernel datapaths
+ps ax | egrep -o 'dp[0-9]+' | sed 's/dp/nl:/'
+*** Removing all links of the pattern foo-ethX
+ip link show | egrep -o '(\w+-eth\w+)'
+*** Cleanup complete.
+]0;openflow@ETH-Tutorial: ~openflow@ETH-Tutorial:~$ sudo mn --custom ~/mininet/custom/topo-2sw-2host.py --controller remote --ip 192.168.56.102 --port 6633 --topo mytopo
+sudo mn --custom ~/mininet/custom/topo-2sw-2host.py --c ontroller remote --ip 192.168.56.102 --port 6633 --topo mytopo
+custom in sys.argv
+*** Loading openvswitch_mod
+*** Adding controller
+*** Creating network
+*** Adding hosts:
+h1 h4 
+*** Adding switches:
+s2 s3 
+*** Adding links:
+(h1, s2) (s2, s3) (s3, h4) 
+*** Configuring hosts
+h1 h4 
+*** Starting controller
+*** Starting 2 switches
+s2 s3 
+*** Starting CLI:
+mininet> 2013-04-07 09:39:15,342  Mininet1  : INFO    : 
+****************************************
+Start of Test Case1 : 
+2013-04-07 09:39:15,342  Mininet1  : INFO    :  Verifying 'SSH protocol' based slicing
+****************************************
+
+2013-04-07 09:39:15,343  Mininet1  : INFO    : 
+---------------------------------------------
+Start of Step INIT : Initializing the test case :Verifying 'SSH protocol' based slicing
+---------------------------------------------
+
+2013-04-07 09:39:15,343  Mininet1  : INFO    : 
+---------------------------------------------
+Start of Step 1.1: Deleting the flowspace by using 'removeFlowSpace'
+---------------------------------------------
+
+h1 ping h4 -c 4
+h1 ping h4 -c 4
+PING 10.0.0.4 (10.0.0.4) 56(84) bytes of data.
+64 bytes from 10.0.0.4: icmp_req=1 ttl=64 time=60.2 ms
+64 bytes from 10.0.0.4: icmp_req=2 ttl=64 time=29.4 ms
+64 bytes from 10.0.0.4: icmp_req=3 ttl=64 time=46.7 ms
+64 bytes from 10.0.0.4: icmp_req=4 ttl=64 time=13.4 ms
+
+--- 10.0.0.4 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3016ms
+rtt min/avg/max/mdev = 13.417/37.467/60.246/17.658 ms
+mininet> 2013-04-07 09:39:32,225  Mininet1  : INFO    : 
+---------------------------------------------
+End of Step  1.1: Deleting the flowspace by using 'removeFlowSpace'
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.2: Showing the connected devices by USING 'listDevices'
+---------------------------------------------
+
+2013-04-07 09:39:32,226  Mininet1  : INFO    : 
+---------------------------------------------
+End of Step  1.2: Showing the connected devices by USING 'listDevices'
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.3: Verifying SSH is happening to the destination or not
+---------------------------------------------
+
+h1 /usr/sbin/sshd -D&
+h1 /usr/sbin/sshd -D&
+mininet> h4 /usr/sbin/sshd -D&
+h4 /usr/sbin/sshd -D&
+mininet> xterm h1 h4 
+xterm h1 h4 
+mininet> 2013-04-07 09:39:53,092  Mininet1  : INFO    : 
+---------------------------------------------
+End of Step  1.3: Verifying SSH is happening to the destination or not
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.4: Adding FlowSpace to create the slice of the Network
+---------------------------------------------
+
+h1 ifconfig
+h1 ifconfig
+h1-eth0   Link encap:Ethernet  HWaddr fa:9d:0f:16:8c:b1  
+          inet addr:10.0.0.1  Bcast:10.255.255.255  Mask:255.0.0.0
+          inet6 addr: fe80::f89d:fff:fe16:8cb1/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:25 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:14 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:1986 (1.9 KB)  TX bytes:1140 (1.1 KB)
+
+mininet> h4 ifconfig
+h4 ifconfig
+h4-eth0   Link encap:Ethernet  HWaddr b6:0c:c0:bb:bf:af  
+          inet addr:10.0.0.4  Bcast:10.255.255.255  Mask:255.0.0.0
+          inet6 addr: fe80::b40c:c0ff:febb:bfaf/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:23 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:14 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:1818 (1.8 KB)  TX bytes:1140 (1.1 KB)
+
+mininet> h1 ifconfig
+h1 ifconfig
+h1-eth0   Link encap:Ethernet  HWaddr fa:9d:0f:16:8c:b1  
+          inet addr:10.0.0.1  Bcast:10.255.255.255  Mask:255.0.0.0
+          inet6 addr: fe80::f89d:fff:fe16:8cb1/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:25 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:14 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:1986 (1.9 KB)  TX bytes:1140 (1.1 KB)
+
+mininet> h4 ifconfig
+h4 ifconfig
+h4-eth0   Link encap:Ethernet  HWaddr b6:0c:c0:bb:bf:af  
+          inet addr:10.0.0.4  Bcast:10.255.255.255  Mask:255.0.0.0
+          inet6 addr: fe80::b40c:c0ff:febb:bfaf/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:23 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:14 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:1818 (1.8 KB)  TX bytes:1140 (1.1 KB)
+
+mininet> 2013-04-07 09:40:04,760  Mininet1  : INFO    : 
+---------------------------------------------
+End of Step  1.4: Adding FlowSpace to create the slice of the Network
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.5: Showing the flowSpace USING 'listFlowSpace'
+---------------------------------------------
+
+2013-04-07 09:40:06,104  Mininet1  : INFO    : 
+---------------------------------------------
+End of Step  1.5: Showing the flowSpace USING 'listFlowSpace'
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.6: Verifying SSH is happening to the destination or not
+---------------------------------------------
+
+h1 /usr/sbin/sshd -D&
+h1 /usr/sbin/sshd -D&
+mininet> h4 /usr/sbin/sshd -D&
+h4 /usr/sbin/sshd -D&
+mininet> xterm h1 h4 
+xterm h1 h4 
+mininet> h1 ping h4 -c 4
+h1 ping h4 -c 4
+PING 10.0.0.4 (10.0.0.4) 56(84) bytes of data.
+64 bytes from 10.0.0.4: icmp_req=1 ttl=64 time=24.5 ms
+64 bytes from 10.0.0.4: icmp_req=2 ttl=64 time=47.2 ms
+64 bytes from 10.0.0.4: icmp_req=3 ttl=64 time=19.5 ms
+64 bytes from 10.0.0.4: icmp_req=4 ttl=64 time=38.8 ms
+
+--- 10.0.0.4 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3015ms
+rtt min/avg/max/mdev = 19.525/32.565/47.283/11.077 ms
+mininet> 

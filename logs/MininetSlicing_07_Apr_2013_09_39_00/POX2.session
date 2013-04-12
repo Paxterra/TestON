@@ -1,0 +1,172 @@
+2013-04-07 09:39:05,777  POX2      : INFO    : 
+                                +----------------+
+------------------------------ { Script And Files }  ------------------------------
+                                +----------------+
+
+	Script Log File : /home/paxterra/Documents/TestON_Workspace/TestON/logs/MininetSlicing_07_Apr_2013_09_39_00/MininetSlicing_07_Apr_2013_09_39_00.log
+	Report Log File : /home/paxterra/Documents/TestON_Workspace/TestON/logs/MininetSlicing_07_Apr_2013_09_39_00/MininetSlicing_07_Apr_2013_09_39_00.rpt
+	FlowVisor1 Session Log : /home/paxterra/Documents/TestON_Workspace/TestON/logs/MininetSlicing_07_Apr_2013_09_39_00/FlowVisor1.session
+	POX2 Session Log : /home/paxterra/Documents/TestON_Workspace/TestON/logs/MininetSlicing_07_Apr_2013_09_39_00/POX2.session
+	Mininet1 Session Log : /home/paxterra/Documents/TestON_Workspace/TestON/logs/MininetSlicing_07_Apr_2013_09_39_00/Mininet1.session
+	Test Script :/home/paxterra/Documents/TestON_Workspace/TestON/Tests/MininetSlicing.py
+	Test Params : /home/paxterra/Documents/TestON_Workspace/TestON/Tests/MininetSlicing.params
+	Topology : /home/paxterra/Documents/TestON_Workspace/TestON/Tests/MininetSlicing.tpl
+                              +------------------+
+---------------------------  { Script Exec Params }  ---------------------------
+                              +------------------+
+
+	
+	'CASE1': 
+	'dl_type': '0x800'
+	 'nw_proto': '6'
+	 'slice': 'SSH'
+	 'destination_password': 'openflow'
+	 'tp_dst': '22'
+	 'destination_port': '22'
+	 'permissions': '4'
+	 'nw_src': '10.0.0.2'
+	 'destination_host': '10.0.0.4'
+	 'destination_username': 'openflow'
+	
+	 'mail': 'paxweb@paxterrasolutions.com'
+	 'testcases': '1'
+	
+
+                               +---------------+
+----------------------------- { Components Used }  -----------------------------
+                               +---------------+
+	POX2-Test Target
+	FlowVisor1
+	Mininet1
+
+
+                              +--------+
+---------------------------- { Topology }  ----------------------------
+                              +--------+
+
+	
+	'FlowVisor1': 
+	'host': '192.168.56.101'
+	 'user': 'openflow'
+	 'COMPONENTS': ''
+	 'password': 'openflow'
+	 'type': 'FlowVisorDriver'
+	 'fvadmin_pwd': None
+	
+	 'POX2': 
+	'host': '192.168.56.102'
+	 'user': 'openflow'
+	 'COMPONENTS': 
+	'samples.of_tutorial': None
+	 'pox_lib_location': '/home/openflow/pox/'
+	
+	 'test_target': '1'
+	 'password': 'openflow'
+	 'type': 'PoxCliDriver'
+	
+	 'Mininet1': 
+	'host': '192.168.56.101'
+	 'password': 'openflow'
+	 'type': 'MininetCliDriver'
+	 'user': 'openflow'
+	 'COMPONENTS': 
+	'topo': 'single'
+	 'topocount': '3'
+	 'switch': 'ovsk'
+	 'controller': 'remote'
+	
+	
+	
+------------------------------------------------------------
+
+[Kteston> openflow@192.168.56.102's password: openflow
+
+
+
+Welcome to Ubuntu 11.04 (GNU/Linux 2.6.38-8-generic i686)
+
+ * Documentation:  https://help.ubuntu.com/
+
+  System information as of Sat Apr  6 21:09:02 PDT 2013
+
+  System load:  0.0               Processes:           79
+  Usage of /:   61.5% of 5.17GB   Users logged in:     1
+  Memory usage: 16%               IP address for eth4: 192.168.56.102
+  Swap usage:   0%
+
+  Graph this data and manage this system at https://landscape.canonical.com/
+New release 'oneiric' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+Last login: Sat Apr  6 20:59:45 2013 from 192.168.56.1
+
+
+]0;openflow@openflowtutorial: ~openflow@openflowtutorial:~$ 
+]0;openflow@openflowtutorial: ~openflow@openflowtutorial:~$ 
+]0;openflow@openflowtutorial: ~openflow@openflowtutorial:~$ cd /home/openflow/pox/
+cd /home/openflow/pox/
+]0;openflow@openflowtutorial: ~/poxopenflow@openflowtutorial:~/pox$ ./pox.py samples.of_tutorial
+./pox.py samples.of_tutorial
+POX 0.0.0 / Copyright 2011 James McCauley
+DEBUG:core:POX 0.0.0 going up...
+2013-04-07 09:39:15,342  POX2      : INFO    : 
+****************************************
+Start of Test Case1 : 
+2013-04-07 09:39:15,342  POX2      : INFO    :  Verifying 'SSH protocol' based slicing
+****************************************
+
+2013-04-07 09:39:15,343  POX2      : INFO    : 
+---------------------------------------------
+Start of Step INIT : Initializing the test case :Verifying 'SSH protocol' based slicing
+---------------------------------------------
+
+2013-04-07 09:39:15,343  POX2      : INFO    : 
+---------------------------------------------
+Start of Step 1.1: Deleting the flowspace by using 'removeFlowSpace'
+---------------------------------------------
+
+2013-04-07 09:39:32,225  POX2      : INFO    : 
+---------------------------------------------
+End of Step  1.1: Deleting the flowspace by using 'removeFlowSpace'
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.2: Showing the connected devices by USING 'listDevices'
+---------------------------------------------
+
+2013-04-07 09:39:32,226  POX2      : INFO    : 
+---------------------------------------------
+End of Step  1.2: Showing the connected devices by USING 'listDevices'
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.3: Verifying SSH is happening to the destination or not
+---------------------------------------------
+
+2013-04-07 09:39:53,092  POX2      : INFO    : 
+---------------------------------------------
+End of Step  1.3: Verifying SSH is happening to the destination or not
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.4: Adding FlowSpace to create the slice of the Network
+---------------------------------------------
+
+2013-04-07 09:40:04,760  POX2      : INFO    : 
+---------------------------------------------
+End of Step  1.4: Adding FlowSpace to create the slice of the Network
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.5: Showing the flowSpace USING 'listFlowSpace'
+---------------------------------------------
+
+2013-04-07 09:40:06,104  POX2      : INFO    : 
+---------------------------------------------
+End of Step  1.5: Showing the flowSpace USING 'listFlowSpace'
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.6: Verifying SSH is happening to the destination or not
+---------------------------------------------
+

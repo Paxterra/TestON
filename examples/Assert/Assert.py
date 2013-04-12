@@ -11,6 +11,7 @@ class Assert :
         main.step("Using assert_equal to verify the result is equivalent or not")
         expect = main.TRUE
         actual = main.TRUE
+        main.log.warn(main.response_parser('<real></real><imag>2</imag><__complex__>true</__complex__>', "json"))
         utilities.assert_equals(expect=expect,actual=actual,onpass="expect is equal to actual",onfail="expect is not equal to actual")
     
         main.step("Using assert_matches to verify the result matches or not")

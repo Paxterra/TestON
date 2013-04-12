@@ -1,0 +1,369 @@
+
+                                +----------------+
+------------------------------ { Script And Files }  ------------------------------
+                                +----------------+
+
+	Script Log File : /home/paxterra/Documents/TestON_Workspace/TestON/logs/MininetSlicing_07_Apr_2013_09_39_00/MininetSlicing_07_Apr_2013_09_39_00.log
+	Report Log File : /home/paxterra/Documents/TestON_Workspace/TestON/logs/MininetSlicing_07_Apr_2013_09_39_00/MininetSlicing_07_Apr_2013_09_39_00.rpt
+	FlowVisor1 Session Log : /home/paxterra/Documents/TestON_Workspace/TestON/logs/MininetSlicing_07_Apr_2013_09_39_00/FlowVisor1.session
+	POX2 Session Log : /home/paxterra/Documents/TestON_Workspace/TestON/logs/MininetSlicing_07_Apr_2013_09_39_00/POX2.session
+	Mininet1 Session Log : /home/paxterra/Documents/TestON_Workspace/TestON/logs/MininetSlicing_07_Apr_2013_09_39_00/Mininet1.session
+	Test Script :/home/paxterra/Documents/TestON_Workspace/TestON/Tests/MininetSlicing.py
+	Test Params : /home/paxterra/Documents/TestON_Workspace/TestON/Tests/MininetSlicing.params
+	Topology : /home/paxterra/Documents/TestON_Workspace/TestON/Tests/MininetSlicing.tpl
+                              +------------------+
+---------------------------  { Script Exec Params }  ---------------------------
+                              +------------------+
+
+	
+	'CASE1': 
+	'dl_type': '0x800'
+	 'nw_proto': '6'
+	 'slice': 'SSH'
+	 'destination_password': 'openflow'
+	 'tp_dst': '22'
+	 'destination_port': '22'
+	 'permissions': '4'
+	 'nw_src': '10.0.0.2'
+	 'destination_host': '10.0.0.4'
+	 'destination_username': 'openflow'
+	
+	 'mail': 'paxweb@paxterrasolutions.com'
+	 'testcases': '1'
+	
+
+                               +---------------+
+----------------------------- { Components Used }  -----------------------------
+                               +---------------+
+	POX2-Test Target
+	FlowVisor1
+	Mininet1
+
+
+                              +--------+
+---------------------------- { Topology }  ----------------------------
+                              +--------+
+
+	
+	'FlowVisor1': 
+	'host': '192.168.56.101'
+	 'user': 'openflow'
+	 'COMPONENTS': ''
+	 'password': 'openflow'
+	 'type': 'FlowVisorDriver'
+	 'fvadmin_pwd': None
+	
+	 'POX2': 
+	'host': '192.168.56.102'
+	 'user': 'openflow'
+	 'COMPONENTS': 
+	'samples.of_tutorial': None
+	 'pox_lib_location': '/home/openflow/pox/'
+	
+	 'test_target': '1'
+	 'password': 'openflow'
+	 'type': 'PoxCliDriver'
+	
+	 'Mininet1': 
+	'host': '192.168.56.101'
+	 'password': 'openflow'
+	 'type': 'MininetCliDriver'
+	 'user': 'openflow'
+	 'COMPONENTS': 
+	'topo': 'single'
+	 'topocount': '3'
+	 'switch': 'ovsk'
+	 'controller': 'remote'
+	
+	
+	
+------------------------------------------------------------
+
+
+******************************
+ CASE INIT 
+******************************
+
+2013-04-07 09:39:00,074 - MininetSlicing - INFO - Creating component Handle: FlowVisor1
+2013-04-07 09:39:00,307 - MininetSlicing - INFO - ssh connection asked for password, gave password
+2013-04-07 09:39:02,631 - MininetSlicing - INFO - Executed :
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:39:02,732 - MininetSlicing - INFO - Executed :cd /home/openflow/flowvisor/scripts/
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:39:02,733 - MininetSlicing - INFO - Starting FlowVisor 
+2013-04-07 09:39:05,291 - MininetSlicing - INFO - Executed :./flowvisor.sh &
+ 				 Expected Prompt '---\sSetting\slogging\slevel\sto\sNOTE' Found
+2013-04-07 09:39:05,292 - MininetSlicing - INFO - FlowVisor Started Successfully : Proceess Id :887
+2013-04-07 09:39:05,292 - MininetSlicing - INFO - Assertion Passed
+2013-04-07 09:39:05,292 - MininetSlicing - INFO -  
+]0;openflow@ETH-Tutorial: ~openflow@ETH-Tutorial:~$ 
+]0;openflow@ETH-Tutorial: ~openflow@ETH-Tutorial:~$ 
+]0;openflow@ETH-Tutorial: ~openflow@ETH-Tutorial:~$ cd /home/openflow/flowvisor/scripts/
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ ./flowvisor.sh &
+[1] 887
+]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts$ Starting FlowVisor
+
+2013-04-07 09:39:05,293 - MininetSlicing - INFO - Creating component Handle: POX2
+2013-04-07 09:39:05,463 - MininetSlicing - INFO - ssh key confirmation received, send yes
+2013-04-07 09:39:05,575 - MininetSlicing - INFO - ssh connection asked for password, gave password
+2013-04-07 09:39:05,967 - MininetSlicing - INFO - ssh connection asked for password, gave password
+2013-04-07 09:39:07,923 - MininetSlicing - INFO - Entering into POX hierarchy
+2013-04-07 09:39:08,035 - MininetSlicing - INFO - Executed :cd /home/openflow/pox/
+ 				 Expected Prompt '/pox\$' Found
+2013-04-07 09:39:08,036 - MininetSlicing - INFO - launching POX controller with given components
+2013-04-07 09:39:08,603 - MininetSlicing - INFO - Executed :./pox.py samples.of_tutorial
+ 				 Expected Prompt 'DEBUG:' Found
+2013-04-07 09:39:08,704 - MininetSlicing - INFO - Creating component Handle: Mininet1
+2013-04-07 09:39:08,947 - MininetSlicing - INFO - ssh connection asked for password, gave password
+2013-04-07 09:39:09,411 - MininetSlicing - INFO - ssh connection asked for password, gave password
+2013-04-07 09:39:09,620 - MininetSlicing - INFO - Clearing any residual state or processes
+2013-04-07 09:39:12,015 - MininetSlicing - INFO - Executed :sudo mn -c
+ 				 Expected Prompt 'password' Found
+2013-04-07 09:39:12,016 - MininetSlicing - INFO - password is being asked
+2013-04-07 09:39:12,016 - MininetSlicing - INFO - Assertion Passed
+2013-04-07 09:39:12,871 - MininetSlicing - INFO - Executed :openflow
+ 				 Expected Prompt ':\~\$' Found
+2013-04-07 09:39:15,239 - MininetSlicing - INFO - Executed :sudo mn --custom ~/mininet/custom/topo-2sw-2host.py --controller remote --ip 192.168.56.102 --port 6633 --topo mytopo
+ 				 Expected Prompt 'mininet>' Found
+
+
+******************************
+ Result summary for Testcase1
+******************************
+
+
+[2013-04-07 09:39:15.342784] [MininetSlicing] [CASE]  Verifying 'SSH protocol' based slicing
+
+[2013-04-07 09:39:15.343093] [MininetSlicing] [STEP]  INIT : Initializing the test case :Verifying 'SSH protocol' based slicing
+
+[2013-04-07 09:39:15.343494] [MininetSlicing] [STEP]  1.1: Deleting the flowspace by using 'removeFlowSpace'
+2013-04-07 09:39:15,463 - MininetSlicing - INFO - Executed :clear
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:39:15,819 - MininetSlicing - INFO - Executed :./fvctl.sh listFlowSpace 
+ 				 Expected Prompt 'passwd:' Found
+2013-04-07 09:39:17,231 - MininetSlicing - INFO - Executed :
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:39:17,232 - MininetSlicing - INFO -  Got reply:
+rule 0: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_src=f6:d8:6c:cd:cf:08,dl_type=0x806,nw_dst=10.0.0.4,nw_proto=6]],actionsList=[Slice:SSH=4],id=[11],priority=[100],]
+rule 1: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_src=ea:47:5a:3d:a3:00,dl_type=0x806,nw_dst=10.0.0.1,nw_proto=6]],actionsList=[Slice:SSH=4],id=[12],priority=[100],]
+rule 2: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_type=0x800,nw_src=10.0.0.1,nw_proto=6]],actionsList=[Slice:SSH=4],id=[13],priority=[100],]
+rule 3: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_type=0x800,nw_src=10.0.0.4,nw_proto=6]],actionsList=[Slice:SSH=4],id=[14],priority=[100],]
+rule 4: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_type=0x800,nw_src=10.0.0.1,nw_proto=6,tp_dst=22]],actionsList=[Slice:SSH=4],id=[15],priority=[100],]
+rule 5: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_type=0x800,nw_src=10.0.0.4,nw_proto=6,tp_dst=22]],actionsList=[Slice:SSH=4],id=[16],priority=[100],]
+rule 6: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_type=0x800,nw_src=10.0.0.1,nw_proto=6,tp_src=22]],actionsList=[Slice:SSH=4],id=[17],priority=[100],]
+rule 7: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_type=0x800,nw_src=10.0.0.4,nw_proto=6,tp_src=22]],actionsList=[Slice:SSH=4],id=[18],priority=[100],]]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts
+2013-04-07 09:39:17,333 - MininetSlicing - INFO - Executed :clear
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:39:17,729 - MininetSlicing - INFO - Executed :./fvctl.sh removeFlowSpace 11
+ 				 Expected Prompt 'passwd:' Found
+2013-04-07 09:39:18,751 - MininetSlicing - INFO - Executed :
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:39:18,752 - MininetSlicing - INFO - Removed flowSpace which is having id :11
+2013-04-07 09:39:18,852 - MininetSlicing - INFO - Executed :clear
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:39:19,207 - MininetSlicing - INFO - Executed :./fvctl.sh removeFlowSpace 12
+ 				 Expected Prompt 'passwd:' Found
+2013-04-07 09:39:20,079 - MininetSlicing - INFO - Executed :
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:39:20,079 - MininetSlicing - INFO - Removed flowSpace which is having id :12
+2013-04-07 09:39:20,180 - MininetSlicing - INFO - Executed :clear
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:39:20,539 - MininetSlicing - INFO - Executed :./fvctl.sh removeFlowSpace 13
+ 				 Expected Prompt 'passwd:' Found
+2013-04-07 09:39:21,495 - MininetSlicing - INFO - Executed :
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:39:21,495 - MininetSlicing - INFO - Removed flowSpace which is having id :13
+2013-04-07 09:39:21,596 - MininetSlicing - INFO - Executed :clear
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:39:21,972 - MininetSlicing - INFO - Executed :./fvctl.sh removeFlowSpace 14
+ 				 Expected Prompt 'passwd:' Found
+2013-04-07 09:39:22,915 - MininetSlicing - INFO - Executed :
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:39:22,915 - MininetSlicing - INFO - Removed flowSpace which is having id :14
+2013-04-07 09:39:23,016 - MininetSlicing - INFO - Executed :clear
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:39:23,383 - MininetSlicing - INFO - Executed :./fvctl.sh removeFlowSpace 15
+ 				 Expected Prompt 'passwd:' Found
+2013-04-07 09:39:24,400 - MininetSlicing - INFO - Executed :
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:39:24,400 - MininetSlicing - INFO - Removed flowSpace which is having id :15
+2013-04-07 09:39:24,501 - MininetSlicing - INFO - Executed :clear
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:39:24,851 - MininetSlicing - INFO - Executed :./fvctl.sh removeFlowSpace 16
+ 				 Expected Prompt 'passwd:' Found
+2013-04-07 09:39:25,976 - MininetSlicing - INFO - Executed :
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:39:25,977 - MininetSlicing - INFO - Removed flowSpace which is having id :16
+2013-04-07 09:39:26,077 - MininetSlicing - INFO - Executed :clear
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:39:26,495 - MininetSlicing - INFO - Executed :./fvctl.sh removeFlowSpace 17
+ 				 Expected Prompt 'passwd:' Found
+2013-04-07 09:39:27,563 - MininetSlicing - INFO - Executed :
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:39:27,563 - MininetSlicing - INFO - Removed flowSpace which is having id :17
+2013-04-07 09:39:27,664 - MininetSlicing - INFO - Executed :clear
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:39:28,019 - MininetSlicing - INFO - Executed :./fvctl.sh removeFlowSpace 18
+ 				 Expected Prompt 'passwd:' Found
+2013-04-07 09:39:29,035 - MininetSlicing - INFO - Executed :
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:39:29,035 - MininetSlicing - INFO - Removed flowSpace which is having id :18
+2013-04-07 09:39:29,035 - MininetSlicing - INFO - Verifying the Expected is equal to the actual or not using assert_equal
+2013-04-07 09:39:29,036 - MininetSlicing - INFO - Removed FlowSpace Successfully
+2013-04-07 09:39:29,036 - MininetSlicing - INFO - Assertion Passed
+2013-04-07 09:39:32,223 - MininetSlicing - INFO - Executed :h1 ping h4 -c 4
+ 				 Expected Prompt 'mininet' Found
+2013-04-07 09:39:32,224 - MininetSlicing - INFO - No Packet loss
+2013-04-07 09:39:32,224 - MininetSlicing - INFO - Assertion Passed
+2013-04-07 09:39:32,224 - MininetSlicing - INFO - NO PACKET LOSS, HOST IS REACHABLE
+
+[2013-04-07 09:39:32.224944] [MininetSlicing] [STEP]  1.2: Showing the connected devices by USING 'listDevices'
+2013-04-07 09:39:32,225 - MininetSlicing - INFO - List of Devices 
+Device 0: 00:00:00:00:00:00:00:02 
+ Device 1: 00:00:00:00:00:00:00:03
+2013-04-07 09:39:32,226 - MininetSlicing - INFO - Verifying the Expected is equal to the actual or not using assert_equal
+2013-04-07 09:39:32,226 - MininetSlicing - INFO - Listed devices Successfully
+2013-04-07 09:39:32,226 - MininetSlicing - INFO - Assertion Passed
+
+[2013-04-07 09:39:32.226649] [MininetSlicing] [STEP]  1.3: Verifying SSH is happening to the destination or not
+2013-04-07 09:39:32,411 - MininetSlicing - INFO - Executed :h1 /usr/sbin/sshd -D&
+ 				 Expected Prompt 'mininet>' Found
+2013-04-07 09:39:32,583 - MininetSlicing - INFO - Executed :h4 /usr/sbin/sshd -D&
+ 				 Expected Prompt 'mininet>' Found
+2013-04-07 09:39:33,071 - MininetSlicing - INFO - Executed :xterm h1 h4 
+ 				 Expected Prompt 'mininet>' Found
+2013-04-07 09:39:53,091 - MininetSlicing - INFO - Verifying the Expected is equal to the actual or not using assert_equal
+2013-04-07 09:39:53,091 - MininetSlicing - INFO - Failed to connect remote host throgh SSH
+2013-04-07 09:39:53,091 - MininetSlicing - INFO - Assertion Passed
+
+[2013-04-07 09:39:53.092482] [MininetSlicing] [STEP]  1.4: Adding FlowSpace to create the slice of the Network
+2013-04-07 09:39:53,092 - MininetSlicing - INFO -  Geeting the IP-Addresses of Hosts
+2013-04-07 09:39:53,247 - MininetSlicing - INFO - Executed :h1 ifconfig
+ 				 Expected Prompt 'mininet>' Found
+2013-04-07 09:39:53,248 - MininetSlicing - INFO - IP-Address of Host h1 is 10.0.0.1
+2013-04-07 09:39:53,399 - MininetSlicing - INFO - Executed :h4 ifconfig
+ 				 Expected Prompt 'mininet>' Found
+2013-04-07 09:39:53,399 - MininetSlicing - INFO - IP-Address of Host h4 is 10.0.0.4
+2013-04-07 09:39:53,399 - MininetSlicing - INFO -  Geeting the MAC-Addresses of Hosts
+2013-04-07 09:39:53,571 - MininetSlicing - INFO - Executed :h1 ifconfig
+ 				 Expected Prompt 'mininet>' Found
+2013-04-07 09:39:53,572 - MininetSlicing - INFO - Mac-Address of Host h1 is fa:9d:0f:16:8c:b
+2013-04-07 09:39:53,727 - MininetSlicing - INFO - Executed :h4 ifconfig
+ 				 Expected Prompt 'mininet>' Found
+2013-04-07 09:39:53,727 - MininetSlicing - INFO - Mac-Address of Host h4 is b6:0c:c0:bb:bf:a
+2013-04-07 09:39:54,127 - MininetSlicing - INFO - Executed :./fvctl.sh addFlowSpace any 100 dl_type=0x806,nw_proto=6,dl_src=fa:9d:0f:16:8c:b,nw_dst=10.0.0.4 Slice:SSH=4
+ 				 Expected Prompt 'passwd:' Found
+2013-04-07 09:39:55,311 - MininetSlicing - INFO - Executed :
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:39:55,311 - MininetSlicing - INFO - Added flow Space and id is 19
+2013-04-07 09:39:55,312 - MininetSlicing - INFO - Verifying the Expected is equal to the actual or not using assert_equal
+2013-04-07 09:39:55,312 - MininetSlicing - INFO - Added FlowSpace Successfully
+2013-04-07 09:39:55,312 - MininetSlicing - INFO - Assertion Passed
+2013-04-07 09:39:55,675 - MininetSlicing - INFO - Executed :./fvctl.sh addFlowSpace any 100 dl_type=0x806,nw_proto=6,dl_src=b6:0c:c0:bb:bf:a,nw_dst=10.0.0.1 Slice:SSH=4
+ 				 Expected Prompt 'passwd:' Found
+2013-04-07 09:39:56,655 - MininetSlicing - INFO - Executed :
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:39:56,656 - MininetSlicing - INFO - Added flow Space and id is 20
+2013-04-07 09:39:56,656 - MininetSlicing - INFO - Verifying the Expected is equal to the actual or not using assert_equal
+2013-04-07 09:39:56,656 - MininetSlicing - INFO - Added FlowSpace Successfully
+2013-04-07 09:39:56,656 - MininetSlicing - INFO - Assertion Passed
+2013-04-07 09:39:57,071 - MininetSlicing - INFO - Executed :./fvctl.sh addFlowSpace any 100 dl_type=0x800,nw_proto=6,nw_src=10.0.0.1 Slice:SSH=4
+ 				 Expected Prompt 'passwd:' Found
+2013-04-07 09:39:58,031 - MininetSlicing - INFO - Executed :
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:39:58,031 - MininetSlicing - INFO - Added flow Space and id is 21
+2013-04-07 09:39:58,391 - MininetSlicing - INFO - Executed :./fvctl.sh addFlowSpace any 100 dl_type=0x800,nw_proto=6,nw_src=10.0.0.4 Slice:SSH=4
+ 				 Expected Prompt 'passwd:' Found
+2013-04-07 09:39:59,359 - MininetSlicing - INFO - Executed :
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:39:59,360 - MininetSlicing - INFO - Added flow Space and id is 22
+2013-04-07 09:39:59,735 - MininetSlicing - INFO - Executed :./fvctl.sh addFlowSpace any 100 dl_type=0x800,nw_proto=6,nw_src=10.0.0.1,tp_dst=22 Slice:SSH=4
+ 				 Expected Prompt 'passwd:' Found
+2013-04-07 09:40:00,719 - MininetSlicing - INFO - Executed :
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:40:00,720 - MininetSlicing - INFO - Added flow Space and id is 23
+2013-04-07 09:40:00,720 - MininetSlicing - INFO - Verifying the Expected is equal to the actual or not using assert_equal
+2013-04-07 09:40:00,720 - MininetSlicing - INFO - Added FlowSpace Successfully
+2013-04-07 09:40:00,720 - MininetSlicing - INFO - Assertion Passed
+2013-04-07 09:40:01,083 - MininetSlicing - INFO - Executed :./fvctl.sh addFlowSpace any 100 dl_type=0x800,nw_proto=6,nw_src=10.0.0.4,tp_dst=22 Slice:SSH=4
+ 				 Expected Prompt 'passwd:' Found
+2013-04-07 09:40:02,043 - MininetSlicing - INFO - Executed :
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:40:02,043 - MininetSlicing - INFO - Added flow Space and id is 24
+2013-04-07 09:40:02,043 - MininetSlicing - INFO - Verifying the Expected is equal to the actual or not using assert_equal
+2013-04-07 09:40:02,044 - MininetSlicing - INFO - Added FlowSpace Successfully
+2013-04-07 09:40:02,044 - MininetSlicing - INFO - Assertion Passed
+2013-04-07 09:40:02,412 - MininetSlicing - INFO - Executed :./fvctl.sh addFlowSpace any 100 dl_type=0x800,nw_proto=6,tp_src=22,nw_src=10.0.0.1 Slice:SSH=4
+ 				 Expected Prompt 'passwd:' Found
+2013-04-07 09:40:03,427 - MininetSlicing - INFO - Executed :
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:40:03,428 - MininetSlicing - INFO - Added flow Space and id is 25
+2013-04-07 09:40:03,428 - MininetSlicing - INFO - Verifying the Expected is equal to the actual or not using assert_equal
+2013-04-07 09:40:03,428 - MininetSlicing - INFO - Added FlowSpace Successfully
+2013-04-07 09:40:03,428 - MininetSlicing - INFO - Assertion Passed
+2013-04-07 09:40:03,799 - MininetSlicing - INFO - Executed :./fvctl.sh addFlowSpace any 100 dl_type=0x800,nw_proto=6,tp_src=22,nw_src=10.0.0.4 Slice:SSH=4
+ 				 Expected Prompt 'passwd:' Found
+2013-04-07 09:40:04,759 - MininetSlicing - INFO - Executed :
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:40:04,759 - MininetSlicing - INFO - Added flow Space and id is 26
+2013-04-07 09:40:04,759 - MininetSlicing - INFO - Verifying the Expected is equal to the actual or not using assert_equal
+2013-04-07 09:40:04,760 - MininetSlicing - INFO - Added FlowSpace Successfully
+2013-04-07 09:40:04,760 - MininetSlicing - INFO - Assertion Passed
+
+[2013-04-07 09:40:04.760391] [MininetSlicing] [STEP]  1.5: Showing the flowSpace USING 'listFlowSpace'
+2013-04-07 09:40:04,861 - MininetSlicing - INFO - Executed :clear
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:40:05,227 - MininetSlicing - INFO - Executed :./fvctl.sh listFlowSpace 
+ 				 Expected Prompt 'passwd:' Found
+2013-04-07 09:40:06,103 - MininetSlicing - INFO - Executed :
+ 				 Expected Prompt '\$' Found
+2013-04-07 09:40:06,103 - MininetSlicing - INFO -  Got reply:
+rule 0: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_src=fa:9d:0f:16:8c:0b,dl_type=0x806,nw_dst=10.0.0.4,nw_proto=6]],actionsList=[Slice:SSH=4],id=[19],priority=[100],]
+rule 1: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_src=b6:0c:c0:bb:bf:0a,dl_type=0x806,nw_dst=10.0.0.1,nw_proto=6]],actionsList=[Slice:SSH=4],id=[20],priority=[100],]
+rule 2: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_type=0x800,nw_src=10.0.0.1,nw_proto=6]],actionsList=[Slice:SSH=4],id=[21],priority=[100],]
+rule 3: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_type=0x800,nw_src=10.0.0.4,nw_proto=6]],actionsList=[Slice:SSH=4],id=[22],priority=[100],]
+rule 4: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_type=0x800,nw_src=10.0.0.1,nw_proto=6,tp_dst=22]],actionsList=[Slice:SSH=4],id=[23],priority=[100],]
+rule 5: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_type=0x800,nw_src=10.0.0.4,nw_proto=6,tp_dst=22]],actionsList=[Slice:SSH=4],id=[24],priority=[100],]
+rule 6: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_type=0x800,nw_src=10.0.0.1,nw_proto=6,tp_src=22]],actionsList=[Slice:SSH=4],id=[25],priority=[100],]
+rule 7: FlowEntry[dpid=[all_dpids],ruleMatch=[OFMatch[dl_type=0x800,nw_src=10.0.0.4,nw_proto=6,tp_src=22]],actionsList=[Slice:SSH=4],id=[26],priority=[100],]]0;openflow@ETH-Tutorial: ~/flowvisor/scriptsopenflow@ETH-Tutorial:~/flowvisor/scripts
+
+[2013-04-07 09:40:06.104222] [MininetSlicing] [STEP]  1.6: Verifying SSH is happening to the destination or not
+2013-04-07 09:40:06,287 - MininetSlicing - INFO - Executed :h1 /usr/sbin/sshd -D&
+ 				 Expected Prompt 'mininet>' Found
+2013-04-07 09:40:06,455 - MininetSlicing - INFO - Executed :h4 /usr/sbin/sshd -D&
+ 				 Expected Prompt 'mininet>' Found
+2013-04-07 09:40:06,869 - MininetSlicing - INFO - Executed :xterm h1 h4 
+ 				 Expected Prompt 'mininet>' Found
+2013-04-07 09:40:26,888 - MininetSlicing - INFO - Verifying the Expected is equal to the actual or not using assert_equal
+2013-04-07 09:40:26,888 - MininetSlicing - INFO - Remote host connected throgh SSH 
+2013-04-07 09:40:26,888 - MininetSlicing - INFO - Assertion Passed
+2013-04-07 09:40:30,099 - MininetSlicing - INFO - Executed :h1 ping h4 -c 4
+ 				 Expected Prompt 'mininet' Found
+2013-04-07 09:40:30,100 - MininetSlicing - INFO - No Packet loss
+2013-04-07 09:40:30,100 - MininetSlicing - INFO - Assertion Passed
+2013-04-07 09:40:30,100 - MininetSlicing - INFO - NO PACKET LOSS, HOST IS REACHABLE
+
+
+*****************************
+ Result: Pass 
+*****************************
+
+
+
+
+*************************************
+	Test Execution Summary
+
+************************************* 
+
+ Test Start           : 07 Apr 2013 09:39:00
+ Test End             : 07 Apr 2013 09:40:30
+ Execution Time       : 0:01:30.026764
+ Total tests planned  : 1
+ Total tests RUN      : 1
+ Total Pass           : 1
+ Total Fail           : 0
+ Total No Result      : 0
+ Success Percentage   : 100%
+ Execution Result     : 100%
+2013-04-07 09:40:35,628 - MininetSlicing - INFO - Stopping the FlowVisor

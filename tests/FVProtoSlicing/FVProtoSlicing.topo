@@ -1,5 +1,37 @@
 <TOPOLOGY>
     <COMPONENT>
+              
+        <HPSwitch1>
+            <remote_user_name> Paxterra </remote_user_name>
+            <remote_ip_address>24.6.49.222</remote_ip_address>
+            <remote_port>6500</remote_port>
+            <remote_pwd>0nLab_gu3st</remote_pwd>
+            
+            <host>10.254.1.253</host>
+            <user> Paxterra </user>
+            <password>0nLab_gu3st</password>
+            <type>HPSwitchCliDriver</type>
+            <COMPONENTS>
+            <console_port> 5 </console_port>
+            </COMPONENTS>
+               
+        </HPSwitch1> 
+           
+        <HPSwitch2>
+            <remote_user_name> Paxterra </remote_user_name>
+            <remote_ip_address>24.6.49.222</remote_ip_address>
+            <remote_port>6500</remote_port>
+            <remote_pwd>0nLab_gu3st</remote_pwd>
+            
+            <host>10.254.1.253</host>
+            <user> Paxterra </user>
+            <password>0nLab_gu3st</password>
+            <type>HPSwitchCliDriver</type>
+            <COMPONENTS>
+            <console_port> 2 </console_port>
+            </COMPONENTS>
+               
+        </HPSwitch2> 
  
         <FlowVisor>
             <remote_user_name> Paxterra </remote_user_name>
@@ -15,21 +47,21 @@
             </COMPONENTS>
                
         </FlowVisor>   
-      
         
-        <FloodLight>
+        <POX2>
             <remote_user_name> Paxterra </remote_user_name>
             <remote_ip_address>24.6.49.222</remote_ip_address>
             <remote_port>6500</remote_port>
-            <remote_pwd>0nLab_gu3st</remote_pwd>
-            <host>10.128.4.3</host>
-            <user> paxterra </user>
-            <password>0nLab_gu3st</password>
-            <type>RemoteVMDriver</type>
+            <remote_pwd>0nLab_gu3st</remote_pwd>           
+            <host> 10.128.4.3 </host>
+            <user>  paxterra </user>
+            <password> 0nLab_gu3st </password>
+            <type> RemotePoxDriver </type>
             <COMPONENTS>
+                <pox_lib_location> /home/paxterra/pox/  </pox_lib_location>
+                <samples.of_tutorial></samples.of_tutorial>
             </COMPONENTS>
-               
-        </FloodLight> 
+        </POX2>
         
         <Pax_DPVM1>
             <remote_user_name> Paxterra </remote_user_name>
@@ -41,11 +73,25 @@
             <password>0nLab_gu3st</password>
             <type>RemoteVMDriver</type>
             <COMPONENTS>
+            <name> Pax_DPVM2 </name>
             </COMPONENTS>
                
         </Pax_DPVM1>
+        
+        <Pax_DPVM2>
+            <remote_user_name> Paxterra </remote_user_name>
+            <remote_ip_address>24.6.49.222</remote_ip_address>
+            <remote_port>6500</remote_port>
+            <remote_pwd>0nLab_gu3st</remote_pwd>
+            <host>10.128.4.6</host>
+            <user> paxterra </user>
+            <password>0nLab_gu3st</password>
+            <type>RemoteVMDriver</type>
+            <COMPONENTS>
+            <name> Pax_DPVM2 </name>
+            </COMPONENTS>
                
-      
+        </Pax_DPVM2>
                
     </COMPONENT>
     

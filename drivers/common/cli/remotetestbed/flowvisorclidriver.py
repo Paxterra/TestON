@@ -35,7 +35,7 @@ class FlowVisorCliDriver(RemoteTestBedDriver):
 
         self.handle = super(FlowVisorCliDriver,self).connect(user_name = self.user_name, ip_address = self.ip_address,port = self.port, pwd = self.pwd)
         if self.handle :
-            main.log.info("connected "+self.name)
+            main.log.info(self.name+" connected successfully")
             return self.handle
         else :
             main.log.error("Failed to connect "+self.name)
@@ -62,10 +62,9 @@ class FlowVisorCliDriver(RemoteTestBedDriver):
         sucess_match = re.search("success\:\s+(\d+)", main.last_response)
         if sucess_match :
             main.log.info("Added flow Space and id is "+sucess_match.group(1))
-            return sucess_match.group(1)
-        
+            return main.TRUE
         else :
-            return False
+            return main.FALSE
     
     def listFlowSpace(self):
         self.execute(cmd="clear",prompt="\$",timeout=10)
@@ -74,9 +73,9 @@ class FlowVisorCliDriver(RemoteTestBedDriver):
         flow_space = main.last_response
         flow_space = self.remove_contol_chars( flow_space)
         flow_space = re.sub("rule\s(\d+)\:", "\nrule "+r'\1'+":",flow_space)
-        main.log.info(flow_space)
+        #main.log.info(flow_space)
         
-        return flow_space
+        return main.TRUE
         
     def listDevices(self):
         self.execute(cmd="clear",prompt="\$",timeout=10)
@@ -90,7 +89,7 @@ class FlowVisorCliDriver(RemoteTestBedDriver):
             if devices_match:
                 devices_list = devices_list+devices_match.group(0)+"\n"
         main.log.info("List of Devices \n"+devices_list)  
-        return devices_list
+        return main.TRUE
     
     
     

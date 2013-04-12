@@ -18,31 +18,33 @@ import time
 
 sys.path.append("../")
 
-from drivers.common.cli.remotetestbeddriver import RemoteTestBedDriver
-
-class HPSwitchCliDriver(RemoteTestBedDriver):
+#from drivers.common.cli.remotetestbeddriver import RemoteTestBedDriver
+from drivers.component import Component
+class HPSwitchCliDriver(Component):
     '''
         HPSwitchCliDriver is the basic driver which will handle the Mininet functions
     '''
     def __init__(self):
-        super(RemoteTestBedDriver, self).__init__()
+        super(Component, self).__init__()
         
     def connect(self,**connectargs):
+        
         for key in connectargs:
             vars(self)[key] = connectargs[key]
         
         self.name = self.options['name']
 
-        self.handle = super(HPSwitchCliDriver,self).connect(user_name = self.user_name, ip_address = self.ip_address,port = self.port, pwd = self.pwd)
-        if self.handle :
-            main.log.info("Connected "+self.name)
+        self.handle = super(HPSwitchCliDriver,self).connect()
+        #if self.handle :
+        #    main.log.info("Connected "+self.name)
             #self.execute(cmd="\r",prompt="\$",timeout=10)
             #self.execute(cmd="pmshell",prompt="\>",timeout=10)
             # self.execute(cmd="2\r",prompt="\#|\>|$",timeout=10)
             
-            return self.handle
-        else :
-            main.FALSE
+        #    return self.handle
+        #else :
+        #   main.FALSE
+        return main.TRUE
     
     def configure(self,commandlist):
         for command in commandlist:

@@ -249,23 +249,24 @@ class TestON:
         self.logger.testSummary(self)
         
         #self.reportFile.close()
-        # Closing all the driver's session files
-        for driver in self.componentDictionary.keys():
-           vars(self)[driver].close_log_handles()
+        
 
         utilities.send_mail()
         try :
             for component in self.componentDictionary.keys():
-                print "Disconnecting "+str(tempObject)
                 tempObject  = vars(self)[component]    
                 print "Disconnecting "+str(tempObject)
+         
                 tempObject.disconnect()
-                #tempObject.execute(cmd="exit",prompt="(.*)",timeout=120) 
+            #tempObject.execute(cmd="exit",prompt="(.*)",timeout=120) 
 
         except(Exception):
             #print " There is an error with closing hanldes"
             result = self.FALSE
-                    
+        # Closing all the driver's session files
+        for driver in self.componentDictionary.keys():
+           vars(self)[driver].close_log_handles()
+           
         return result
         
     def pause(self):
