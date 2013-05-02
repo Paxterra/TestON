@@ -17,7 +17,7 @@ Created on 23-Oct-2012
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
-------------------------------------------------------------------          
+        
 Utilities will take care about the basic functions like :
    * Extended assertion,
    * parse_args for key-value pair handling
