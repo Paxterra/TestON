@@ -1,0 +1,30 @@
+<TOPOLOGY>
+
+    <COMPONENT>
+        <Zookeeper1>
+            <host>10.128.4.7</host>
+            <user>admin</user>
+            <password>password</password>
+            <type>ZookeeperCliDriver</type>
+            <COMPONENTS>
+             </COMPONENTS>   
+        </Zookeeper1>     
+        <Cassandra1>
+            <host>10.128.4.7</host>
+            <user>admin</user>
+            <password>password</password>
+            <type>CassandraCliDriver</type>
+            <COMPONENTS>
+             </COMPONENTS>   
+        </Cassandra1>   
+        <ONOS1>
+            <host>10.128.4.7</host>
+            <user>admin</user>
+            <password>password</password>
+            <type>OnosCliDriver</type>
+            <COMPONENTS>
+             </COMPONENTS>   
+        </ONOS1> 
+        
+    </COMPONENT>
+</TOPOLOGY>

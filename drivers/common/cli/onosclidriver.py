@@ -33,7 +33,7 @@ class OnosCliDriver(CLI):
         
     def connect(self,**connectargs):
         for key in connectargs:
-           vars(self)['vm_'+key] = connectargs[key]
+           vars(self)[key] = connectargs[key]
 
         
         self.name = self.options['name']
@@ -44,3 +44,28 @@ class OnosCliDriver(CLI):
             return self.handle
         else :
             return main.FALSE
+        
+    def start(self):
+        self.execute(cmd="\r",prompt="\$",timeout=10)
+        self.execute(cmd="~/ONOS/start-onos.sh start",prompt="admin",timeout=10)
+
+    def status(self):
+        self.execute(cmd="\r",prompt="\$",timeout=10)
+        self.execute(cmd="~/ONOS/start-onos.sh status ",prompt="admin",timeout=10)
+        self.execute(cmd="\r",prompt="\$",timeout=10)
+    
+    def stop(self):
+        self.execute(cmd="\r",prompt="\$",timeout=10)
+        self.execute(cmd="~/ONOS/start-onos.sh stop ",prompt="admin",timeout=10)
+        self.execute(cmd="\r",prompt="\$",timeout=10)
+ 
+    def disconnect(self):
+        
+        response = ''
+        main.log.info("Disconnecting ONOS")
+        if self.handle:
+            self.execute(cmd = "exit",prompt= "\$",timeout = 10)
+        else :
+            main.log.error("Connection failed to the host")
+            response = main.FALSE
+        return response 

@@ -33,7 +33,7 @@ import core.teston
 sys.path.append("../")
 from drivers.common.cli.onosclidriver import OnosCliDriver
 
-class ZookeeperCliDriver(OnosCliDriver):
+class CassandraCliDriver(OnosCliDriver):
     '''
         FlowVisorDriver is the basic driver which will handle the Zookeeper functions
     '''
@@ -50,7 +50,7 @@ class ZookeeperCliDriver(OnosCliDriver):
             vars(self)[key] = connectargs[key]       
         
         self.name = self.options['name']
-        self.handle = super(ZookeeperCliDriver, self).connect(user_name = self.user_name, ip_address = self.ip_address,port = self.port, pwd = self.pwd)
+        self.handle = super(CassandraCliDriver, self).connect(user_name = self.user_name, ip_address = self.ip_address,port = self.port, pwd = self.pwd)
         
         self.ssh_handle = self.handle
         
@@ -66,16 +66,16 @@ class ZookeeperCliDriver(OnosCliDriver):
  
     def start(self):
         self.execute(cmd="\r",prompt="\$",timeout=10)
-        self.execute(cmd="~/zookeeper-3.4.5/bin/zkServer.sh start",prompt="admin",timeout=10)
+        self.execute(cmd="~/ONOS/start-cassandra.sh start",prompt="admin",timeout=10)
 
     def status(self):
         self.execute(cmd="\r",prompt="\$",timeout=10)
-        self.execute(cmd="~/zookeeper-3.4.5/bin/zkServer.sh status ",prompt="admin",timeout=10)
+        self.execute(cmd="~/ONOS/start-cassandra.sh status ",prompt="admin",timeout=10)
         self.execute(cmd="\r",prompt="\$",timeout=10)
     
     def stop(self):
         self.execute(cmd="\r",prompt="\$",timeout=10)
-        self.execute(cmd="~/zookeeper-3.4.5/bin/zkServer.sh stop ",prompt="admin",timeout=10)
+        self.execute(cmd="~/ONOS/start-cassandra.sh stop ",prompt="admin",timeout=10)
         self.execute(cmd="\r",prompt="\$",timeout=10)
  
     def disconnect(self):
