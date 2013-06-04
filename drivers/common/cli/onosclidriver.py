@@ -48,15 +48,26 @@ class OnosCliDriver(CLI):
     def start(self):
         self.execute(cmd="\r",prompt="\$",timeout=10)
         self.execute(cmd="~/ONOS/start-onos.sh start",prompt="admin",timeout=10)
+        import time
+        time.sleep(5)
+        self.execute(cmd="\r",prompt="\$",timeout=10)
+        self.execute(cmd="~/ONOS/start-rest.sh start",prompt="admin",timeout=10)
+        time.sleep(5)
 
     def status(self):
         self.execute(cmd="\r",prompt="\$",timeout=10)
         self.execute(cmd="~/ONOS/start-onos.sh status ",prompt="admin",timeout=10)
         self.execute(cmd="\r",prompt="\$",timeout=10)
+        
+        self.execute(cmd="~/ONOS/start-rest.sh status ",prompt="admin",timeout=10)
+        self.execute(cmd="\r",prompt="\$",timeout=10)
     
     def stop(self):
         self.execute(cmd="\r",prompt="\$",timeout=10)
         self.execute(cmd="~/ONOS/start-onos.sh stop ",prompt="admin",timeout=10)
+        self.execute(cmd="\r",prompt="\$",timeout=10)
+        
+        self.execute(cmd="~/ONOS/start-rest.sh stop ",prompt="admin",timeout=10)
         self.execute(cmd="\r",prompt="\$",timeout=10)
  
     def disconnect(self):

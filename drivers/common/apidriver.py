@@ -39,6 +39,6 @@ class API(Component):
            It will take user_name ,ip_address and password as arguments<br>
            and will return the handle. 
         '''
-        super(API, self).connect(self)
+        super(API, self).connect()
          
         return main.TRUE       

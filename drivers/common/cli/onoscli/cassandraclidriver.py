@@ -67,6 +67,8 @@ class CassandraCliDriver(OnosCliDriver):
     def start(self):
         self.execute(cmd="\r",prompt="\$",timeout=10)
         self.execute(cmd="~/ONOS/start-cassandra.sh start",prompt="admin",timeout=10)
+        import time
+        time.sleep(5)
 
     def status(self):
         self.execute(cmd="\r",prompt="\$",timeout=10)

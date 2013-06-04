@@ -23,8 +23,20 @@
             <password>password</password>
             <type>OnosCliDriver</type>
             <COMPONENTS>
+            
              </COMPONENTS>   
         </ONOS1> 
+        
+        
+         <ONOSRESTAPI1>
+            <host>10.128.4.7</host>
+            <user>admin</user>
+            <password>password</password>
+            <type>OnosRestApiDriver</type>
+            <COMPONENTS>
+            <topology_url>http://10.128.4.7:9000/topology</topology_url>
+             </COMPONENTS>   
+        </ONOSRESTAPI1> 
         
     </COMPONENT>
 </TOPOLOGY>
