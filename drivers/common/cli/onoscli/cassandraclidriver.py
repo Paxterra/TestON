@@ -30,6 +30,8 @@ import signal
 import re
 import sys
 import core.teston
+import time
+
 sys.path.append("../")
 from drivers.common.cli.onosclidriver import OnosCliDriver
 
@@ -53,7 +55,7 @@ class CassandraCliDriver(OnosCliDriver):
         self.handle = super(CassandraCliDriver, self).connect(user_name = self.user_name, ip_address = self.ip_address,port = self.port, pwd = self.pwd)
         
         self.ssh_handle = self.handle
-        
+        self.start()
         # Copying the readme file to process the 
         if self.handle :
             
@@ -66,8 +68,7 @@ class CassandraCliDriver(OnosCliDriver):
  
     def start(self):
         self.execute(cmd="\r",prompt="\$",timeout=10)
-        self.execute(cmd="~/ONOS/start-cassandra.sh start",prompt="admin",timeout=10)
-        import time
+        self.execute(cmd="~/ONOS/start-cassandra.sh start",prompt="Starting\scassandra",timeout=10)
         time.sleep(5)
 
     def status(self):

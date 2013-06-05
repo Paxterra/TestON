@@ -6,6 +6,7 @@
             <user>admin</user>
             <password>password</password>
             <type>ZookeeperCliDriver</type>
+            <connect_order> 1 </connect_order>
             <COMPONENTS>
              </COMPONENTS>   
         </Zookeeper1>     
@@ -14,6 +15,7 @@
             <user>admin</user>
             <password>password</password>
             <type>CassandraCliDriver</type>
+            <connect_order> 2 </connect_order>
             <COMPONENTS>
              </COMPONENTS>   
         </Cassandra1>   
@@ -22,16 +24,13 @@
             <user>admin</user>
             <password>password</password>
             <type>OnosCliDriver</type>
+            <connect_order> 3 </connect_order>
             <COMPONENTS>
-            
-             </COMPONENTS>   
+            </COMPONENTS>   
         </ONOS1> 
         
         
          <ONOSRESTAPI1>
-            <host>10.128.4.7</host>
-            <user>admin</user>
-            <password>password</password>
             <type>OnosRestApiDriver</type>
             <COMPONENTS>
             <topology_url>http://10.128.4.7:9000/topology</topology_url>

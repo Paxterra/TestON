@@ -39,7 +39,9 @@ class OnosCliDriver(CLI):
         self.name = self.options['name']
 
         self.handle = super(OnosCliDriver,self).connect(user_name = self.user_name, ip_address = self.ip_address,port = self.port, pwd = self.pwd)
-         
+        
+        self.start()
+        
         if self.handle:
             return self.handle
         else :

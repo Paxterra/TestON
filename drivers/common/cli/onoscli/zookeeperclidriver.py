@@ -52,8 +52,7 @@ class ZookeeperCliDriver(OnosCliDriver):
         self.name = self.options['name']
         self.handle = super(ZookeeperCliDriver, self).connect(user_name = self.user_name, ip_address = self.ip_address,port = self.port, pwd = self.pwd)
         
-        self.ssh_handle = self.handle
-        
+        self.start()        
         # Copying the readme file to process the 
         if self.handle :
             

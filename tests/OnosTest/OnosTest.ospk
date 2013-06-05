@@ -1,13 +1,10 @@
 CASE 1
     NAME "Testing the ONOS sanity"
     STEP "Testing the ONOS sanity"
-    ON Zookeeper1 DO start
-    ON Cassandra1 DO start
-    ON ONOS1 DO start
     
-    #ON Zookeeper1 DO status
-    #ON Cassandra1 DO status 
-    #ON ONOS1 DO status
+    ON Zookeeper1 DO status
+    ON Cassandra1 DO status 
+    ON ONOS1 DO status
     
     STORE ON ONOSRESTAPI1 DO curlRequest IN Response
     INFO "***************************************"

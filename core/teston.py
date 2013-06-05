@@ -117,10 +117,20 @@ class TestON:
         initString = "\n"+"*" * 30+"\n CASE INIT \n"+"*" * 30+"\n"
         self.log.exact(initString)
         self.driverObject = {}
+        self.random_order = 111 # Random order id to connect the components
+        components_connect_order = {}
+        #component_list.append()
         if type(self.componentDictionary) == dict:
             for component in self.componentDictionary.keys():
+                self.componentDictionary[component]['connect_order'] = self.componentDictionary[component]['connect_order'] if ('connect_order' in self.componentDictionary[component].keys()) else str(self.get_random())
+                components_connect_order[component] =  eval(self.componentDictionary[component]['connect_order'])
+            #Ordering components based on the connect order.
+            ordered_component_list =sorted(components_connect_order, key=lambda key: components_connect_order[key])
+            print ordered_component_list
+            
+            for component in ordered_component_list:
                 self.componentInit(component)
-    
+
     def configparser(self):
         '''
         It will parse the config file (teston.cfg) and return as dictionary
@@ -152,6 +162,7 @@ class TestON:
         driverModule = __import__(classPath, globals(), locals(), [driverName.lower()], -1)
         driverClass = getattr(driverModule, driverName)
         driverObject = driverClass()
+         
         connect_result = driverObject.connect(user_name = self.componentDictionary[component]['user'] if ('user' in self.componentDictionary[component].keys()) else getpass.getuser(),
                                               ip_address= self.componentDictionary[component]['host'] if ('host' in self.componentDictionary[component].keys()) else 'localhost',
                                               pwd = self.componentDictionary[component]['password'] if ('password' in self.componentDictionary[component].keys()) else 'changeme',
@@ -501,7 +512,10 @@ class TestON:
             import json
             response_json = json.dumps(response_dict)
             return response_json
-        
+    
+    def get_random(self):
+        self.random_order = self.random_order + 1
+        return self.random_order
         
     def exit(self):
         __builtin__.testthread = None

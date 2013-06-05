@@ -29,6 +29,8 @@ import os
 import signal
 import re
 import sys
+import time 
+
 sys.path.append("../")
 from drivers.common.apidriver import API
 import urllib
@@ -47,39 +49,13 @@ class OnosRestApiDriver(API):
             vars(self)[key] = connectargs[key]
         
         self.name = self.options['name']
-        
-        connect_result = super(OnosRestApiDriver,self).connect()
-        
-        ssh_newkey = 'Are you sure you want to continue connecting'
-        refused = "ssh: connect to host "+self.ip_address+" port 22: Connection refused"
-        if self.port:
-            self.handle =pexpect.spawn('ssh -p '+self.port+' '+self.user_name+'@'+self.ip_address,maxread=50000)
-        else :
-            self.handle =pexpect.spawn('ssh -X '+self.user_name+'@'+self.ip_address,maxread=50000)
+        self.handle = super(OnosRestApiDriver,self).connect()
+        main.log.info(self.options['topology_url'])
+        try :
+            self.handle = urllib.urlopen(self.options['topology_url'])
+        except Exception,e:
+            main.log.error(e)
             
-        self.handle.logfile = self.logfile_handler
-        i=self.handle.expect([ssh_newkey,'password:',pexpect.EOF,pexpect.TIMEOUT,refused],120)
-        
-        if i==0:    
-            main.log.info("ssh key confirmation received, send yes")
-            self.handle.sendline('yes')
-            i=self.handle.expect([ssh_newkey,'password:',pexpect.EOF])
-        if i==1:
-            main.log.info("ssh connection asked for password, gave password")
-            self.handle.sendline(self.pwd)
-            self.handle.expect('>|#|$')
-            
-        elif i==2:
-            main.log.error("Connection timeout")
-            return main.FALSE
-        elif i==3: #timeout
-            main.log.error("No route to the Host "+self.user_name+"@"+self.ip_address)
-            return main.FALSE
-        elif i==4:
-            main.log.error("ssh: connect to host "+self.ip_address+" port 22: Connection refused")
-            return main.FALSE
-    
-        
         self.logFileName = main.logdir+"/"+self.name+".session"
         
         if self.handle:
@@ -88,13 +64,21 @@ class OnosRestApiDriver(API):
             return main.FALSE
 
     def curlRequest(self):
+        main.log.info(self.options['topology_url'])
+        for i in [1,2] :
+            time.sleep(2)
+            self.http_request()
+        
+    def http_request(self):
         try :
-            resonse_lines = urllib.urlopen(self.options['topology_url']).readlines()
-            print resonse_lines  
+            self.handle = urllib.urlopen(self.options['topology_url'])
+
+            resonse_lines = self.handle.readlines()
+            print resonse_lines
             return resonse_lines
         except Exception,e:
-           main.log.error(e)
-           return "url error"  
+            main.log.error(e)
+            return "url error"
    
     def disconnect(self,handle):
         response = ''
