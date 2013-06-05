@@ -43,7 +43,7 @@ class CLI(Component):
         '''
         for key in connectargs:
             vars(self)[key] = connectargs[key]
-            
+
         connect_result = super(CLI, self).connect()
         ssh_newkey = 'Are you sure you want to continue connecting'
         refused = "ssh: connect to host "+self.ip_address+" port 22: Connection refused"
@@ -51,11 +51,11 @@ class CLI(Component):
             self.handle =pexpect.spawn('ssh -p '+self.port+' '+self.user_name+'@'+self.ip_address,maxread=50000)
         else :
             self.handle =pexpect.spawn('ssh -X '+self.user_name+'@'+self.ip_address,maxread=50000)
-            
+
         self.handle.logfile = self.logfile_handler
-        i=self.handle.expect([ssh_newkey,'password:',pexpect.EOF,pexpect.TIMEOUT,refused],120)
-        
-        if i==0:    
+        i=self.handle.expect([ssh_newkey,'password:',pexpect.EOF,pexpect.TIMEOUT,refused,'>|#|$'],120)
+
+        if i==0:
             main.log.info("ssh key confirmation received, send yes")
             self.handle.sendline('yes')
             i=self.handle.expect([ssh_newkey,'password:',pexpect.EOF])
@@ -63,7 +63,7 @@ class CLI(Component):
             main.log.info("ssh connection asked for password, gave password")
             self.handle.sendline(self.pwd)
             self.handle.expect('>|#|$')
-            
+
         elif i==2:
             main.log.error("Connection timeout")
             return main.FALSE
@@ -73,9 +73,12 @@ class CLI(Component):
         elif i==4:
             main.log.error("ssh: connect to host "+self.ip_address+" port 22: Connection refused")
             return main.FALSE
+        elif i==5:
+            main.log.info("Password not required logged in")
 
-        self.handle.sendline("\r")        
+        self.handle.sendline("\r")
         return self.handle
+
     
     def disconnect(self):
         result = super(CLI, self).disconnect(self)
