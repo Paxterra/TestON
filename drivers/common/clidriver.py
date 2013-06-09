@@ -113,7 +113,7 @@ class CLI(Component):
         self.lastCommand = cmd
         index = self.handle.expect([expectPrompt, "--More--", 'Command not found.', pexpect.TIMEOUT,"^:$"], timeout = timeoutVar)
         if index == 0:
-            self.LASTRSP = self.LASTRSP + self.handle.before
+            self.LASTRSP = self.LASTRSP + self.handle.before + expectPrompt + self.handle.after
             main.log.info("Executed :"+cmd+"\n \t\t\t\t Expected Prompt '"+ expectPrompt+"' Found")
         elif index == 1:
             self.LASTRSP = self.LASTRSP + self.handle.before

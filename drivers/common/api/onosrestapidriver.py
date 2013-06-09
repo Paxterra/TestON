@@ -19,10 +19,9 @@ Created on 4-Jun-2013
     along with TestON.  If not, see <http://www.gnu.org/licenses/>.        
 
 
-onosrestapidriver is the basic driver which will handle the fvtapidriver functions
+onosrestapidriver is the basic driver which will handle the onorestapi functions
 '''
 
-import pexpect
 import struct
 import fcntl
 import os
@@ -41,7 +40,6 @@ class OnosRestApiDriver(API):
 
     def __init__(self):
         super(API, self).__init__()
-        print 'init'
                                                 
 
     def connect(self,**connectargs):
@@ -63,11 +61,13 @@ class OnosRestApiDriver(API):
         else :
             return main.FALSE
 
-    def curlRequest(self):
+    def execute(self):
         main.log.info(self.options['topology_url'])
+        response = main.FALSE
         for i in [1,2] :
             time.sleep(2)
-            self.http_request()
+            response = self.http_request()
+        return response
         
     def http_request(self):
         try :

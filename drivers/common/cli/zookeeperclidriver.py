@@ -19,7 +19,7 @@ Created on 31-May-2013
     along with TestON.  If not, see <http://www.gnu.org/licenses/>.        
 
 
-FlowVisorDriver is the basic driver which will handle the Zookeeper functions
+ZookeeperCliDriver is the basic driver which will handle the Zookeeper functions
 '''
 
 import pexpect
@@ -33,32 +33,29 @@ import core.teston
 import time
 
 sys.path.append("../")
-from drivers.common.cli.onosclidriver import OnosCliDriver
+from drivers.common.clidriver import CLI
 
-class CassandraCliDriver(OnosCliDriver):
+class ZookeeperCliDriver(CLI):
     '''
-        FlowVisorDriver is the basic driver which will handle the Zookeeper functions
+        ZookeeperCliDriver is the basic driver which will handle the Zookeeper's functions
     '''
     def __init__(self):
-        super(OnosCliDriver, self).__init__()
+        super(CLI, self).__init__()
         self.handle = self
         self.wrapped = sys.modules[__name__]
 
     def connect(self, **connectargs):
-        #,user_name, ip_address, pwd,options):
         # Here the main is the TestON instance after creating all the log handles.
         self.port = None
         for key in connectargs:
             vars(self)[key] = connectargs[key]       
         
         self.name = self.options['name']
-        self.handle = super(CassandraCliDriver, self).connect(user_name = self.user_name, ip_address = self.ip_address,port = self.port, pwd = self.pwd)
+        self.handle = super(ZookeeperCliDriver, self).connect(user_name = self.user_name, ip_address = self.ip_address,port = self.port, pwd = self.pwd)
         
         self.ssh_handle = self.handle
-        self.start()
-        # Copying the readme file to process the 
         if self.handle :
-            
+            self.start()
             return main.TRUE
         else :
             main.log.error("Connection failed to the host "+self.user_name+"@"+self.ip_address) 
@@ -67,20 +64,42 @@ class CassandraCliDriver(OnosCliDriver):
    
  
     def start(self):
+        ''' This Function will start the Zookeeper'''
         self.execute(cmd="\r",prompt="\$",timeout=10)
-        self.execute(cmd="~/ONOS/start-cassandra.sh start",prompt="Starting\scassandra",timeout=10)
+        print "Starting Zookeeper"
+        response = self.execute(cmd="~/zookeeper-3.4.5/bin/zkServer.sh start",prompt="STARTED",timeout=10)
         time.sleep(5)
-
+        if re.search("STARTED", response):
+            main.log.info("Zookeeper Started Successfully")
+            return main.TRUE
+        elif re.search("already\srunning", response):
+            main.log.warn("zookeeper ... already running")
+        else:
+            main.log.error("Failed to start Zookeeper"+ response)
+            return main.FALSE
+        
     def status(self):
+        '''This Function will return the Status of the Zookeeper '''
+        time.sleep(5)
         self.execute(cmd="\r",prompt="\$",timeout=10)
-        self.execute(cmd="~/ONOS/start-cassandra.sh status ",prompt="admin",timeout=10)
+        response = self.execute(cmd="~/zookeeper-3.4.5/bin/zkServer.sh status ",prompt="JMX",timeout=10)
+        
         self.execute(cmd="\r",prompt="\$",timeout=10)
-    
+        return response
+        
     def stop(self):
+        '''This Function will stop the Zookeeper if it is Running''' 
         self.execute(cmd="\r",prompt="\$",timeout=10)
-        self.execute(cmd="~/ONOS/start-cassandra.sh stop ",prompt="admin",timeout=10)
+        time.sleep(5)
+        response = self.execute(cmd="~/zookeeper-3.4.5/bin/zkServer.sh stop ",prompt="STOPPED",timeout=10)
         self.execute(cmd="\r",prompt="\$",timeout=10)
- 
+        if re.search("STOPPED",response):
+            main.log.info("Zookeeper Stopped")
+            return main.TRUE
+        else:
+            main.log.warn("No zookeeper to stop")
+            return main.FALSE
+            
     def disconnect(self):
         
         response = ''

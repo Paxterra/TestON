@@ -257,11 +257,11 @@ class MininetCliDriver(Emulator):
     def disconnect(self):
         
         response = ''
-        print "AAAA"*20
         print "Disconnecting Mininet"
-        print "AAAA"*20 
         if self.handle:
             response = self.execute(cmd="exit",prompt="(.*)",timeout=120)
+            response = self.execute(cmd="exit",prompt="(.*)",timeout=120)
+
         else :
             main.log.error("Connection failed to the host")
             response = main.FALSE
