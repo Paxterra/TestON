@@ -129,8 +129,8 @@ class CLI(Component):
             main.log.error("Command not found")
             self.LASTRSP = self.LASTRSP + self.handle.before
         elif index ==3:
-            #main.log.error("Expected Prompt not found , Time Out!!") 
-            return main.FALSE
+            main.log.error("Expected Prompt not found , Time Out!!") 
+            return "Expected Prompt not found , Time Out!!"
         
         elif index == 4:
             self.LASTRSP = self.LASTRSP + self.handle.before
