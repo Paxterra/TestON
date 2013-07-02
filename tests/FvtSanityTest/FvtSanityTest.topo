@@ -1,0 +1,26 @@
+<TOPOLOGY>
+
+    <COMPONENT>
+        <HPSwitch1>
+            <host>10.128.0.22</host>
+            <user> </user>
+            <password> </password>
+            <type>HPSwitch</type>
+            <COMPONENTS>
+            </COMPONENTS>   
+        </HPSwitch1>
+        
+        
+        <FlowVisor1>
+            <host>10.128.4.2</host>
+            <user> paxterra </user>
+            <fvadmin_pwd></fvadmin_pwd>
+            <password>0nLab_gu3st</password>
+            <type>FlowVisorDriver</type>
+            <COMPONENTS>
+            </COMPONENTS>
+               
+        </FlowVisor1>
+                  
+    </COMPONENT>
+</TOPOLOGY>

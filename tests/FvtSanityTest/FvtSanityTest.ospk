@@ -1,0 +1,29 @@
+CASE 1
+
+    NAME "Checking FVT Sanity Test"
+    STEP "Checking FVT Sanity Test"
+    #ON FlowVisor1 DO listDevices
+    
+    ON HPSwitch1 DO set_up_vlan USING vlan_id AS '2', vlan_name AS "OF_DP"
+    
+    #ON HPSwitch1 DO vlan_untagged USING vlan_id AS '2', untagging AS 'a5-a24,b1-b24'
+    
+    #ON HPSwitch1 DO add_openflow_controller USING controller_id AS '3', controller_ip AS '10.128.4.3', interface_vlan_id AS '1' 
+    
+    #ON HPSwitch1 DO create_openflow_instance USING instance_name AS "InstanceTesting2",controller_id AS '3', member_vlan_id AS '2'
+    
+    #ON HPSwitch1 DO pair_vlan_with_openflow_instance USING vlan_id AS '1'
+    
+    #ON HPSwitch1 DO pair_vlan_with_openflow_instance USING vlan_id AS '2'
+    
+    #ON HPSwitch1 DO openflow_enable
+    
+    #ON HPSwitch1 DO show USING 'openflow controllers'
+    
+    #ON HPSwitch1 DO show USING 'vlans'
+     
+    #ON HPSwitch1 DO remove_vlan USING '2'
+    
+    #ON HPSwitch1 DO remove_controller USING '3'
+
+    #ON HPSwitch1 DO remove_openflow_instance USING 'InstanceTesting2'

@@ -17,7 +17,7 @@ Created on 24-Oct-2012
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with TestON.  If not, see <http://www.gnu.org/licenses/>.		
+    along with TestON.  If not, see <http://www.gnu.org/licenses/>.        
 
 
           
@@ -42,18 +42,31 @@ class CLI(Component):
            and will return the handle. 
         '''
         for key in connectargs:
-            vars(self)[key] = connectargs[key]
-
+            vars(self)[key] = str(connectargs[key])
+    
         connect_result = super(CLI, self).connect()
         ssh_newkey = 'Are you sure you want to continue connecting'
         refused = "ssh: connect to host "+self.ip_address+" port 22: Connection refused"
-        if self.port:
-            self.handle =pexpect.spawn('ssh -p '+self.port+' '+self.user_name+'@'+self.ip_address,maxread=50000)
-        else :
-            self.handle =pexpect.spawn('ssh -X '+self.user_name+'@'+self.ip_address,maxread=50000)
+        self.port = eval(self.port)
 
+        if re.match('(\w+|\d+|(-)+|(_)+)+', str(self.user_name)) :
+            if self.port:
+                main.log.info('ssh -p '+self.port+' '+self.user_name+'@'+self.ip_address)
+                self.handle =pexpect.spawn('ssh -p '+self.port+' '+self.user_name+'@'+self.ip_address,maxread=50000)
+            else :
+                main.log.info('ssh -X '+self.user_name+'@'+self.ip_address)
+                self.handle =pexpect.spawn('ssh -X '+self.user_name+'@'+self.ip_address,maxread=50000)
+            
+        else :
+            if self.port:
+                main.log.info('ssh -p '+self.port+' '+self.ip_address)
+                self.handle =pexpect.spawn('ssh -p '+self.port+' '+self.ip_address,maxread=50000)
+            else :
+                main.log.info('ssh '+self.ip_address)
+                self.handle =pexpect.spawn('ssh '+self.ip_address,maxread=50000)
+  
         self.handle.logfile = self.logfile_handler
-        i=self.handle.expect([ssh_newkey,'password:',pexpect.EOF,pexpect.TIMEOUT,refused,'>|#|$'],120)
+        i=self.handle.expect([ssh_newkey,'password:',pexpect.EOF,pexpect.TIMEOUT,refused,'Last login','Press any key to continue'],120)
 
         if i==0:
             main.log.info("ssh key confirmation received, send yes")
@@ -74,7 +87,13 @@ class CLI(Component):
             main.log.error("ssh: connect to host "+self.ip_address+" port 22: Connection refused")
             return main.FALSE
         elif i==5:
-            main.log.info("Password not required logged in")
+            main.log.info("Not asking any password and directly logging to the device")
+            self.handle.sendline('\r')
+            self.handle.expect('>|#|$')
+        elif i==6:
+            main.log.info("Not asking any password and directly logging to the device")
+            self.handle.sendline('\r')
+            self.handle.expect('>|#|$')
 
         self.handle.sendline("\r")
         return self.handle
@@ -151,7 +170,7 @@ class CLI(Component):
         #RE_XML_ILLEGAL = '([\u0000-\u0008\u000b-\u000c\u000e-\u001f\ufffe-\uffff])|([%s-%s][^%s-%s])|([^%s-%s][%s-%s])|([%s-%s]$)|(^[%s-%s])'%(unichr(0xd800),unichr(0xdbff),unichr(0xdc00),unichr(0xdfff),unichr(0xd800),unichr(0xdbff),unichr(0xdc00),unichr(0xdfff),unichr(0xd800),unichr(0xdbff),unichr(0xdc00),unichr(0xdfff))  
         #response = re.sub(RE_XML_ILLEGAL, "\n", response) 
         response = re.sub(r"[\x01-\x1F\x7F]", "", response)
-        #response = re.sub(r"\[\d+\;1H", "\n", response)
+        response = re.sub(r"\[\d+\;1H", "\n", response)
         response = re.sub(r"\[\d+\;\d+H", "", response)
         return response
         

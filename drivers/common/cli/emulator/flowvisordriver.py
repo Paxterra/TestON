@@ -57,31 +57,29 @@ class FlowVisorDriver(Emulator):
         # Copying the readme file to process the 
         if self.handle :
             self.execute(cmd='\r',prompt='\$',timeout=10)
-            self.options['path'] = '/home/openflow/flowvisor/scripts/'
+            #self.options['path'] = '/home/openflow/flowvisor/scripts/'
             #self.handle.logfile = sys.stdout
-            self.execute(cmd='cd '+self.options['path'],prompt='\$',timeout=10)
+            #self.execute(cmd='cd '+self.options['path'],prompt='\$',timeout=10)
             main.log.info("Starting FlowVisor ")
             
-            response = self.execute(cmd='./flowvisor.sh &',prompt='---\sSetting\slogging\slevel\sto\sNOTE',timeout=10)
-           
-            pattern = '\d+'
-            
+            response = self.execute(cmd='flowvisor &',prompt='---\sSetting\slogging\slevel\sto\sNOTE',timeout=10)
+                    
             process_id_search = re.search("\[\d+\]\s+(\d+)", str(response))
             self.fvprocess_id = "None"
             if process_id_search:
                 self.fvprocess_id = process_id_search.group(1)
+                main.log.info("FlowVisor Started Successfully : Proceess Id :"+self.fvprocess_id)
+            else :
+                main.log.error("Failed to start FlowVisor")
             
-            utilities.assert_matches(expect=pattern,actual=response,onpass="FlowVisor Started Successfully : Proceess Id :"+self.fvprocess_id,onfail="Failed to start FlowVisor")
             main.log.info(response)
-            #import time
-            #time.sleep(10)
-            #response = self.execute(cmd='./start_visualizer.sh & \r',prompt='\$',timeout=10)
-            
+           
             return main.TRUE
         else :
             main.log.error("Connection failed to the host "+self.user_name+"@"+self.ip_address) 
             main.log.error("Failed to connect to the FlowVisor")
             return main.FALSE
+        
     def removeFlowSpace(self,id):
         if id == "all":
             flow_space = self.listFlowSpace()
@@ -90,7 +88,7 @@ class FlowVisorDriver(Emulator):
                 self.removeFlowSpace(id)
         else :
             self.execute(cmd="clear",prompt="\$",timeout=10)
-            self.execute(cmd="./fvctl.sh removeFlowSpace "+id,prompt="passwd:",timeout=10)
+            self.execute(cmd="fvctl.sh removeFlowSpace "+id,prompt="passwd:",timeout=10)
             self.execute(cmd="\r",prompt="\$",timeout=10)
             main.log.info("Removed flowSpace which is having id :"+id)
             
@@ -128,7 +126,7 @@ class FlowVisorDriver(Emulator):
         '''    
 
         #self.execute(cmd="clear",prompt="\$",timeout=10)
-        self.execute(cmd="./fvctl.sh addFlowSpace "+flowspace,prompt="passwd:",timeout=10)
+        self.execute(cmd="fvctl.sh addFlowSpace "+flowspace,prompt="passwd:",timeout=10)
         self.execute(cmd="\r",prompt="\$",timeout=10)
         sucess_match = re.search("success\:\s+(\d+)", main.last_response)
         if sucess_match :
@@ -138,10 +136,9 @@ class FlowVisorDriver(Emulator):
             return main.FALSE
         
     
-    
     def listFlowSpace(self):
         self.execute(cmd="clear",prompt="\$",timeout=10)
-        self.execute(cmd="./fvctl.sh listFlowSpace ",prompt="passwd:",timeout=10)
+        self.execute(cmd="fvctl.sh listFlowSpace ",prompt="passwd:",timeout=10)
         self.execute(cmd="\r",prompt="\$",timeout=10)
         flow_space = main.last_response
         flow_space = self.remove_contol_chars( flow_space)
@@ -152,20 +149,19 @@ class FlowVisorDriver(Emulator):
         
     def listDevices(self):
         #self.execute(cmd="clear",prompt="\$",timeout=10)
-        #self.execute(cmd="./fvctl.sh listDevices ",prompt="passwd:",timeout=10)
-        #self.execute(cmd="\r",prompt="\$",timeout=10)
+        self.execute(cmd="fvctl listDevices ",prompt="passwd:",timeout=10)
+        self.execute(cmd="\r",prompt="\$",timeout=10)
         devices_list = ''
         last_response = re.findall("(Device\s\d+\:\s((\d|[a-z])(\d|[a-z])\:)+(\d|[a-z])(\d|[a-z]))", main.last_response)
-        
+        #devices_list = "Device 0: 00:00:00:00:00:00:00:02 \n Device 1: 00:00:00:00:00:00:00:03"
         for resp in last_response :
             devices_match = re.search("(Device\s\d+\:\s((\d|[a-z])(\d|[a-z])\:)+(\d|[a-z])(\d|[a-z]))", str(resp))
             if devices_match:
                 devices_list = devices_list+devices_match.group(0)+"\n"
-        devices_list = "Device 0: 00:00:00:00:00:00:00:02 \n Device 1: 00:00:00:00:00:00:00:03"
+        
         main.log.info("List of Devices \n"+devices_list)
         
         return main.TRUE
-    
  
     def disconnect(self):
         
