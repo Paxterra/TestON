@@ -1,0 +1,161 @@
+2013-07-02 10:56:15,775  HPSwitch1 : INFO    : 
+                                +----------------+
+------------------------------ { Script And Files }  ------------------------------
+                                +----------------+
+
+	Script Log File : /home/paxterra/Documents/latest_teston_30May/TestON/logs/FvtSanityTest_02_Jul_2013_10_56_00/FvtSanityTest_02_Jul_2013_10_56_00.log
+	Report Log File : /home/paxterra/Documents/latest_teston_30May/TestON/logs/FvtSanityTest_02_Jul_2013_10_56_00/FvtSanityTest_02_Jul_2013_10_56_00.rpt
+	FlowVisor1 Session Log : /home/paxterra/Documents/latest_teston_30May/TestON/logs/FvtSanityTest_02_Jul_2013_10_56_00/FlowVisor1.session
+	HPSwitch1 Session Log : /home/paxterra/Documents/latest_teston_30May/TestON/logs/FvtSanityTest_02_Jul_2013_10_56_00/HPSwitch1.session
+	Test Script :/home/paxterra/Documents/latest_teston_30May/TestON/Tests/FvtSanityTest.py
+	Test Params : /home/paxterra/Documents/latest_teston_30May/TestON/Tests/FvtSanityTest.params
+	Topology : /home/paxterra/Documents/latest_teston_30May/TestON/Tests/FvtSanityTest.tpl
+                              +------------------+
+---------------------------  { Script Exec Params }  ---------------------------
+                              +------------------+
+
+	
+	'mail': 'anil4haart@gmail.com
+	paxweb@paxterrasolutions.com'
+	 'testcases': '1'
+	
+
+                               +---------------+
+----------------------------- { Components Used }  -----------------------------
+                               +---------------+
+	FlowVisor1
+	HPSwitch1
+
+
+                              +--------+
+---------------------------- { Topology }  ----------------------------
+                              +--------+
+
+	
+	'FlowVisor1': 
+	'host': '10.128.4.2'
+	 'user': 'paxterra'
+	 'COMPONENTS': ''
+	 'password': '0nLab_gu3st'
+	 'type': 'FlowVisorDriver'
+	 'fvadmin_pwd': None
+	
+	 'HPSwitch1': 
+	'host': '10.128.0.22'
+	 'password': ''
+	 'type': 'HPSwitch'
+	 'user': ''
+	 'COMPONENTS': ''
+	
+	
+------------------------------------------------------------
+
+We'd like to keep you up to date about:
+  * Software feature updates
+  * New product announcements
+  * Special events
+Please register your products now at:  www.hp.com/networking/register
+
+
+HP J9263A Switch 6600ml-24G
+Software revision K.15.10.0003
+
+Copyright (C) 1991-2012 Hewlett-Packard Development Company, L.P.
+
+                   RESTRICTED RIGHTS LEGEND
+ Confidential computer software.  Valid license from HP required for possession,
+ use or copying. Consistent with FAR 12.211 and 12.212, Commercial Computer
+ Software, Computer Software Documentation, and Technical Data for Commercial
+ Items are licensed to the U.S. Government under vendor's standard commercial
+ license.
+                   HEWLETT-PACKARD DEVELOPMENT COMPANY, L.P. 
+                   20555 State Highway 249, Houston, TX 77070
+
+[1;15r[1;1H[24;1HPress any key to continue[15;1H[?25h[24;27H
+[?6l[1;24r[?7l[2J[1;1H[1920;1920H[6n[1;1H[1;24r[24;1H[24;1H[2K[24;1H[?25h[24;1H[24;1HHP-6600ml-24G# [24;1H[24;16H[24;1H[?25h[24;16H[24;0HE[24;1H[24;16H[24;1H[2K[24;1H[?25h[24;1H[1;24r[24;1H[1;24r[24;1H[24;1H[2K[24;1H[?25h[24;1H[24;1HHP-6600ml-24G# [24;1H[24;16H[24;1H[?25h[24;16H
+2013-07-02 10:56:21,388  HPSwitch1 : INFO    : 
+****************************************
+Start of Test Case1 : 
+2013-07-02 10:56:21,388  HPSwitch1 : INFO    :  Checking FVT Sanity Test
+****************************************
+
+2013-07-02 10:56:21,388  HPSwitch1 : INFO    : 
+---------------------------------------------
+Start of Step INIT : Initializing the test case :Checking FVT Sanity Test
+---------------------------------------------
+
+2013-07-02 10:56:21,388  HPSwitch1 : INFO    : 
+---------------------------------------------
+Start of Step 1.1: Checking FVT Sanity Test
+---------------------------------------------
+
+2013-07-02 10:56:23,548  HPSwitch1 : INFO    : 
+---------------------------------------------
+End of Step  1.1: Checking FVT Sanity Test
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.2:  Configuring VLANS
+---------------------------------------------
+
+vlan 2
+[24;0HE[24;1H[24;16H[24;1H[2K[24;1H[?25h[24;1H[1;24r[24;1H[1;24r[24;1H[24;1H[2K[24;1H[?25h[24;1H[24;1HHP-6600ml-24G# [24;1H[24;16H[24;1H[?25h[24;16H[24;0HE[24;1H[24;16H[24;1H[2K[24;1H[?25h[24;1H[1;24r[24;1H[1;24r[24;1H[24;1H[2K[24;1H[?25h[24;1H[24;1HHP-6600ml-24G# [24;1H[24;16H[24;1H[?25h[24;16H[24;16Hvlan 2[24;16H[?25h[24;22H[24;0HE[24;1H[24;22H[24;1H[2K[24;1H[?25h[24;1H[1;24r[24;1HInvalid input: vlan
+[1;24r[24;1H[24;1H[2K[24;1H[?25h[24;1H[24;1HHP-6600ml-24G# [24;1H[24;16H[24;1H[?25h[24;16H2013-07-02 10:56:26,653  HPSwitch1 : INFO    : 
+---------------------------------------------
+End of Step  1.2:  Configuring VLANS
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.3:  Configuring Controller
+---------------------------------------------
+
+openflow
+[24;16Hopenflow[24;16H[?25h[24;24H[24;0HE[24;1H[24;24H[24;1H[2K[24;1H[?25h[24;1H[1;24r[24;1HInvalid input: openflow
+[1;24r[24;1H[24;1H[2K[24;1H[?25h[24;1H[24;1HHP-6600ml-24G# [24;1H[24;16H[24;1H[?25h[24;16H2013-07-02 10:56:29,755  HPSwitch1 : INFO    : 
+---------------------------------------------
+End of Step  1.3:  Configuring Controller
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.4:  Configuring Openflow Instance
+---------------------------------------------
+
+openflow
+[24;16Hopenflow[24;16H[?25h[24;24H[24;0HE[24;1H[24;24H[24;1H[2K[24;1H[?25h[24;1H[1;24r[24;1HInvalid input: openflow
+[1;24r[24;1H[24;1H[2K[24;1H[?25h[24;1H[24;1HHP-6600ml-24G# [24;1H[24;16H[24;1H[?25h[24;16H2013-07-02 10:56:32,859  HPSwitch1 : INFO    : 
+---------------------------------------------
+End of Step  1.4:  Configuring Openflow Instance
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.5:  Enable Openflow
+---------------------------------------------
+
+vlan 1
+[24;16Hvlan 1[24;16H[?25h[24;22H[24;0HE[24;1H[24;22H[24;1H[2K[24;1H[?25h[24;1H[1;24r[24;1HInvalid input: vlan
+[1;24r[24;1H[24;1H[2K[24;1H[?25h[24;1H[24;1HHP-6600ml-24G# [24;1H[24;16H[24;1H[?25h[24;16Hvlan 2
+[24;16Hvlan 2[24;16H[?25h[24;22H[24;0HE[24;1H[24;22H[24;1H[2K[24;1H[?25h[24;1H[1;24r[24;1HInvalid input: vlan
+[1;24r[24;1H[24;1H[2K[24;1H[?25h[24;1H[24;1HHP-6600ml-24G# [24;1H[24;16H[24;1H[?25h[24;16Hopenflow enable
+2013-07-02 10:56:39,169  HPSwitch1 : INFO    : 
+---------------------------------------------
+End of Step  1.5:  Enable Openflow
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.6: Showing Controllers and Vlans
+---------------------------------------------
+
+openflow controllers
+vlans
+2013-07-02 10:56:39,371  HPSwitch1 : INFO    : 
+---------------------------------------------
+End of Step  1.6: Showing Controllers and Vlans
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.7:  Tearing up the configurations
+---------------------------------------------
+
+no vlan 2
+no controller-id 3
+no openflow instance InstanceTesting2

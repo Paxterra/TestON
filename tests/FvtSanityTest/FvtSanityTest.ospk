@@ -2,28 +2,53 @@ CASE 1
 
     NAME "Checking FVT Sanity Test"
     STEP "Checking FVT Sanity Test"
-    #ON FlowVisor1 DO listDevices
     
-    ON HPSwitch1 DO set_up_vlan USING vlan_id AS '2', vlan_name AS "OF_DP"
+    STORE ON FlowVisor1 DO listDevices IN listed
+    ASSERT listed EQUALS main.TRUE ONPASS "Listed Devices connected to the flowvisor" ONFAIL "No Devices connected to flowvisor"
     
-    #ON HPSwitch1 DO vlan_untagged USING vlan_id AS '2', untagging AS 'a5-a24,b1-b24'
-    
-    #ON HPSwitch1 DO add_openflow_controller USING controller_id AS '3', controller_ip AS '10.128.4.3', interface_vlan_id AS '1' 
-    
-    #ON HPSwitch1 DO create_openflow_instance USING instance_name AS "InstanceTesting2",controller_id AS '3', member_vlan_id AS '2'
-    
-    #ON HPSwitch1 DO pair_vlan_with_openflow_instance USING vlan_id AS '1'
-    
-    #ON HPSwitch1 DO pair_vlan_with_openflow_instance USING vlan_id AS '2'
-    
-    #ON HPSwitch1 DO openflow_enable
-    
-    #ON HPSwitch1 DO show USING 'openflow controllers'
-    
-    #ON HPSwitch1 DO show USING 'vlans'
+    STEP " Configuring VLANS"
+    STORE ON HPSwitch1 DO setup_vlan USING vlan_id AS '2', vlan_name AS "OF_DP" IN vlan_setup  
+    ASSERT vlan_setup EQUALS main.TRUE ONPASS "Configured VLAN successfully " ONFAIL "Failed to configure VLAN"
      
-    #ON HPSwitch1 DO remove_vlan USING '2'
+    STORE ON HPSwitch1 DO vlan_untagged USING vlan_id AS '2', untagging AS 'a5-a24,b1-b24' IN untagged
+    ASSERT untagged EQUALS main.TRUE ONPASS "VLAN untagging done Successfully" ONFAIL "Failed to untag VLAN"
     
-    #ON HPSwitch1 DO remove_controller USING '3'
+    
+    STEP " Configuring Controller"
+    STORE ON HPSwitch1 DO add_openflow_controller USING controller_id AS '3', controller_ip AS '10.128.4.3', interface_vlan_id AS '1' IN controller_added
+    ASSERT controller_added EQUALS main.TRUE ONPASS "OpenFlow Controller Added Successfully" ONFAIL "Failed to Configure OpenFlow controller"
+    
+    
+    STEP " Configuring Openflow Instance"
+    STORE ON HPSwitch1 DO create_openflow_instance USING instance_name AS "InstanceTesting2",controller_id AS '3', member_vlan_id AS '2' IN instance_created
+    ASSERT instance_created EQUALS main.TRUE ONPASS "OpenFlow Instance Added Successfully" ONFAIL "Failed to Configure OpenFlow Instance"
+    
+    
+    STEP " Enable Openflow"  
+    STORE ON HPSwitch1 DO pair_vlan_with_openflow_instance USING vlan_id AS '1' IN paired
+    ASSERT paired EQUALS main.TRUE ONPASS "OpenFlow Instance Paired with VLAN" ONFAIL "Failed to Paired Openflow instance with VLAN"
+    
+    STORE ON HPSwitch1 DO pair_vlan_with_openflow_instance USING vlan_id AS '2' IN paired
+    ASSERT paired EQUALS main.TRUE ONPASS "OpenFlow Instance Paired with VLAN" ONFAIL "Failed to Paired Openflow instance with VLAN"
+        
+    STORE ON HPSwitch1 DO openflow_enable IN enabled
+    ASSERT enabled EQUALS main.TRUE ONPASS "OpenFlow enabled successfully" ONFAIL "Failed to enable Openflow"
+    
+    
+    STEP "Showing Controllers and Vlans"
+    STORE ON HPSwitch1 DO show USING 'openflow controllers' IN list_controllers
+    ASSERT list_controllers EQUALS main.TRUE ONPASS "Openflow controllers listed" ONFAIL "Failed to list controllers"
+    
+    STORE ON HPSwitch1 DO show USING 'vlans' IN list_vlans
+    ASSERT list_vlans EQUALS main.TRUE ONPASS "VLANS listed" ONFAIL "Failed to list LANS"
+     
+    
+    STEP " Tearing up the configurations"
+    STORE ON HPSwitch1 DO remove_vlan USING '2' IN removed_vlan
+    ASSERT removed_vlan EQUALS main.TRUE ONPASS "VLAN removed successfully" ONFAIL "Failed to remove VLAN"
+    
+    STORE ON HPSwitch1 DO remove_controller USING '3' IN removed_controller
+    ASSERT removed_controller EQUALS main.TRUE ONPASS "Controller removed successfully" ONFAIL "Failed to remove Controller"
 
-    #ON HPSwitch1 DO remove_openflow_instance USING 'InstanceTesting2'
+    STORE ON HPSwitch1 DO remove_openflow_instance USING 'InstanceTesting2' IN removed_instance
+    ASSERT removed_instance EQUALS main.TRUE ONPASS "Instance removed successfully" ONFAIL "Failed to remove Instance" 

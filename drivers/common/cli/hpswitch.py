@@ -44,9 +44,9 @@ class HPSwitch(CLI):
     def configure(self):
         self.execute(cmd='configure', prompt = '\(config\)',timeout = 3)
         if re.search('\(config\)', main.last_response):
-            main.log.info("Configure mode enabled"+main.last_response)
+            main.log.info("Configure mode enabled")
         else : 
-            main.log.warn("Fail to enable configure mode"+main.last_response)
+            main.log.warn("Fail to enable configure mode")
         
 
     def set_up_vlan(self,**vlanargs):
@@ -61,7 +61,7 @@ class HPSwitch(CLI):
         if re.search('\(vlan-'+self.vlan_id+'\)', main.last_response):
             main.log.info("Configuring VLAN "+self.vlan_id)
         else : 
-            main.log.warn("Fail to configure Vlan"+self.vlan_id+main.last_response)
+            main.log.warn("Fail to configure Vlan"+self.vlan_id)
             return main.FALSE
         
         if self.vlan_name :
@@ -70,7 +70,7 @@ class HPSwitch(CLI):
                 main.log.info("Configuring "+self.vlan_id)
                 return main.TRUE
             else : 
-                main.log.warn("Fail to configure Vlan"+self.vlan_id+main.last_response)
+                main.log.warn("Fail to configure Vlan"+self.vlan_id)
                 return main.FALSE
         else :
             main.log.error("Vlan Name not specified")
@@ -85,7 +85,7 @@ class HPSwitch(CLI):
             if re.search('\(vlan-'+self.vlan_id+'\)', main.last_response):
                 main.log.info("Configuring "+self.vlan_id)
             else : 
-                main.log.warn("Fail to configure Vlan"+self.vlan_id+main.last_response)
+                main.log.warn("Fail to configure Vlan"+self.vlan_id)
                 return main.FALSE
             if self.tagged :
                 self.execute(cmd='tagged '+self.vlan_id, prompt = '\(vlan-'+self.vlan_id+'\)',timeout = 3)
@@ -93,7 +93,7 @@ class HPSwitch(CLI):
                     main.log.info("VLAN tagged done "+self.tagged)
                     return main.TRUE
                 else : 
-                    main.log.warn("Fail to tagged Vlan"+self.vlan_id+main.last_response)
+                    main.log.warn("Fail to tagged Vlan"+self.vlan_id)
                     return main.FALSE
             
     def vlan_untagged(self, **untaggedargs):
@@ -105,7 +105,7 @@ class HPSwitch(CLI):
             if re.search('\(vlan-'+self.vlan_id+'\)', main.last_response):
                 main.log.info("Configuring "+self.vlan_id)
             else : 
-                main.log.warn("Fail to configure Vlan"+self.vlan_id+main.last_response)
+                main.log.warn("Fail to configure Vlan"+self.vlan_id)
                 return main.FALSE
             if self.tagged :
                 self.execute(cmd='untagged '+self.vlan_id, prompt = '\(vlan-'+self.vlan_id+'\)',timeout = 3)
@@ -113,17 +113,17 @@ class HPSwitch(CLI):
                     main.log.info("VLAN untagged done "+self.tagged)
                     return main.TRUE
                 else : 
-                    main.log.warn("Fail to untagged Vlan"+self.vlan_id+main.last_response)
+                    main.log.warn("Fail to untagged Vlan"+self.vlan_id)
                     return main.FALSE
                 
     def openflow_mode(self):
-        self.configure()
+        #self.configure()
         self.execute(cmd='openflow', prompt = '\(openflow\)',timeout = 3)
         if re.search('\(openflow\)', main.last_response):
-            main.log.info("Openflow mode enabled"+main.last_response)
+            main.log.info("Openflow mode enabled")
             return main.TRUE
         else : 
-            main.log.warn("Fail to enable Openflow mode"+main.last_response)
+            main.log.warn("Fail to enable Openflow mode")
             return main.FALSE
 
 
@@ -138,10 +138,10 @@ class HPSwitch(CLI):
         self.execute(cmd=contoller_details, prompt = '\(openflow\)',timeout = 3)
         
         if re.search('already\sconfigured', main.last_response):
-            main.log.warn("A controller is already configured with this ID."+main.last_response)
+            main.log.warn("A controller is already configured with this ID.")
             return main.FALSE
         elif re.search('Incomplete\sinput',main.last_response ) :             
-            main.log.warn("Incomplete\sinput"+main.last_response)
+            main.log.warn("Incomplete\sinput")
             return main.FALSE
         else:
             main.log.info("Successfully added Openflow Controller")
@@ -161,7 +161,7 @@ class HPSwitch(CLI):
             if re.search('\(of-inst-'+self.instance_name+'\)', main.last_response):
                 main.log.info("Configuring Openflow instance "+self.instance_name)
             else : 
-                main.log.warn("Fail to configure Openflow instance"+self.instance_name+"\n\n"+main.last_response)
+                main.log.warn("Fail to configure Openflow instance"+self.instance_name+"\n\n")
                 return main.FALSE
         if self.controller_id :
             self.execute(cmd='controller-id '+self.controller_id, prompt = '\(of-inst-'+self.instance_name+'\)',timeout = 3)
@@ -177,19 +177,19 @@ class HPSwitch(CLI):
             return main.FALSE
     
     def pair_vlan_with_openflow_instance(self,vlan_id):
-        self.configure()
+        #self.configure()
         self.execute(cmd='vlan '+vlan_id, prompt = '\(vlan-'+vlan_id+'\)',timeout = 3)
         if re.search('\(vlan-'+vlan_id+'\)', main.last_response):
             main.log.info("Configuring VLAN "+vlan_id)
         else : 
-            main.log.warn("Fail to configure Vlan"+self.vlan_id+main.last_response)
+            main.log.warn("Fail to configure Vlan"+self.vlan_id)
             return main.FALSE
         
         self.execute(cmd='openflow enable', prompt = '\(vlan-'+vlan_id+'\)',timeout = 3)
         if re.search('\(vlan-'+vlan_id+'\)', main.last_response):
             main.log.info("Configuring VLAN "+vlan_id)
         else : 
-            main.log.warn("Fail to configure Vlan"+self.vlan_id+main.last_response)
+            main.log.warn("Fail to configure Vlan"+self.vlan_id)
             return main.FALSE
         
     def show_openflow_instance(self,instance_name):
@@ -203,22 +203,22 @@ class HPSwitch(CLI):
     
     
     def openflow_enable(self):
-        self.configure()
+        #self.configure()
         self.execute(cmd='openflow enable', prompt = '#',timeout = 3)
         return main.TRUE
     
     def openflow_disable(self):
-        self.configure()
+        #self.configure()
         self.execute(cmd='openflow enable', prompt = '#',timeout = 3)
         return main.TRUE
     
     def remove_controller(self,controller_id):
-        self.configure()
+        #self.configure()
         self.execute(cmd='no controller-id '+controller_id, prompt = '#',timeout = 3)
         return main.TRUE
     
     def remove_vlan(self,vlan_id):
-        self.configure()
+        #self.configure()
         if self.execute(cmd='no vlan '+vlan_id, prompt = '#',timeout = 3):
             return main.TRUE
         else :
@@ -226,7 +226,7 @@ class HPSwitch(CLI):
             return main.TRUE
     
     def remove_openflow_instance(self,instance_name):
-        self.configure()
+        #self.configure()
         self.execute(cmd='no openflow instance '+instance_name, prompt = '#',timeout = 3)
         return main.TRUE
         

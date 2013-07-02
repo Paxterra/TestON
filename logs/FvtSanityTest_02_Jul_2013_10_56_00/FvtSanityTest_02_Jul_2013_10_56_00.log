@@ -1,0 +1,186 @@
+
+                                +----------------+
+------------------------------ { Script And Files }  ------------------------------
+                                +----------------+
+
+	Script Log File : /home/paxterra/Documents/latest_teston_30May/TestON/logs/FvtSanityTest_02_Jul_2013_10_56_00/FvtSanityTest_02_Jul_2013_10_56_00.log
+	Report Log File : /home/paxterra/Documents/latest_teston_30May/TestON/logs/FvtSanityTest_02_Jul_2013_10_56_00/FvtSanityTest_02_Jul_2013_10_56_00.rpt
+	FlowVisor1 Session Log : /home/paxterra/Documents/latest_teston_30May/TestON/logs/FvtSanityTest_02_Jul_2013_10_56_00/FlowVisor1.session
+	HPSwitch1 Session Log : /home/paxterra/Documents/latest_teston_30May/TestON/logs/FvtSanityTest_02_Jul_2013_10_56_00/HPSwitch1.session
+	Test Script :/home/paxterra/Documents/latest_teston_30May/TestON/Tests/FvtSanityTest.py
+	Test Params : /home/paxterra/Documents/latest_teston_30May/TestON/Tests/FvtSanityTest.params
+	Topology : /home/paxterra/Documents/latest_teston_30May/TestON/Tests/FvtSanityTest.tpl
+                              +------------------+
+---------------------------  { Script Exec Params }  ---------------------------
+                              +------------------+
+
+	
+	'mail': 'anil4haart@gmail.com
+	paxweb@paxterrasolutions.com'
+	 'testcases': '1'
+	
+
+                               +---------------+
+----------------------------- { Components Used }  -----------------------------
+                               +---------------+
+	FlowVisor1
+	HPSwitch1
+
+
+                              +--------+
+---------------------------- { Topology }  ----------------------------
+                              +--------+
+
+	
+	'FlowVisor1': 
+	'host': '10.128.4.2'
+	 'user': 'paxterra'
+	 'COMPONENTS': ''
+	 'password': '0nLab_gu3st'
+	 'type': 'FlowVisorDriver'
+	 'fvadmin_pwd': None
+	
+	 'HPSwitch1': 
+	'host': '10.128.0.22'
+	 'password': ''
+	 'type': 'HPSwitch'
+	 'user': ''
+	 'COMPONENTS': ''
+	
+	
+------------------------------------------------------------
+
+
+******************************
+ CASE INIT 
+******************************
+
+2013-07-02 10:56:00,241 - FvtSanityTest - INFO - Creating component Handle: FlowVisor1
+2013-07-02 10:56:00,250 - FvtSanityTest - INFO - ssh -X paxterra@10.128.4.2
+2013-07-02 10:56:02,858 - FvtSanityTest - INFO - ssh connection asked for password, gave password
+2013-07-02 10:56:05,658 - FvtSanityTest - INFO - Executed :
+ 				 Expected Prompt '\$' Found
+2013-07-02 10:56:05,658 - FvtSanityTest - INFO - Starting FlowVisor 
+2013-07-02 10:56:15,767 - FvtSanityTest - ERROR - Expected Prompt not found , Time Out!!
+2013-07-02 10:56:15,768 - FvtSanityTest - ERROR - Failed to start FlowVisor
+2013-07-02 10:56:15,768 - FvtSanityTest - INFO - Expected Prompt not found , Time Out!!
+2013-07-02 10:56:15,768 - FvtSanityTest - INFO - Creating component Handle: HPSwitch1
+2013-07-02 10:56:15,775 - FvtSanityTest - INFO - ssh 10.128.0.22
+2013-07-02 10:56:20,710 - FvtSanityTest - INFO - Not asking any password and directly logging to the device
+
+
+******************************
+ Result summary for Testcase1
+******************************
+
+
+[2013-07-02 10:56:21.388262] [FvtSanityTest] [CASE]  Checking FVT Sanity Test
+
+[2013-07-02 10:56:21.388498] [FvtSanityTest] [STEP]  INIT : Initializing the test case :Checking FVT Sanity Test
+
+[2013-07-02 10:56:21.388789] [FvtSanityTest] [STEP]  1.1: Checking FVT Sanity Test
+2013-07-02 10:56:22,041 - FvtSanityTest - INFO - Executed :fvctl listDevices 
+ 				 Expected Prompt 'passwd:' Found
+2013-07-02 10:56:23,545 - FvtSanityTest - INFO - Executed :
+ 				 Expected Prompt '\$' Found
+2013-07-02 10:56:23,546 - FvtSanityTest - INFO - List of Devices 
+Device 0: 00:02:84:34:97:c5:c1:00
+
+2013-07-02 10:56:23,547 - FvtSanityTest - INFO - Verifying the Expected is equal to the actual or not using assert_equal
+2013-07-02 10:56:23,547 - FvtSanityTest - INFO - Listed Devices connected to the flowvisor
+2013-07-02 10:56:23,547 - FvtSanityTest - INFO - Assertion Passed
+
+[2013-07-02 10:56:23.548165] [FvtSanityTest] [STEP]  1.2:  Configuring VLANS
+2013-07-02 10:56:23,548 - FvtSanityTest - INFO - Verifying the Expected is equal to the actual or not using assert_equal
+2013-07-02 10:56:23,548 - FvtSanityTest - ERROR - Failed to configure VLAN
+2013-07-02 10:56:23,548 - FvtSanityTest - WARNING - Assertion Failed
+2013-07-02 10:56:26,651 - FvtSanityTest - ERROR - Expected Prompt not found , Time Out!!
+2013-07-02 10:56:26,652 - FvtSanityTest - WARNING - Fail to configure Vlan2
+2013-07-02 10:56:26,652 - FvtSanityTest - INFO - Verifying the Expected is equal to the actual or not using assert_equal
+2013-07-02 10:56:26,652 - FvtSanityTest - ERROR - Failed to untag VLAN
+2013-07-02 10:56:26,652 - FvtSanityTest - WARNING - Assertion Failed
+
+[2013-07-02 10:56:26.653017] [FvtSanityTest] [STEP]  1.3:  Configuring Controller
+2013-07-02 10:56:29,753 - FvtSanityTest - ERROR - Expected Prompt not found , Time Out!!
+2013-07-02 10:56:29,754 - FvtSanityTest - WARNING - Fail to enable Openflow mode
+2013-07-02 10:56:29,754 - FvtSanityTest - INFO - Verifying the Expected is equal to the actual or not using assert_equal
+2013-07-02 10:56:29,754 - FvtSanityTest - ERROR - Failed to Configure OpenFlow controller
+2013-07-02 10:56:29,754 - FvtSanityTest - WARNING - Assertion Failed
+
+[2013-07-02 10:56:29.755093] [FvtSanityTest] [STEP]  1.4:  Configuring Openflow Instance
+2013-07-02 10:56:32,858 - FvtSanityTest - ERROR - Expected Prompt not found , Time Out!!
+2013-07-02 10:56:32,858 - FvtSanityTest - WARNING - Fail to enable Openflow mode
+2013-07-02 10:56:32,858 - FvtSanityTest - INFO - Verifying the Expected is equal to the actual or not using assert_equal
+2013-07-02 10:56:32,859 - FvtSanityTest - ERROR - Failed to Configure OpenFlow Instance
+2013-07-02 10:56:32,859 - FvtSanityTest - WARNING - Assertion Failed
+
+[2013-07-02 10:56:32.859583] [FvtSanityTest] [STEP]  1.5:  Enable Openflow
+2013-07-02 10:56:35,963 - FvtSanityTest - ERROR - Expected Prompt not found , Time Out!!
+2013-07-02 10:56:35,963 - FvtSanityTest - WARNING - Fail to configure Vlan2
+2013-07-02 10:56:35,963 - FvtSanityTest - INFO - Verifying the Expected is equal to the actual or not using assert_equal
+2013-07-02 10:56:35,963 - FvtSanityTest - ERROR - Failed to Paired Openflow instance with VLAN
+2013-07-02 10:56:35,964 - FvtSanityTest - WARNING - Assertion Failed
+2013-07-02 10:56:39,066 - FvtSanityTest - ERROR - Expected Prompt not found , Time Out!!
+2013-07-02 10:56:39,066 - FvtSanityTest - WARNING - Fail to configure Vlan2
+2013-07-02 10:56:39,067 - FvtSanityTest - INFO - Verifying the Expected is equal to the actual or not using assert_equal
+2013-07-02 10:56:39,067 - FvtSanityTest - ERROR - Failed to Paired Openflow instance with VLAN
+2013-07-02 10:56:39,067 - FvtSanityTest - WARNING - Assertion Failed
+2013-07-02 10:56:39,168 - FvtSanityTest - INFO - Executed :openflow enable
+ 				 Expected Prompt '#' Found
+2013-07-02 10:56:39,168 - FvtSanityTest - INFO - Verifying the Expected is equal to the actual or not using assert_equal
+2013-07-02 10:56:39,168 - FvtSanityTest - INFO - OpenFlow enabled successfully
+2013-07-02 10:56:39,168 - FvtSanityTest - INFO - Assertion Passed
+
+[2013-07-02 10:56:39.168968] [FvtSanityTest] [STEP]  1.6: Showing Controllers and Vlans
+2013-07-02 10:56:39,269 - FvtSanityTest - INFO - Executed :openflow controllers
+ 				 Expected Prompt '#' Found
+2013-07-02 10:56:39,269 - FvtSanityTest - INFO - Verifying the Expected is equal to the actual or not using assert_equal
+2013-07-02 10:56:39,270 - FvtSanityTest - INFO - Openflow controllers listed
+2013-07-02 10:56:39,270 - FvtSanityTest - INFO - Assertion Passed
+2013-07-02 10:56:39,370 - FvtSanityTest - INFO - Executed :vlans
+ 				 Expected Prompt '#' Found
+2013-07-02 10:56:39,371 - FvtSanityTest - INFO - Verifying the Expected is equal to the actual or not using assert_equal
+2013-07-02 10:56:39,371 - FvtSanityTest - INFO - VLANS listed
+2013-07-02 10:56:39,371 - FvtSanityTest - INFO - Assertion Passed
+
+[2013-07-02 10:56:39.371583] [FvtSanityTest] [STEP]  1.7:  Tearing up the configurations
+2013-07-02 10:56:39,472 - FvtSanityTest - INFO - Executed :no vlan 2
+ 				 Expected Prompt '#' Found
+2013-07-02 10:56:39,472 - FvtSanityTest - INFO - Verifying the Expected is equal to the actual or not using assert_equal
+2013-07-02 10:56:39,472 - FvtSanityTest - INFO - VLAN removed successfully
+2013-07-02 10:56:39,472 - FvtSanityTest - INFO - Assertion Passed
+2013-07-02 10:56:39,573 - FvtSanityTest - INFO - Executed :no controller-id 3
+ 				 Expected Prompt '#' Found
+2013-07-02 10:56:39,573 - FvtSanityTest - INFO - Verifying the Expected is equal to the actual or not using assert_equal
+2013-07-02 10:56:39,573 - FvtSanityTest - INFO - Controller removed successfully
+2013-07-02 10:56:39,574 - FvtSanityTest - INFO - Assertion Passed
+2013-07-02 10:56:39,674 - FvtSanityTest - INFO - Executed :no openflow instance InstanceTesting2
+ 				 Expected Prompt '#' Found
+2013-07-02 10:56:39,674 - FvtSanityTest - INFO - Verifying the Expected is equal to the actual or not using assert_equal
+2013-07-02 10:56:39,674 - FvtSanityTest - INFO - Instance removed successfully
+2013-07-02 10:56:39,675 - FvtSanityTest - INFO - Assertion Passed
+
+
+*****************************
+ Result: Pass 
+*****************************
+
+
+
+
+*************************************
+	Test Execution Summary
+
+************************************* 
+
+ Test Start           : 02 Jul 2013 10:56:00
+ Test End             : 02 Jul 2013 10:56:39
+ Execution Time       : 0:00:39.454061
+ Total tests planned  : 1
+ Total tests RUN      : 1
+ Total Pass           : 1
+ Total Fail           : 0
+ Total No Result      : 0
+ Success Percentage   : 100%
+ Execution Result     : 100%
+2013-07-02 10:56:44,057 - FvtSanityTest - INFO - Stopping the FlowVisor

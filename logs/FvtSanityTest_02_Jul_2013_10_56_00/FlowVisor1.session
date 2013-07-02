@@ -1,0 +1,169 @@
+2013-07-02 10:56:00,249  FlowVisor1: INFO    : 
+                                +----------------+
+------------------------------ { Script And Files }  ------------------------------
+                                +----------------+
+
+	Script Log File : /home/paxterra/Documents/latest_teston_30May/TestON/logs/FvtSanityTest_02_Jul_2013_10_56_00/FvtSanityTest_02_Jul_2013_10_56_00.log
+	Report Log File : /home/paxterra/Documents/latest_teston_30May/TestON/logs/FvtSanityTest_02_Jul_2013_10_56_00/FvtSanityTest_02_Jul_2013_10_56_00.rpt
+	FlowVisor1 Session Log : /home/paxterra/Documents/latest_teston_30May/TestON/logs/FvtSanityTest_02_Jul_2013_10_56_00/FlowVisor1.session
+	HPSwitch1 Session Log : /home/paxterra/Documents/latest_teston_30May/TestON/logs/FvtSanityTest_02_Jul_2013_10_56_00/HPSwitch1.session
+	Test Script :/home/paxterra/Documents/latest_teston_30May/TestON/Tests/FvtSanityTest.py
+	Test Params : /home/paxterra/Documents/latest_teston_30May/TestON/Tests/FvtSanityTest.params
+	Topology : /home/paxterra/Documents/latest_teston_30May/TestON/Tests/FvtSanityTest.tpl
+                              +------------------+
+---------------------------  { Script Exec Params }  ---------------------------
+                              +------------------+
+
+	
+	'mail': 'anil4haart@gmail.com
+	paxweb@paxterrasolutions.com'
+	 'testcases': '1'
+	
+
+                               +---------------+
+----------------------------- { Components Used }  -----------------------------
+                               +---------------+
+	FlowVisor1
+	HPSwitch1
+
+
+                              +--------+
+---------------------------- { Topology }  ----------------------------
+                              +--------+
+
+	
+	'FlowVisor1': 
+	'host': '10.128.4.2'
+	 'user': 'paxterra'
+	 'COMPONENTS': ''
+	 'password': '0nLab_gu3st'
+	 'type': 'FlowVisorDriver'
+	 'fvadmin_pwd': None
+	
+	 'HPSwitch1': 
+	'host': '10.128.0.22'
+	 'password': ''
+	 'type': 'HPSwitch'
+	 'user': ''
+	 'COMPONENTS': ''
+	
+	
+------------------------------------------------------------
+
+paxterra@10.128.4.2's password: 0nLab_gu3st
+
+
+
+
+
+
+
+Welcome to Ubuntu 12.04.2 LTS (GNU/Linux 3.2.0-29-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com/
+
+  System information as of Mon Jul  1 22:33:58 PDT 2013
+
+  System load:    0.0              Processes:           80
+  Usage of /home: 6.6% of 5.35GB   Users logged in:     2
+  Memory usage:   11%              IP address for eth0: 10.128.4.2
+  Swap usage:     0%               IP address for eth1: 10.129.1.1
+
+  Graph this data and manage this system at https://landscape.canonical.com/
+
+134 packages can be updated.
+84 updates are security updates.
+
+Last login: Mon Jul  1 22:19:45 2013 from 10.3.1.2
+
+
+
+
+]0;paxterra@FlowvisorPAX: ~paxterra@FlowvisorPAX:~$ 
+flowvisor &
+]0;paxterra@FlowvisorPAX: ~paxterra@FlowvisorPAX:~$ 
+]0;paxterra@FlowvisorPAX: ~paxterra@FlowvisorPAX:~$ 
+]0;paxterra@FlowvisorPAX: ~paxterra@FlowvisorPAX:~$ 
+]0;paxterra@FlowvisorPAX: ~paxterra@FlowvisorPAX:~$ flowvisor &
+[1] 30331
+]0;paxterra@FlowvisorPAX: ~paxterra@FlowvisorPAX:~$ Starting FlowVisor
+Updating database failed, exiting. : Failed to start database '/usr/local/share/db/flowvisor/FlowVisorDB' with class loader sun.misc.Launcher$AppClassLoader@5acac268, see the next exception for details.
+2013-07-02 10:56:21,387  FlowVisor1: INFO    : 
+****************************************
+Start of Test Case1 : 
+2013-07-02 10:56:21,388  FlowVisor1: INFO    :  Checking FVT Sanity Test
+****************************************
+
+2013-07-02 10:56:21,388  FlowVisor1: INFO    : 
+---------------------------------------------
+Start of Step INIT : Initializing the test case :Checking FVT Sanity Test
+---------------------------------------------
+
+2013-07-02 10:56:21,388  FlowVisor1: INFO    : 
+---------------------------------------------
+Start of Step 1.1: Checking FVT Sanity Test
+---------------------------------------------
+
+fvctl listDevices 
+fvctl listDevices 
+Enter fvadmin's passwd: 
+
+
+Device 0: 00:02:84:34:97:c5:c1:00
+[1]+  Exit 1                  flowvisor
+]0;paxterra@FlowvisorPAX: ~paxterra@FlowvisorPAX:~$ 
+]0;paxterra@FlowvisorPAX: ~paxterra@FlowvisorPAX:~$ 2013-07-02 10:56:23,548  FlowVisor1: INFO    : 
+---------------------------------------------
+End of Step  1.1: Checking FVT Sanity Test
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.2:  Configuring VLANS
+---------------------------------------------
+
+2013-07-02 10:56:26,653  FlowVisor1: INFO    : 
+---------------------------------------------
+End of Step  1.2:  Configuring VLANS
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.3:  Configuring Controller
+---------------------------------------------
+
+2013-07-02 10:56:29,755  FlowVisor1: INFO    : 
+---------------------------------------------
+End of Step  1.3:  Configuring Controller
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.4:  Configuring Openflow Instance
+---------------------------------------------
+
+2013-07-02 10:56:32,859  FlowVisor1: INFO    : 
+---------------------------------------------
+End of Step  1.4:  Configuring Openflow Instance
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.5:  Enable Openflow
+---------------------------------------------
+
+2013-07-02 10:56:39,169  FlowVisor1: INFO    : 
+---------------------------------------------
+End of Step  1.5:  Enable Openflow
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.6: Showing Controllers and Vlans
+---------------------------------------------
+
+2013-07-02 10:56:39,371  FlowVisor1: INFO    : 
+---------------------------------------------
+End of Step  1.6: Showing Controllers and Vlans
+---------------------------------------------
+
+---------------------------------------------
+Start of Step 1.7:  Tearing up the configurations
+---------------------------------------------
+
+kill -9 None

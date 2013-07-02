@@ -1,0 +1,86 @@
+
+                                +----------------+
+------------------------------ { Script And Files }  ------------------------------
+                                +----------------+
+
+	Script Log File : /home/paxterra/Documents/latest_teston_30May/TestON/logs/FvtSanityTest_02_Jul_2013_10_56_00/FvtSanityTest_02_Jul_2013_10_56_00.log
+	Report Log File : /home/paxterra/Documents/latest_teston_30May/TestON/logs/FvtSanityTest_02_Jul_2013_10_56_00/FvtSanityTest_02_Jul_2013_10_56_00.rpt
+	FlowVisor1 Session Log : /home/paxterra/Documents/latest_teston_30May/TestON/logs/FvtSanityTest_02_Jul_2013_10_56_00/FlowVisor1.session
+	HPSwitch1 Session Log : /home/paxterra/Documents/latest_teston_30May/TestON/logs/FvtSanityTest_02_Jul_2013_10_56_00/HPSwitch1.session
+	Test Script :/home/paxterra/Documents/latest_teston_30May/TestON/Tests/FvtSanityTest.py
+	Test Params : /home/paxterra/Documents/latest_teston_30May/TestON/Tests/FvtSanityTest.params
+	Topology : /home/paxterra/Documents/latest_teston_30May/TestON/Tests/FvtSanityTest.tpl
+                              +------------------+
+---------------------------  { Script Exec Params }  ---------------------------
+                              +------------------+
+
+	
+	'mail': 'anil4haart@gmail.com
+	paxweb@paxterrasolutions.com'
+	 'testcases': '1'
+	
+
+                               +---------------+
+----------------------------- { Components Used }  -----------------------------
+                               +---------------+
+	FlowVisor1
+	HPSwitch1
+
+
+                              +--------+
+---------------------------- { Topology }  ----------------------------
+                              +--------+
+
+	
+	'FlowVisor1': 
+	'host': '10.128.4.2'
+	 'user': 'paxterra'
+	 'COMPONENTS': ''
+	 'password': '0nLab_gu3st'
+	 'type': 'FlowVisorDriver'
+	 'fvadmin_pwd': None
+	
+	 'HPSwitch1': 
+	'host': '10.128.0.22'
+	 'password': ''
+	 'type': 'HPSwitch'
+	 'user': ''
+	 'COMPONENTS': ''
+	
+	
+------------------------------------------------------------
+
+******************************
+ CASE INIT 
+******************************
+
+******************************
+ Result summary for Testcase1
+******************************
+
+[REPORT] [02 Jul 2013 10:56:23] Failed to configure VLAN
+[REPORT] [02 Jul 2013 10:56:26] Failed to untag VLAN
+[REPORT] [02 Jul 2013 10:56:29] Failed to Configure OpenFlow controller
+[REPORT] [02 Jul 2013 10:56:32] Failed to Configure OpenFlow Instance
+[REPORT] [02 Jul 2013 10:56:35] Failed to Paired Openflow instance with VLAN
+[REPORT] [02 Jul 2013 10:56:39] Failed to Paired Openflow instance with VLAN
+*****************************
+ Result: Pass 
+*****************************
+
+
+*************************************
+	Test Execution Summary
+
+************************************* 
+
+ Test Start           : 02 Jul 2013 10:56:00
+ Test End             : 02 Jul 2013 10:56:39
+ Execution Time       : 0:00:39.454061
+ Total tests planned  : 1
+ Total tests RUN      : 1
+ Total Pass           : 1
+ Total Fail           : 0
+ Total No Result      : 0
+ Success Percentage   : 100%
+ Execution Result     : 100%
