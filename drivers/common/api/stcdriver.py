@@ -13,7 +13,7 @@
     You should have received a copy of the GNU General Public License
     along with TestON.  If not, see <http://www.gnu.org/licenses/>.	
     
-Basic Spirent stcdriver which will handle all basic stcdriver functions
+Basic Spirent stcdriver which will handle all basic stcdriver functions.
 '''
 import pexpect
 import struct
