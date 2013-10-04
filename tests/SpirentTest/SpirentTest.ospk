@@ -1,0 +1,66 @@
+CASE 1
+    NAME "Basic Spirent test"
+    STEP "Check if handle is created"
+    INFO "Handle created successfully"
+    
+    NAME "Creating a Project"
+    STEP "Checking the creation of project"
+    STORE ON Stc1 DO create USING 'project1' IN project
+
+    STEP "Get Project attributes"
+    STORE ON Stc1 DO get USING project ,'name' IN projectAtt
+    #ASSERT str(type(projectAtt)) EQUALS "<type> 'str'" ONPASS "project created successfully" ONFAIL "project not created"
+
+    
+    STEP "Creating ports under the Project"
+    STORE ON Stc1 DO create USING 'port',under=project IN port1
+    STORE ON Stc1 DO create USING 'port',under=project IN port2
+
+    STEP "Configuring the Port locations"
+    STORE '10.254.1.102' IN chassisAddress
+    STORE '1' IN slot
+    STORE '1' IN p1
+    STORE '2' IN p2
+    ON Stc1 DO config USING  port1, location AS "//%s/%s/%s" % (chassisAddress, slot,p1)
+    ON Stc1 DO config USING  port2, location AS "//%s/%s/%s" % (chassisAddress, slot,p2)
+   
+    STEP "Creating streamBlock on port1"
+    STORE ON Stc1 DO create USING 'streamBlock',under=port1 IN streamBlock
+    STORE ON Stc1 DO get USING port1,'children-generator' IN generator
+    STORE ON Stc1 DO get USING port2,'children-Analyzer' IN analyzer
+
+ 
+    STEP "Attaching Ports..."
+    ON Stc1 DO perform USING 'AttachPorts', portList = [port1 , port2], autoConnect='TRUE'
+    ON Stc1 DO apply 
+
+    NAME "Subscribe the ports ports from Project"
+    STEP "Call Subscribe..."
+    STORE ON Stc1 DO subscribe USING Parent=project,ResultParent=port1,ConfigType='Generator',resulttype='GeneratorPortResults',filenameprefix AS "Generator_port1_counter/%s" % port1 ,Interval=2 IN port1GeneratorResult   
+    STORE ON Stc1 DO subscribe USING Parent=project,ResultParent=port2,ConfigType='Analyzer',resulttype='AnalyzerPortResults',filenameprefix AS "Analyzer_port2_counter/%s" % port2 IN port2AnalyzerResult
+   
+    STEP "Starting traffic"
+    ON Stc1 DO perfrom USING AnalyzerStart, analyzerList AS analyzer
+    
+    STEP "Start Analyzer"
+    INFO "# wait for analyzer to start"
+    ON Stc1 DO sleep USING numberSecondsInteger AS 1
+    ON Stc1 DO perform USING 'GeneratorStart', generatorList = 'generator'
+   
+    STEP "Sleep 5 seconds..."
+    INFO "# generate traffic for 5 seconds"
+    ON Stc1 DO sleep USING numberSecondsInteger AS 5
+  
+    STEP "Stopping Traffic..."
+    INFO "stop generator"
+    ON Stc1 DO perform USING 'GeneratorStop', generatorList = 'generator'
+    INFO "Stop analyzer"
+    ON Stc1 DO perform USING 'AnalyzerStop', analyzerList = 'analyzer'
+   
+    STEP "Call Unsubscribe..."
+    ON Stc1 DO unsubscribe USING port2AnalyzerResult
+    ON Stc1 DO unsubscribe USING port1GeneratorResult
+
+    STEP "Call Disconnect..."
+    ON Stc1 DO disconnect USING chassisAddress
+    ON Stc1 DO delete USING project
