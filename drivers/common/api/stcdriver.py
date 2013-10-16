@@ -125,7 +125,7 @@ class StcDriver(API):
         try :
             main.log.info("sleep time is")
             #return { result : main.TRUE , return value : self.handle.sleep(numberSecondsInteger)}
-            return self.handle.sleep(str(numberSecondsInteger))
+            return self.handle.sleep(numberSecondsInteger)
             #return ReturnValue(main.TRUE,self.handle.sleep(numberSecondsInteger))
         except :
             main.log.error("Operation failed because of exception "+str(sys.exc_info()[0]))
