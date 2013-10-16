@@ -5,7 +5,7 @@ CASE 1
     
     NAME "Creating a Project"
     STEP "Checking the creation of project"
-    STORE ON Stc1 DO create USING 'project1' IN project
+    STORE ON Stc1 DO create USING 'project', name AS 'project1' IN project
 
     STEP "Get Project attributes"
     STORE ON Stc1 DO get USING project ,'name' IN projectAtt
@@ -13,8 +13,8 @@ CASE 1
 
     
     STEP "Creating ports under the Project"
-    STORE ON Stc1 DO create USING 'port',under=project IN port1
-    STORE ON Stc1 DO create USING 'port',under=project IN port2
+    STORE ON Stc1 DO create USING 'port',under AS project IN port1
+    STORE ON Stc1 DO create USING 'port',under AS project IN port2
 
     STEP "Configuring the Port locations"
     STORE '10.254.1.102' IN chassisAddress
@@ -25,27 +25,27 @@ CASE 1
     ON Stc1 DO config USING  port2, location AS "//%s/%s/%s" % (chassisAddress, slot,p2)
    
     STEP "Creating streamBlock on port1"
-    STORE ON Stc1 DO create USING 'streamBlock',under=port1 IN streamBlock
+    STORE ON Stc1 DO create USING 'streamBlock',under AS port1 IN streamBlock
     STORE ON Stc1 DO get USING port1,'children-generator' IN generator
     STORE ON Stc1 DO get USING port2,'children-Analyzer' IN analyzer
 
  
     STEP "Attaching Ports..."
-    ON Stc1 DO perform USING 'AttachPorts', portList = [port1 , port2], autoConnect='TRUE'
+    ON Stc1 DO perform USING 'AttachPorts', portList AS [port1 , port2], autoConnect='TRUE'
     ON Stc1 DO apply 
 
     NAME "Subscribe the ports ports from Project"
     STEP "Call Subscribe..."
-    STORE ON Stc1 DO subscribe USING Parent=project,ResultParent=port1,ConfigType='Generator',resulttype='GeneratorPortResults',filenameprefix AS "Generator_port1_counter/%s" % port1 ,Interval=2 IN port1GeneratorResult   
-    STORE ON Stc1 DO subscribe USING Parent=project,ResultParent=port2,ConfigType='Analyzer',resulttype='AnalyzerPortResults',filenameprefix AS "Analyzer_port2_counter/%s" % port2 IN port2AnalyzerResult
+    STORE ON Stc1 DO subscribe USING Parent AS project,ResultParent AS port1,ConfigType AS 'Generator',resulttype AS 'GeneratorPortResults',filenameprefix AS "Generator_port1_counter/%s" % port1 ,Interval AS '2' IN port1GeneratorResult   
+    STORE ON Stc1 DO subscribe USING Parent AS project,ResultParent AS port2,ConfigType AS 'Analyzer',resulttype AS 'AnalyzerPortResults',filenameprefix AS "Analyzer_port2_counter/%s" % port2 IN port2AnalyzerResult
    
     STEP "Starting traffic"
-    ON Stc1 DO perfrom USING AnalyzerStart, analyzerList AS analyzer
+    ON Stc1 DO perform USING 'AnalyzerStart', analyzerList AS analyzer
     
     STEP "Start Analyzer"
     INFO "# wait for analyzer to start"
     ON Stc1 DO sleep USING numberSecondsInteger AS 1
-    ON Stc1 DO perform USING 'GeneratorStart', generatorList = 'generator'
+    ON Stc1 DO perform USING 'GeneratorStart', generatorList AS generator
    
     STEP "Sleep 5 seconds..."
     INFO "# generate traffic for 5 seconds"
@@ -53,9 +53,9 @@ CASE 1
   
     STEP "Stopping Traffic..."
     INFO "stop generator"
-    ON Stc1 DO perform USING 'GeneratorStop', generatorList = 'generator'
+    ON Stc1 DO perform USING 'GeneratorStop', generatorList AS generator
     INFO "Stop analyzer"
-    ON Stc1 DO perform USING 'AnalyzerStop', analyzerList = 'analyzer'
+    ON Stc1 DO perform USING 'AnalyzerStop', analyzerList AS analyzer
    
     STEP "Call Unsubscribe..."
     ON Stc1 DO unsubscribe USING port2AnalyzerResult
