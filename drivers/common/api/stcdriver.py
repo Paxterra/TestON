@@ -28,7 +28,7 @@ sys.path.append("../")
 from common.apidriver import API
 sys.path.append(path+"lib/spirent/API/Python/")
 #global STC_PRIVATE_INSTALL_DIR
-#STC_PRIVATE_INSTALL_DIR="/home/paxterra/TestON/lib/spirent/"
+#STC_PRIVATE_INSTALL_DIR="/home/sudheer-570/Desktop/sk/TestON/lib/spirent/"
 from StcPython import StcPython
 class StcDriver(API):
    
@@ -56,7 +56,7 @@ class StcDriver(API):
             main.log.info("apply the action")
             return self.handle.apply()
         except :
-            main.log.error("Apply failed because of Exception"+sys.exc_info()[0])
+            main.log.error("Apply failed because of Exception"+str(sys.exc_info()[0]))
             return { 'result' : main.FALSE , 'error' : sys.exc_info()[0]}
     
     def create(self,objectTypeString,**arguments) :
@@ -85,7 +85,7 @@ class StcDriver(API):
         try :
             main.log.info("Getting attributes for "+str(handleString))
             #return { result : main.TRUE , return value : self.handle.get(handleString,attribute)}
-            return self.handle.get(str(handleString), attribute)
+            return self.handle.get(handleString, attribute)
             #return ReturnValue(main.TRUE,self.handle.get(handleString, attribute))
         except :
             main.log.error("operation"+str(handleString)+"failed because of exception"+str(sys.exc_info()[0]))
@@ -95,7 +95,7 @@ class StcDriver(API):
         try :
             main.log.info("Performing action "+str(commandNameString))
             #return { result : main.TRUE , return value : self.handle.perform(commandNameString,**attribute)}
-            return self.handle.perform(str(commandNameString), **attribute)
+            return self.handle.perform(commandNameString, **attribute)
             #return ReturnValue(main.TRUE , self.handle.perform(commandNameString,**attribute))
         except :
             main.log.error("Operation "+str(commandNameString)+" failed because of exception "+str(sys.exc_info()[0]))
@@ -149,27 +149,33 @@ class StcDriver(API):
         except :
             main.log.error("Deletion of "+str(handleString)+"failed because of exception "+str(sys.exc_info()[0]))
             return { 'result' : main.FALSE, 'error' : sys.exc_info()[0] }
-    def parseresults(self,csvFile) :
+    def parseresults(self,Attribute,CsvFile) :
+        
         try :
-            main.log.info("parsing the CSV file to Data Structure format")
-            input1 = '/home/paxterra/TestON/bin/untitled/*/*.csv'
-            csvFile = open('input1',"rb")
-	    reader = csv.reader(csvFile)
- 
-	    rownum <= 2
-	    for row in reader:
-	        # Save header row.
-	        if rownum ==2 :
-                    header = row
-	        else:
-	            colnum = 0
-	            for col in row:
-                        colnum += 1	             
-                return (header[colnum], col)
-                rownum += 3
+            main.log.info("parsing the CSV file for the traffic results")                 
+            totalrows = len(open('/home/sudheer-570/Desktop/sk/TestON/bin/Untitled/'+CsvFile).readlines())
+            fp = open("/home/sudheer-570/Desktop/sk/TestON/bin/Untitled/"+CsvFile,'Ur')
+            data_list = []
+            attributes=[]
+            attribute_values=[]
+            for line in fp:
+                data_list.append(line.strip().split(','))
+            attribute_values=data_list[totalrows-1]
+            attributes=data_list[totalrows-3]
 
-            inputfile.close()
-            return ReturnValue(main.TRUE,self.parseresults(csvFile))
+            for index in range (0,100) :
+                if attributes[index]==Attribute:
+                    main.log.info("Given Attribute Name is:'"+Attribute+"'")
+                    main.log.info("Attribute value is:'"+attribute_values[index]+"'")
+                    result = attribute_values[index]
+                    if result == '0' :
+                        main.log.info("Traffic is not generated on this attribute :"+Attribute)
+                        return main.FALSE
+                    else :
+                        return result
         except :
-            main.log.error("No such a file or directory")
-            return { 'result' : main.FALSE, 'error' : sys.exc_info()[0] } 
+            main.log.error("operation failed because of"+str(sys.exc_info()[0]))
+            return { 'result' : main.FALSE, 'error' : sys.exc_info()[0] }
+    
+    
+       
