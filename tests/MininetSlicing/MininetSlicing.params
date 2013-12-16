@@ -1,6 +1,6 @@
 <PARAMS>
     <testcases> 1</testcases>
-    <mail> paxweb@paxterrasolutions.com</mail>
+    <mail> user@mailserver.com</mail>
     <CASE1>
     
         <dl_type> 0x800 </dl_type> 
