@@ -25,8 +25,7 @@
 	'host': 'h2'
 	
 	
-	 'mail': 'anil4haart@gmail.com
-	paxweb@paxterrasolutions.com'
+	 'mail': 'anil4haart@gmail.com'
 	 'testcases': '1'
 	
 
@@ -76,7 +75,8 @@
 	
 ------------------------------------------------------------
 
-[Kteston> openflow@192.168.56.101's password: openflow
+
+[Kteston> openflow@192.168.56.101's password: openflow
 
 
 Welcome to Ubuntu 11.10 (GNU/Linux 3.0.0-12-server x86_64)
@@ -94,7 +94,8 @@ Welcome to Ubuntu 11.10 (GNU/Linux 3.0.0-12-server x86_64)
 New release '12.04 LTS' available.
 Run 'do-release-upgrade' to upgrade to it.
 
-Last login: Mon Mar 11 08:24:36 2013 from 192.168.56.1
+Last login: Mon Mar 11 08:24:36 2013 from 192.168.56.1
+
 
 
 ]0;openflow@ETH-Tutorial: ~openflow@ETH-Tutorial:~$ 
