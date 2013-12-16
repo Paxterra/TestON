@@ -570,7 +570,7 @@ def verifyMail(options):
     elif main.params.has_key('mail'):
         main.mail = main.params['mail']
     else :
-        main.mail = 'paxweb@paxterrasolutions.com'
+        main.mail = 'user@mailserver.com'
 
 def verifyTestCases(options):
     #Getting Test cases list 
