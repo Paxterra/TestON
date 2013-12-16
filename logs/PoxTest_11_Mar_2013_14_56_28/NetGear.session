@@ -25,8 +25,7 @@
 	'host': 'h2'
 	
 	
-	 'mail': 'anil4haart@gmail.com
-	paxweb@paxterrasolutions.com'
+	 'mail': 'anil4haart@gmail.com'
 	 'testcases': '1'
 	
 
@@ -76,7 +75,8 @@
 	
 ------------------------------------------------------------
 
-[Kteston> paxterra@192.168.150.21's password: pax@123
+
+[Kteston> paxterra@192.168.150.21's password: pax@123
 
 
 
@@ -93,7 +93,8 @@ New release 'precise' available.
 Run 'do-release-upgrade' to upgrade to it.
 
 You have mail.
-Last login: Mon Mar 11 12:54:24 2013 from 192.168.150.21
+Last login: Mon Mar 11 12:54:24 2013 from 192.168.150.21
+
 
 
 
