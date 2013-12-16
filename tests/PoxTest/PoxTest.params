@@ -1,6 +1,6 @@
 <PARAMS>
     <testcases> [1]</testcases>
-    <mail> anil4haart@gmail.com,paxweb@paxterrasolutions.com</mail>
+    <mail> anil4haart@gmail.com</mail>
     <CASE1>
         <destination> h2</destination>
         <src>h2</src>
