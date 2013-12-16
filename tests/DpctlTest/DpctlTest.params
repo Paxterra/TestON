@@ -1,6 +1,6 @@
 <PARAMS>
     <testcases> [1,2] </testcases>
-    <mail> paxweb@paxterrasolutions.com </mail>
+    <mail> user@mailserver.com </mail>
     <CASE1>
         <tcpip> 127.0.0.1</tcpip>
         <tcpport> 6634 </tcpport>
