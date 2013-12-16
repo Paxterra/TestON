@@ -1,4 +1,3 @@
-
                                 +----------------+
 ------------------------------ { Script And Files }  ------------------------------
                                 +----------------+
@@ -28,7 +27,7 @@
 	 'destination_host': '10.0.0.4'
 	 'destination_username': 'openflow'
 	
-	 'mail': 'paxweb@paxterrasolutions.com'
+	 'mail': 'user@mailserver.com'
 	 'testcases': '1'
 	
 
