@@ -1,0 +1,21 @@
+CASE 1:
+     NAME "Get list of containers"
+     STEP "Getting list of containers"
+     STORE ON ODL1 DO list_containers IN result
+     ASSERT result EQUALS 200 ONPASS "getting containers list" ONFAIL "not getting any containers list"
+CASE 2:
+     NAME "remove existing containers"
+     STEP "removing container"
+     STORE ON ODL1 DO remove_container USING CONTAINER AS 'cont1' IN result
+     ASSERT result EQUALS 204 ONPASS "container removed successfully" ONFAIL "container not removed"
+CASE 3:
+     NAME "create a container"
+     STEP "creating a new container"
+     STORE ON ODL1 DO create_container USING CONTAINER AS 'cont1',INPUT AS {"container" : "cont1","nodeConnectors" : ["OF|1@OF|00:00:00:00:00:00:00:01","OF|2@OF|00:00:00:00:00:00:00:02"],"staticVlan" : "10"} IN result
+     ASSERT result EQUALS 201 ONPASS "container getting added" ONFAIL "container not added"
+
+CASE 4:
+     NAME "get container flows"
+     STEP "getting container flows"
+     STORE ON ODL1 DO flow_stats USING CONTAINER AS 'cont1' IN result 
+     ASSERT result EQUALS 200 ONPASS "container flows getting" ONFAIL "container flows not getting"
