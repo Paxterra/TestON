@@ -52,6 +52,9 @@ class MininetCliDriver(Emulator):
         
         self.name = self.options['name']
         copy = super(MininetCliDriver, self).secureCopy(self.user_name, self.ip_address,'/home/openflow/mininet/INSTALL', self.pwd,path+'/lib/Mininet/')
+        '''
+		   The path may vary depending on installed location, modify it in case of a different path.
+		'''
         self.handle = super(MininetCliDriver, self).connect(user_name = self.user_name, ip_address = self.ip_address,port = None, pwd = self.pwd)
         
         self.ssh_handle = self.handle
@@ -63,7 +66,7 @@ class MininetCliDriver(Emulator):
             result = self.execute(cmd="sudo mn -c",timeout=30,prompt="password")
             pattern = '[sudo]'
             if utilities.assert_matches(expect=pattern,actual=result,onpass="password is being asked",onfail="password is not being asked"):
-                resultPass = self.execute(cmd="openflow",prompt=":\~\$",timeout=10)
+                resultPass = self.execute(cmd="openflow",prompt=":\~\$",timeout=10) # Here openflow is the root password, modify the same in case of a different password
 
             else :
                 main.log.info("password is not being asked")
