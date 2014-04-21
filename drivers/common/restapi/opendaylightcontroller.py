@@ -35,15 +35,15 @@ import core.teston
 sys.path.append("../")
 from drivers.common.restapidriver import RESTAPI
 class OdlDriver(RESTAPI):
-    baseUrl = 'http://localhost:8080/controller/nb/v2/'
-    headers={"accept":"application/json","content-type":"application/json"}
+    baseUrl = 'http://localhost:8080/controller/nb/v2/' #Url to access restAPI's
+    headers={"accept":"application/json","content-type":"application/json"} #Headers
    
     '''
         OdlCliDriver is the controller driver which will handle the Mininet functions
     '''
     def __init__(self):
         super(RESTAPI, self).__init__()
-        self.handle = self
+        self.handle = self #creating a handle 
         self.wrapped = sys.modules[__name__]
         self.flag = 0
     def connect(self, **connectargs):
@@ -52,8 +52,8 @@ class OdlDriver(RESTAPI):
         for key in connectargs:
             vars(self)[key] = connectargs[key] 
         self.name = self.options['name']
-        self.handle = super(OdlDriver, self).connect(user_name = self.user_name, ip_address = self.ip_address,port = None, pwd = self.pwd)
-        self.ssh_handle = self.handle
+        self.handle = super(OdlDriver, self).connect(user_name = self.user_name, ip_address = self.ip_address,port = None, pwd = self.pwd) # Assinging the dynamic variables which will get inputs from .topo file
+        self.ssh_handle = self.handle #creating SSH handle
         if self.handle :
             self.handle.logfile = sys.stdout
             '''main.log.info("killall existing controllers")
@@ -71,9 +71,10 @@ class OdlDriver(RESTAPI):
 
     def get_topology(self,**args) :
         try :
+            # getting default topology from opendaylight controller
             arg = utilities.parse_args(["CONTAINER"],**args)            
             h = httplib2.Http(".cache")
-            h.add_credentials('admin', 'admin')
+            h.add_credentials('admin', 'admin') # sending credentials
             resp, content = h.request(self.baseUrl + 'topology/' + arg["CONTAINER"], "GET")
             edgeProperties = json.loads(content)
             odlEdges = edgeProperties['edgeProperties']
