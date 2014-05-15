@@ -5,11 +5,11 @@
 	   <target>h2</target>
     </CASE1>
     <CASE2> 
-        <get_url>http://127.0.0.1:8080/controller/nb/v2/containermanager/containers</get_url>   
+        <get_url>http://localhost:8080/controller/nb/v2/containermanager/containers</get_url>   
     </CASE2>
 
     <CASE3>
-        <put_url>http://127.0.0.1:8080/controller/nb/v2/containermanager/container/cont1</put_url> 
+        <put_url>http://localhost:8080/controller/nb/v2/containermanager/container/cont1</put_url> 
         <put_body>{
 		"container" : "cont1",
 		"nodeConnectors" : [
@@ -21,43 +21,43 @@
        </put_body>
     </CASE3>
     <CASE4> 
-        <get_url>http://127.0.0.1:8080/controller/nb/v2/statistics/cont1/flow</get_url> 
+        <get_url>http://localhost:8080/controller/nb/v2/statistics/cont1/flow</get_url> 
     </CASE4>
     <CASE5> 
-        <get_url>http://127.0.0.1:8080/controller/nb/v2/topology/default</get_url>
+        <get_url>http://localhost:8080/controller/nb/v2/topology/default</get_url>
     </CASE5>
     <CASE6> 
-        <get_url>http://127.0.0.1:8080/controller/nb/v2/subnetservice/default/subnets</get_url>
+        <get_url>http://localhost:8080/controller/nb/v2/subnetservice/default/subnets</get_url>
     </CASE6>
     <CASE7> 
-        <get_url>http://127.0.0.1:8080/controller/nb/v2/hosttracker/default/hosts/active</get_url>
+        <get_url>http://localhost:8080/controller/nb/v2/hosttracker/default/hosts/active</get_url>
     </CASE7>
     <CASE8> 
-        <put_url>http://127.0.0.1:8080/controller/nb/v2/subnetservice/default/subnet/test</put_url>
+        <put_url>http://localhost:8080/controller/nb/v2/subnetservice/default/subnet/test</put_url>
         <put_body>{"name":"test","subnet":"10.0.0.254/8"}</put_body>
     </CASE8>
     <CASE9> 
-        <get_url>http://127.0.0.1:8080/controller/nb/v2/connectionmanager/nodes</get_url>
+        <get_url>http://localhost:8080/controller/nb/v2/connectionmanager/nodes</get_url>
     </CASE9>
     <CASE10> 
-        <get_url>http://127.0.0.1:8080/controller/nb/v2/switchmanager/default/nodes</get_url>
+        <get_url>http://localhost:8080/controller/nb/v2/switchmanager/default/nodes</get_url>
     </CASE10>
 
     <CASE11> 
-        <put_url>http://127.0.0.1:8080/controller/nb/v2/'topology/default/userLink/link1</put_url>
+        <put_url>http://localhost:8080/controller/nb/v2/'topology/default/userLink/link1</put_url>
         <put_body>{"status":"Success","name":"link1","srcNodeConnector":"OF|1@OF|00:00:00:00:00:00:00:02","dstNodeConnector":"OF|1@OF|00:00:00:00:00:00:00:03"}</put_body>
     </CASE11>
     <CASE12> 
-        <get_url>http://127.0.0.1:8080/controller/nb/v2/statistics/default/flow</get_url>
+        <get_url>http://localhost:8080/controller/nb/v2/statistics/default/flow</get_url>
     </CASE12> 
     <CASE13> 
-        <get_url>http://127.0.0.1:8080/controller/nb/v2/statistics/default/port</get_url>
+        <get_url>http://localhost:8080/controller/nb/v2/statistics/default/port</get_url>
     </CASE13> 
     <CASE14> 
-        <get_url>http://127.0.0.1:8080/controller/nb/v2/statistics/cont1/table</get_url>
+        <get_url>http://localhost:8080/controller/nb/v2/statistics/cont1/table</get_url>
     </CASE14>
     <CASE15> 
-        <put_url>http://127.0.0.1:8080/controller/nb/v2/flowprogrammer/cont1/node/OF/00:00:00:00:00:00:00:02/staticFlow/flow1
+        <put_url>http://localhost:8080/controller/nb/v2/flowprogrammer/cont1/node/OF/00:00:00:00:00:00:00:02/staticFlow/flow1
         </put_url> 
         <put_body>{
                   "installInHw":"true",
@@ -74,14 +74,14 @@
     </put_body>
     </CASE15>
     <CASE16> 
-        <get_url>http://127.0.0.1:8080/controller/nb/v2/statistics/default/flow </get_url>
+        <get_url>http://localhost:8080/controller/nb/v2/statistics/default/flow </get_url>
     </CASE16>
 
     <CASE17>
-      <get_url>http://127.0.0.1:8080/controller/nb/v2/statistics/default/flow</get_url>
+      <get_url>http://localhost:8080/controller/nb/v2/statistics/default/flow</get_url>
     </CASE17>
     <CASE18> 
-        <put_url>http://127.0.0.1:8080/controller/nb/v2/staticroute/cont1/route/route1</put_url>
+        <put_url>http://localhost:8080/controller/nb/v2/staticroute/cont1/route/route1</put_url>
         <put_body>{
 		"name":"route1",
 		"prefix":"192.168.1.0/24",
@@ -90,13 +90,13 @@
         </put_body>
     </CASE18>
     <CASE19> 
-        <get_url>http://127.0.0.1:8080/controller/nb/v2/staticroute/cont1/route/route1</get_url>
+        <get_url>http://localhost:8080/controller/nb/v2/staticroute/cont1/route/route1</get_url>
     </CASE19>
     <CASE20> 
-        <delete_url>http://127.0.0.1:8080/controller/nb/v2/staticroute/cont1/route/route1</delete_url> 
+        <delete_url>http://localhost:8080/controller/nb/v2/staticroute/cont1/route/route1</delete_url> 
     </CASE20>
     <CASE21> 
-        <put_url>http://127.0.0.1:8080/controller/nb/v2/containermanager/container/cont1/flowspec/h1toh3</put_url>
+        <put_url>http://localhost:8080/controller/nb/v2/containermanager/container/cont1/flowspec/h1toh3</put_url>
         <put_body>{
 		"name" : "h1toh3",
 		"nwSrc" : "10.0.0.1",
@@ -105,18 +105,18 @@
         </put_body>
     </CASE21>
     <CASE22> 
-        <get_url>http://127.0.0.1:8080/controller/nb/v2/containermanager/container/cont1/flowspecs</get_url>
+        <get_url>http://localhost:8080/controller/nb/v2/containermanager/container/cont1/flowspecs</get_url>
     </CASE22>
 
     <CASE23>
         <get_url>http://localhost:8080/controller/nb/v2/switchmanager/default/node/OF/00:00:00:00:00:00:00:01</get_url>
     </CASE23>
     <CASE24>
-        <put_url>http://127.0.0.1:8080/controller/nb/v2/switchmanager/default/node/OF/00:00:00:00:00:00:00:02/property/description/Switch2</put_url>
+        <put_url>http://localhost:8080/controller/nb/v2/switchmanager/default/node/OF/00:00:00:00:00:00:00:02/property/description/Switch2</put_url>
         <put_body>{ }</put_body>
     </CASE24>
     <CASE25>
-        <put_url>http://127.0.0.1:8080/controller/nb/v2/hosttracker/cont1/address/1.1.1.1</put_url>
+        <put_url>http://localhost:8080/controller/nb/v2/hosttracker/cont1/address/1.1.1.1</put_url>
         <put_body>
                   {
                   "dataLayerAddress":"00:00:00:00:01:01",
@@ -135,16 +135,16 @@
         <put_body>{ }</put_body>
     </CASE26>
     <CASE27>
-        <get_url>http://127.0.0.1:8080/controller/nb/v2/hosttracker/cont1/address/1.1.1.1</get_url>
+        <get_url>http://localhost:8080/controller/nb/v2/hosttracker/cont1/address/1.1.1.1</get_url>
     </CASE27>
     <CASE28> 
         <delete_url>http://localhost:8080/controller/nb/v2/switchmanager/default/nodeconnector/OF/00:00:00:00:00:00:00:01/OF/2/property/bandwidth</delete_url>
     </CASE28>
     <CASE29> 
-        <delete_url>http://127.0.0.1:8080/controller/nb/v2/topology/default/userLink/link1</delete_url>
+        <delete_url>http://localhost:8080/controller/nb/v2/topology/default/userLink/link1</delete_url>
     </CASE29>
     <CASE30> 
-        <delete_url>http://127.0.0.1:8080/controller/nb/v2/flowprogrammer/cont1/node/OF/00:00:00:00:00:00:00:02/staticFlow/flow1</delete_url>
+        <delete_url>http://localhost:8080/controller/nb/v2/flowprogrammer/cont1/node/OF/00:00:00:00:00:00:00:02/staticFlow/flow1</delete_url>
     </CASE30>
     <CASE31>
         <delete_url>http://localhost:8080/controller/nb/v2/switchmanager/cont1/node/OF/00:00:00:00:00:00:00:03/property/forwarding</delete_url>
@@ -153,6 +153,6 @@
         <delete_url>http://localhost:8080/controller/nb/v2/hosttracker/cont1/address/1.1.1.1</delete_url>
     </CASE32>
     <CASE33>
-        <delete_url>http://127.0.0.1:8080/controller/nb/v2/containermanager/container/cont1</delete_url> 
+        <delete_url>http://localhost:8080/controller/nb/v2/containermanager/container/cont1</delete_url> 
     </CASE33>
 </PARAMS>    
