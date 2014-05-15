@@ -1,4 +1,158 @@
 <PARAMS>
-    <testcases>[1,2,3,4]</testcases>
-   
-</PARAMS>
+    <testcases>[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33]</testcases>
+    <CASE1>
+           <src>h1</src>
+	   <target>h2</target>
+    </CASE1>
+    <CASE2> 
+        <get_url>http://127.0.0.1:8080/controller/nb/v2/containermanager/containers</get_url>   
+    </CASE2>
+
+    <CASE3>
+        <put_url>http://127.0.0.1:8080/controller/nb/v2/containermanager/container/cont1</put_url> 
+        <put_body>{
+		"container" : "cont1",
+		"nodeConnectors" : [
+		"OF|1@OF|00:00:00:00:00:00:00:02",
+		"OF|1@OF|00:00:00:00:00:00:00:03"
+		],
+		"staticVlan" : "10"
+		}
+       </put_body>
+    </CASE3>
+    <CASE4> 
+        <get_url>http://127.0.0.1:8080/controller/nb/v2/statistics/cont1/flow</get_url> 
+    </CASE4>
+    <CASE5> 
+        <get_url>http://127.0.0.1:8080/controller/nb/v2/topology/default</get_url>
+    </CASE5>
+    <CASE6> 
+        <get_url>http://127.0.0.1:8080/controller/nb/v2/subnetservice/default/subnets</get_url>
+    </CASE6>
+    <CASE7> 
+        <get_url>http://127.0.0.1:8080/controller/nb/v2/hosttracker/default/hosts/active</get_url>
+    </CASE7>
+    <CASE8> 
+        <put_url>http://127.0.0.1:8080/controller/nb/v2/subnetservice/default/subnet/test</put_url>
+        <put_body>{"name":"test","subnet":"10.0.0.254/8"}</put_body>
+    </CASE8>
+    <CASE9> 
+        <get_url>http://127.0.0.1:8080/controller/nb/v2/connectionmanager/nodes</get_url>
+    </CASE9>
+    <CASE10> 
+        <get_url>http://127.0.0.1:8080/controller/nb/v2/switchmanager/default/nodes</get_url>
+    </CASE10>
+
+    <CASE11> 
+        <put_url>http://127.0.0.1:8080/controller/nb/v2/'topology/default/userLink/link1</put_url>
+        <put_body>{"status":"Success","name":"link1","srcNodeConnector":"OF|1@OF|00:00:00:00:00:00:00:02","dstNodeConnector":"OF|1@OF|00:00:00:00:00:00:00:03"}</put_body>
+    </CASE11>
+    <CASE12> 
+        <get_url>http://127.0.0.1:8080/controller/nb/v2/statistics/default/flow</get_url>
+    </CASE12> 
+    <CASE13> 
+        <get_url>http://127.0.0.1:8080/controller/nb/v2/statistics/default/port</get_url>
+    </CASE13> 
+    <CASE14> 
+        <get_url>http://127.0.0.1:8080/controller/nb/v2/statistics/cont1/table</get_url>
+    </CASE14>
+    <CASE15> 
+        <put_url>http://127.0.0.1:8080/controller/nb/v2/flowprogrammer/cont1/node/OF/00:00:00:00:00:00:00:02/staticFlow/flow1
+        </put_url> 
+        <put_body>{
+                  "installInHw":"true",
+                  "name":"flow1",
+                  "node":{
+                  "id":"00:00:00:00:00:00:00:02",
+                  "type":"OF"
+                  },
+                  "priority":"1",
+                  "etherType":"0x800",
+                  "nwDst":"10.0.0.1/32",
+                  "actions":["OUTPUT=1"]
+                  } 
+    </put_body>
+    </CASE15>
+    <CASE16> 
+        <get_url>http://127.0.0.1:8080/controller/nb/v2/statistics/default/flow </get_url>
+    </CASE16>
+
+    <CASE17>
+      <get_url>http://127.0.0.1:8080/controller/nb/v2/statistics/default/flow</get_url>
+    </CASE17>
+    <CASE18> 
+        <put_url>http://127.0.0.1:8080/controller/nb/v2/staticroute/cont1/route/route1</put_url>
+        <put_body>{
+		"name":"route1",
+		"prefix":"192.168.1.0/24",
+		"nextHop":"10.0.0.2"
+		}
+        </put_body>
+    </CASE18>
+    <CASE19> 
+        <get_url>http://127.0.0.1:8080/controller/nb/v2/staticroute/cont1/route/route1</get_url>
+    </CASE19>
+    <CASE20> 
+        <delete_url>http://127.0.0.1:8080/controller/nb/v2/staticroute/cont1/route/route1</delete_url> 
+    </CASE20>
+    <CASE21> 
+        <put_url>http://127.0.0.1:8080/controller/nb/v2/containermanager/container/cont1/flowspec/h1toh3</put_url>
+        <put_body>{
+		"name" : "h1toh3",
+		"nwSrc" : "10.0.0.1",
+		"nwDst" : "10.0.0.3",
+		}
+        </put_body>
+    </CASE21>
+    <CASE22> 
+        <get_url>http://127.0.0.1:8080/controller/nb/v2/containermanager/container/cont1/flowspecs</get_url>
+    </CASE22>
+
+    <CASE23>
+        <get_url>http://localhost:8080/controller/nb/v2/switchmanager/default/node/OF/00:00:00:00:00:00:00:01</get_url>
+    </CASE23>
+    <CASE24>
+        <put_url>http://127.0.0.1:8080/controller/nb/v2/switchmanager/default/node/OF/00:00:00:00:00:00:00:02/property/description/Switch2</put_url>
+        <put_body>{ }</put_body>
+    </CASE24>
+    <CASE25>
+        <put_url>http://127.0.0.1:8080/controller/nb/v2/hosttracker/cont1/address/1.1.1.1</put_url>
+        <put_body>
+                  {
+                  "dataLayerAddress":"00:00:00:00:01:01",
+                  "nodeType":"OF",
+                  "nodeId":"00:00:00:00:00:00:00:02",
+                  "nodeConnectorType":"OF",
+                  "nodeConnectorId":"9",
+                  "vlan":"1",
+                  "staticHost":"true",
+                  "networkAddress":"1.1.1.1"
+                  }
+        </put_body>
+    </CASE25>
+    <CASE26>
+        <put_url>http://localhost:8080/controller/nb/v2/switchmanager/default/nodeconnector/OF/00:00:00:00:00:00:00:01/OF/2/property/bandwidth/1</put_url>
+        <put_body>{ }</put_body>
+    </CASE26>
+    <CASE27>
+        <get_url>http://127.0.0.1:8080/controller/nb/v2/hosttracker/cont1/address/1.1.1.1</get_url>
+    </CASE27>
+    <CASE28> 
+        <delete_url>http://localhost:8080/controller/nb/v2/switchmanager/default/nodeconnector/OF/00:00:00:00:00:00:00:01/OF/2/property/bandwidth</delete_url>
+    </CASE28>
+    <CASE29> 
+        <delete_url>http://127.0.0.1:8080/controller/nb/v2/topology/default/userLink/link1</delete_url>
+    </CASE29>
+    <CASE30> 
+        <delete_url>http://127.0.0.1:8080/controller/nb/v2/flowprogrammer/cont1/node/OF/00:00:00:00:00:00:00:02/staticFlow/flow1</delete_url>
+    </CASE30>
+    <CASE31>
+        <delete_url>http://localhost:8080/controller/nb/v2/switchmanager/cont1/node/OF/00:00:00:00:00:00:00:03/property/forwarding</delete_url>
+    </CASE31>
+    <CASE32>
+        <delete_url>http://localhost:8080/controller/nb/v2/hosttracker/cont1/address/1.1.1.1</delete_url>
+    </CASE32>
+    <CASE33>
+        <delete_url>http://127.0.0.1:8080/controller/nb/v2/containermanager/container/cont1</delete_url> 
+    </CASE33>
+</PARAMS>    
