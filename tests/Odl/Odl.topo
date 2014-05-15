@@ -2,8 +2,8 @@
     <COMPONENT>
         <Mininet1>
             <host>127.0.0.1</host>
-            <user>odl-vm</user>
-            <password>opendaylight</password>
+            <user>raghuvarma-565</user>
+            <password>raghu@123</password>
             <type>MininetCliDriver</type>
             <COMPONENTS>
                 # Specify the Option for mininet
@@ -16,12 +16,16 @@
         </Mininet1>        
         <ODL1>
             <host>127.0.0.1</host>
-            <user>odl-vm</user>
-            <password> opendaylight </password>
+            <user>raghuvarma-565</user>
+            <password>raghu@123</password>
             <type> OdlDriver </type>
             <test_target> 1 </test_target>
+            <header>{'Content-type': 'application/json', 'Accept': 'application/json'}</header>
             <COMPONENTS>
-                
+               <topology_url>http://127.0.0.1:8080</topology_url>
+               <hostname>127.0.0.1</hostname>
+               <username>admin</username>
+               <password>admin</password>
             </COMPONENTS>
         </ODL1>
     </COMPONENT>
