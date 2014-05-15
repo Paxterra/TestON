@@ -1,21 +1,205 @@
 CASE 1:
+     NAME "ping to host"
+     STEP "ping to host h2 from h1"
+     STORE ON Mininet1 DO pingHost USING SRC AS CASE['src'],TARGET AS CASE['target'] IN result
+     ASSERT result EQUALS main.TRUE ONPASS "Ping to host successful" ONFAIL "Ping host not successful"
+    
+     STORE ON Mininet1 DO dump IN result
+     ASSERT result EQUALS main.TRUE ONPASS "Getting dump results" ONFAIL "Not getting dump results"
+
+     STORE ON Mininet1 DO net IN result
+     ASSERT result EQUALS main.TRUE ONPASS "Getting net configuration" ONFAIL "Not getting net configuration"
+
+     STORE ON Mininet1 DO intfs IN result
+     ASSERT result EQUALS main.TRUE ONPASS "Getting intfs results" ONFAIL "Not getting intfs results"
+
+CASE 2:
      NAME "Get list of containers"
      STEP "Getting list of containers"
-     STORE ON ODL1 DO list_containers IN result
-     ASSERT result EQUALS 200 ONPASS "getting containers list" ONFAIL "not getting any containers list"
-CASE 2:
-     NAME "remove existing containers"
-     STEP "removing container"
-     STORE ON ODL1 DO remove_container USING CONTAINER AS 'cont1' IN result
-     ASSERT result EQUALS 204 ONPASS "container removed successfully" ONFAIL "container not removed"
+     STORE ON ODL1 DO get USING URL AS CASE['get_url'] IN result
+     ASSERT result EQUALS 200 ONPASS "Getting containers list" ONFAIL "Not getting any containers list"
+
 CASE 3:
-     NAME "create a container"
-     STEP "creating a new container"
-     STORE ON ODL1 DO create_container USING CONTAINER AS 'cont1',INPUT AS {"container" : "cont1","nodeConnectors" : ["OF|1@OF|00:00:00:00:00:00:00:01","OF|2@OF|00:00:00:00:00:00:00:02"],"staticVlan" : "10"} IN result
-     ASSERT result EQUALS 201 ONPASS "container getting added" ONFAIL "container not added"
+     NAME "Create a container"
+     STEP "Creating a new container"
+     STORE ON ODL1 DO put USING URL AS CASE['put_url'],BODY AS CASE['put_body'] IN result
+     ASSERT result EQUALS 201 ONPASS "Container getting added" ONFAIL "Container not added"
 
 CASE 4:
-     NAME "get container flows"
-     STEP "getting container flows"
-     STORE ON ODL1 DO flow_stats USING CONTAINER AS 'cont1' IN result 
-     ASSERT result EQUALS 200 ONPASS "container flows getting" ONFAIL "container flows not getting"
+     NAME "Get container flows"
+     STEP "Getting container flows"
+     STORE ON ODL1 DO get USING CASE['get_url'] IN result 
+     ASSERT result EQUALS 200 ONPASS "Container flows getting" ONFAIL "Container flows not getting"
+
+CASE 5:
+     NAME "Get topology"
+     STEP "Getting topology "
+     STORE ON ODL1 DO get USING CASE['get_url'] IN result 
+     ASSERT result EQUALS 200 ONPASS "Topology getting successfully" ONFAIL "Topology not getting successfully"
+
+CASE 6:
+     NAME "Get list of subnets"
+     STEP "Getting list of Subnets"
+     STORE ON ODL1 DO get USING CASE['get_url'] IN result 
+     ASSERT result EQUALS 200 ONPASS "Getting list of subnets" ONFAIL "Not getting list of subnets"
+
+CASE 7:
+     NAME "Get list of hosts"
+     STEP "Getting list of hosts from topology"
+     STORE ON ODL1 DO get USING CASE['get_url'] IN result 
+     ASSERT result EQUALS 200 ONPASS "Getting list of hosts" ONFAIL "Not getting list of hosts" 
+
+CASE 8:
+     NAME "Add subnet to the controller"
+     STEP "Adding subnet to the controller"
+     STORE ON ODL1 DO put USING URL AS CASE['put_url'],BODY AS CASE['put_body'] IN result
+     ASSERT result EQUALS 201 ONPASS "Subnet is added successfully" ONFAIL "Subnet not added"
+
+CASE 9:
+     NAME "Get list of connections"
+     STEP "Getting list of connections"
+     STORE ON ODL1 DO get USING CASE['get_url'] IN result 
+     ASSERT result EQUALS 200 ONPASS "Getting list of connections" ONFAIL "Connections are not getting"
+
+CASE 10:
+     NAME "Get list of nodes"
+     STEP "Getting list of nodes"
+     STORE ON ODL1 DO get USING CASE['get_url'] IN result 
+     ASSERT result EQUALS 200 ONPASS "Getting list of nodes" ONFAIL "Not getting list of nodes"
+
+CASE 11:
+     NAME "Add user link"
+     STEP "Adding userlink to the topology"
+     STORE ON ODL1 DO put USING URL AS CASE['put_url'],BODY AS CASE['put_body'] IN result
+     ASSERT result EQUALS 200 ONPASS "Use link added successfully" ONFAIL "User link not added"
+
+CASE 12:
+     NAME "Get flow statistics"
+     STEP "Getting flow Statistics from topology"
+     STORE ON ODL1 DO get USING CASE['get_url'] IN result 
+     ASSERT result EQUALS 200 ONPASS "Getting all flow statistics" ONFAIL "Not getting flow statistics"
+
+CASE 13:
+     NAME "Get port statistics"
+     STEP "Getting port statistics from topology"
+     STORE ON ODL1 DO get USING CASE['get_url'] IN result 
+     ASSERT result EQUALS 200 ONPASS "Getting all port statistics" ONFAIL "Not getting port statistics"
+
+CASE 14:
+     NAME "Get table statistics"
+     STEP "Getting default table Statistics"
+     STORE ON ODL1 DO get USING CASE['get_url'] IN result 
+     ASSERT result EQUALS 200 ONPASS "Getting all Table statistics" ONFAIL "Not getting table statistics"
+
+CASE 15:
+     NAME "Adding Flows"
+     STEP "Adding flow1 to reach host1"
+     STORE ON ODL1 DO put USING URL AS CASE['put_url'],BODY AS CASE['put_body'] IN result
+     ASSERT result EQUALS 201 ONPASS "Adding flow is sucessfull" ONFAIL "Adding flow is not sucessfull"
+
+CASE 16:
+     NAME "Get flow stats"
+     STEP "Getting  flow stats"
+     STORE ON ODL1 DO get USING CASE['get_url'] IN result 
+     ASSERT result EQUALS 200 ONPASS "Getting flow stats sucessfully" ONFAIL "Not getting flow stats sucessfully"
+
+CASE 17:
+     NAME "Get flow stats"
+     STEP "Getting  flow stats"
+     STORE ON ODL1 DO get USING CASE['get_url'] IN result 
+     ASSERT result EQUALS 200 ONPASS "Getting flow stats sucessfully" ONFAIL "Not getting flow stats sucessfully"
+CASE 18:
+     NAME "Add static route"
+     STEP "Adding static route "
+     STORE ON ODL1 DO put USING URL AS CASE['put_url'],BODY AS CASE['put_body'] IN result
+     ASSERT result EQUALS 201 ONPASS "static route added successfully" ONFAIL "static route not added"
+
+CASE 19:
+     NAME "Get static route"
+     STEP "Getting static route"
+     STORE ON ODL1 DO get USING CASE['get_url'] IN result 
+     ASSERT result EQUALS 200 ONPASS "Getting static route" ONFAIL "Not getting static route"
+
+CASE 20:
+     NAME "Remove static route"
+     STEP "Removing static route"
+     STORE ON ODL1 DO delete USING CASE['delete_url'] IN result
+     ASSERT result EQUALS 204 ONPASS "User link removed" ONFAIL "User link not removed"
+
+CASE 21:
+     NAME "Add flowspec to cont1"
+     STEP "Adding flowspec to cont1 "
+     STORE ON ODL1 DO put USING URL AS CASE['put_url'],BODY AS CASE['put_body'] IN result
+     ASSERT result EQUALS 201 ONPASS "flowsppec added successfully" ONFAIL "flowspecs not added"
+
+CASE 22:
+     NAME "Get flowspecs"
+     STEP "Getting flowspecs on cont1"
+     STORE ON ODL1 DO get USING CASE['get_url'] IN result 
+     ASSERT result EQUALS 200 ONPASS "Getting flowspecs " ONFAIL "Not getting flowspecs"
+
+CASE 23:
+     NAME "Get node connectors list"
+     STEP "Getting list of NodeConnectors"
+     STORE ON ODL1 DO get USING URL AS CASE['get_url'] IN result
+     ASSERT result EQUALS 200 ONPASS "Got list of nodeconnectors" ONFAIL "Not getting list of nodeconnectors"
+
+CASE 24:
+     NAME "Add property description"
+     STEP "Adding property description to the switch"
+     STORE ON ODL1 DO put USING URL AS CASE['put_url'],BODY AS CASE['put_body'] IN result
+     ASSERT result EQUALS 201 ONPASS "Property Description added" ONFAIL "Property description not added"
+
+CASE 25:
+     NAME "Add static host"
+     STEP "Adding static host"
+     STORE ON ODL1 DO put USING URL AS CASE['put_url'],BODY AS CASE['put_body'] IN result
+     ASSERT result EQUALS 201 ONPASS "static host added successfully" ONFAIL "static host not added"
+
+CASE 26:
+     NAME "Add bandwidth "
+     STEP "Adding bandwidth to swith"
+     STORE ON ODL1 DO put USING URL AS CASE['put_url'],BODY AS CASE['put_body'] IN result 
+     ASSERT result EQUALS 201 ONPASS "Bandwidth added successfully" ONFAIL "Bandwidth not added "
+
+CASE 27:
+     NAME "Get Static Host"
+     STEP "Getting Static Host"
+     STORE ON ODL1 DO get USING CASE['get_url'] IN result 
+     ASSERT result EQUALS 200 ONPASS "Getting Static Host" ONFAIL "Not getting Static Host"
+
+CASE 28:
+     NAME "Delete bandwidth "
+     STEP "Deleting bandwidth from swith"
+     STORE ON ODL1 DO delete USING  CASE['delete_url'] IN result 
+     ASSERT result EQUALS 204 ONPASS "Bandwidth deleted successfully" ONFAIL "Bandwidth not deleted"
+
+CASE 29:
+     NAME "Remove user_link"
+     STEP "Removing userlink"
+     STORE ON ODL1 DO delete USING CASE['delete_url'] IN result
+     ASSERT result EQUALS 204 ONPASS "User link removed" ONFAIL "User link not removed"
+
+CASE 30:
+     NAME "Removing flow"
+     STEP "Removing flow to reach host1"
+     STORE ON ODL1 DO delete USING CASE['delete_url'] IN result
+     ASSERT result EQUALS 204 ONPASS "Flow Removed sucessfully" ONFAIL "Unable to remove flow"
+
+CASE 31
+     NAME "Delete node property"
+     STEP "Removing Node property from topology"
+     STORE ON ODL1 DO delete USING CASE['delete_url'] IN result 
+     ASSERT result EQUALS 204 ONPASS "Node property deleted successfully" ONFAIL "Node property not deleted "
+
+CASE 32:
+     NAME "Remove Static Host"
+     STEP "Removing Static Host"
+     STORE ON ODL1 DO delete USING CASE['delete_url'] IN result
+     ASSERT result EQUALS 204 ONPASS "Static Host removed successfully" ONFAIL "Static Host not removed"
+
+CASE 33:
+     NAME "Remove existing containers"
+     STEP "Removing container"
+     STORE ON ODL1 DO delete USING CASE['delete_url'] IN result
+     ASSERT result EQUALS 204 ONPASS "Container removed successfully" ONFAIL "Container not removed"
