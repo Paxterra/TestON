@@ -22,7 +22,7 @@
             <test_target> 1 </test_target>
             <header>{'Content-type': 'application/json', 'Accept': 'application/json'}</header>
             <COMPONENTS>
-               <topology_url>http://127.0.0.1:8080</topology_url>
+               <topology_url>http://localhost:8080</topology_url>
                <hostname>127.0.0.1</hostname>
                <username>admin</username>
                <password>admin</password>
