@@ -198,7 +198,11 @@ class TestON:
         
         result = self.TRUE
         for self.CurrentTestCaseNumber in self.testcases_list:
-            result = self.runCase(self.CurrentTestCaseNumber)
+            testCaseName="CASE"+str(self.CurrentTestCaseNumber)
+            count = int(self.params[testCaseName]['run_count']) if ('run_count' in self.params[testCaseName]) else 1
+            while(count):
+                result = self.runCase(self.CurrentTestCaseNumber)
+                count=count-1
         return result
     
     def runCase(self,testCaseNumber):
