@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 '''
 Created on 22-Oct-2012
-Modified on 11-June-2014    
+    
+@author: Anil Kumar (anilkumar.s@paxterrasolutions.com)
 
 
     TestON is free software: you can redistribute it and/or modify
@@ -200,9 +201,9 @@ class TestON:
         self.code = test.getStepCode()
         
         result = self.TRUE
+        rcount=0
         repeat= int(self.params['repeat']) if ('repeat' in self.params) else 1
         while(repeat):
-            rcount=0 
             for self.CurrentTestCaseNumber in self.testcases_list:
                 testcaseName = 'CASE'+str(self.CurrentTestCaseNumber)
 		count=int(self.params[testcaseName]['run_count']) if ('run_count' in self.params[testcaseName]) else self.run_count[rcount]
@@ -214,6 +215,7 @@ class TestON:
                     count-=1
                 rcount+=1   
             repeat-=1
+            rcount=0   
         return result
     
     def runCase(self,testCaseNumber):
