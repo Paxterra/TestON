@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 '''
 Created on 22-Oct-2012
-    
-@author: Anil Kumar (anilkumar.s@paxterrasolutions.com)
+Modified on 11-June-2014    
 
 
     TestON is free software: you can redistribute it and/or modify
@@ -90,6 +89,7 @@ class TestON:
         self.loggerClass = "Logger"
         self.logs_path = logs_path
         self.driver = ''
+	
         
         self.configparser()
         verifyOptions(options)
@@ -183,26 +183,38 @@ class TestON:
         '''
         
         self.testCaseResult = {}
+        self.TOTAL_TC = 0
         self.TOTAL_TC_RUN = 0
+        self.TOTAL_TC_PLANNED = 0 # sriram
         self.TOTAL_TC_NORESULT = 0
         self.TOTAL_TC_FAIL = 0
         self.TOTAL_TC_PASS = 0
+        self.TEST_ITERATION = 0
         self.stepCount = 0
         self.CASERESULT = self.TRUE
         
-        import testparser
+        import testparser 
         testFile = self.tests_path + "/"+self.TEST + "/"+self.TEST + ".py"
         test = testparser.TestParser(testFile)
         self.testscript = test.testscript
         self.code = test.getStepCode()
         
         result = self.TRUE
-        for self.CurrentTestCaseNumber in self.testcases_list:
-            testCaseName="CASE"+str(self.CurrentTestCaseNumber)
-            count = int(self.params[testCaseName]['run_count']) if ('run_count' in self.params[testCaseName]) else 1
-            while(count):
-                result = self.runCase(self.CurrentTestCaseNumber)
-                count=count-1
+        rcount=0
+        repeat= int(self.params['repeat']) if ('repeat' in self.params) else 1
+        while(repeat):
+            for self.CurrentTestCaseNumber in self.testcases_list:
+                testcaseName = 'CASE'+str(self.CurrentTestCaseNumber)
+		count=int(self.params[testcaseName]['run_count']) if ('run_count' in self.params[testcaseName]) else self.run_count[rcount]
+                main.TOTAL_TC_PLANNED = main.TOTAL_TC_PLANNED+count
+                while (count) :
+                    if (rcount==len(self.run_count)):
+                        break
+                    result = self.runCase(self.CurrentTestCaseNumber)
+                    count-=1
+                rcount+=1   
+            repeat-=1
+            rcount=0   
         return result
     
     def runCase(self,testCaseNumber):
@@ -282,7 +294,7 @@ class TestON:
         #self.reportFile.close()
         
 
-        utilities.send_mail()
+        #utilities.send_mail()
         try :
             for component in self.componentDictionary.keys():
                 tempObject  = vars(self)[component]    
@@ -412,7 +424,8 @@ class TestON:
             lineMatch = re.match('\s+def CASE(\d+)(.*):',testFileList[index],0)
             if lineMatch:
                 counter  = counter + 1
-                self.TOTAL_TC_PLANNED = counter
+                self.TC_PLANNED = len(self.testcases_list)
+        
                 
     def response_parser(self,response, return_format):
         ''' It will load the default response parser '''
@@ -574,21 +587,37 @@ def verifyMail(options):
     elif main.params.has_key('mail'):
         main.mail = main.params['mail']
     else :
-        main.mail = 'user@mailserver.com'
+        main.mail = 'paxweb@paxterrasolutions.com'
 
 def verifyTestCases(options):
     #Getting Test cases list 
     if options.testcases:
+	testcases_list = options.testcases 
+        sys.exit() 
         testcases_list = re.sub("(\[|\])", "", options.testcases)
         main.testcases_list = eval(testcases_list+",")
     else :
         if 'testcases' in main.params.keys():
             main.params['testcases'] = re.sub("(\[|\])", "", main.params['testcases'])
-            if re.search('\d+', main.params['testcases'], 0):
-                main.testcases_list = eval(main.params['testcases']+",")
-            else :
-                print "Please provide the testcases list in Params file"
-                sys.exit()
+            main.params['testcases'] = re.sub(",", " ", main.params['testcases'])
+            testcasesList = main.params['testcases']
+            testcaseElements = testcasesList.split()
+            main.testcases_list = []
+            main.run_count = []
+            for testcaseElement in testcaseElements:
+ 		caseNum=re.search("^\d+",testcaseElement)
+ 		CurrentTestCaseNumber = caseNum.group()
+                main.testcases_list.extend(CurrentTestCaseNumber)
+                repeat=re.search("\(\d+\)",testcaseElement)
+                if(repeat):
+                    rcount=re.search("\d+",repeat.group())																																																																																																																																																																										
+                    runcount = rcount.group()
+                else:
+                   runcount='1'                 
+                main.run_count.append(runcount)
+            main.testcases_list = map(int,main.testcases_list)
+            main.run_count = map(int,main.run_count)
+                       
         else :
             print "testcases not specifed in params, please provide in params file or 'testcases' commandline argument"
             sys.exit() 
