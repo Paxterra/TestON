@@ -185,7 +185,7 @@ class TestON:
         self.testCaseResult = {}
         self.TOTAL_TC = 0
         self.TOTAL_TC_RUN = 0
-        self.TOTAL_TC_PLANNED = 0 # sriram
+        self.TOTAL_TC_PLANNED = 0 
         self.TOTAL_TC_NORESULT = 0
         self.TOTAL_TC_FAIL = 0
         self.TOTAL_TC_PASS = 0
