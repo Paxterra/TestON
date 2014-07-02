@@ -207,12 +207,13 @@ class TestON:
             for self.CurrentTestCaseNumber in self.testcases_list:
                 testcaseName = 'CASE'+str(self.CurrentTestCaseNumber)
 		count=int(self.params[testcaseName]['run_count']) if ('run_count' in self.params[testcaseName]) else self.run_count[rcount]
+		new_count= count if(count>0) else 1
                 main.TOTAL_TC_PLANNED = main.TOTAL_TC_PLANNED+count
-                while (count) :
+                while (new_count) :
                     if (rcount==len(self.run_count)):
                         break
                     result = self.runCase(self.CurrentTestCaseNumber)
-                    count-=1
+                    new_count-=1
                 rcount+=1   
             repeat-=1
             rcount=0   
