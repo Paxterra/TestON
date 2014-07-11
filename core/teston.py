@@ -199,24 +199,14 @@ class TestON:
         test = testparser.TestParser(testFile)
         self.testscript = test.testscript
         self.code = test.getStepCode()
+	repeat= int(self.params['repeat']) if ('repeat' in self.params) else 1
+	main.TOTAL_TC_PLANNED = len(self.testcases_list)*repeat
         
         result = self.TRUE
-        rcount=0
-        repeat= int(self.params['repeat']) if ('repeat' in self.params) else 1
-        while(repeat):
+	while(repeat):
             for self.CurrentTestCaseNumber in self.testcases_list:
-                testcaseName = 'CASE'+str(self.CurrentTestCaseNumber)
-		count=int(self.params[testcaseName]['run_count']) if ('run_count' in self.params[testcaseName]) else self.run_count[rcount]
-		new_count= count if(count>0) else 1
-                main.TOTAL_TC_PLANNED = main.TOTAL_TC_PLANNED+count
-                while (new_count) :
-                    if (rcount==len(self.run_count)):
-                        break
-                    result = self.runCase(self.CurrentTestCaseNumber)
-                    new_count-=1
-                rcount+=1   
-            repeat-=1
-            rcount=0   
+                result = self.runCase(self.CurrentTestCaseNumber) 
+	    repeat-=1                   
         return result
     
     def runCase(self,testCaseNumber):
@@ -600,26 +590,15 @@ def verifyTestCases(options):
         main.testcases_list = eval(testcases_list+",")
     else :
         if 'testcases' in main.params.keys():
-            main.params['testcases'] = re.sub("(\[|\])", "", main.params['testcases'])
-            main.params['testcases'] = re.sub(",", " ", main.params['testcases'])
-            testcasesList = main.params['testcases']
-            testcaseElements = testcasesList.split()
-            main.testcases_list = []
-            main.run_count = []
-            for testcaseElement in testcaseElements:
- 		caseNum=re.search("^\d+",testcaseElement)
- 		CurrentTestCaseNumber = caseNum.group()
-                main.testcases_list.extend(CurrentTestCaseNumber)
-                repeat=re.search("\(\d+\)",testcaseElement)
-                if(repeat):
-                    rcount=re.search("\d+",repeat.group())																																																																																																																																																																										
-                    runcount = rcount.group()
-                else:
-                   runcount='1'                 
-                main.run_count.append(runcount)
-            main.testcases_list = map(int,main.testcases_list)
-            main.run_count = map(int,main.run_count)
-                       
+            temp = eval(main.params['testcases']+",")
+            list1=[]
+	    for test in temp:
+      	        for testcase in test:
+	            if(isinstance(testcase,(int,long))):
+		        testcase=str(testcase)
+		        testcase=list(testcase)
+	            list1.extend(testcase)
+	    main.testcases_list=map(int,list1)	                                     
         else :
             print "testcases not specifed in params, please provide in params file or 'testcases' commandline argument"
             sys.exit() 
