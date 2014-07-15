@@ -592,8 +592,15 @@ def verifyTestCases(options):
         if 'testcases' in main.params.keys():
             temp = eval(main.params['testcases']+",")
             list1=[]
-	    for test in temp:
-      	        for testcase in test:
+            if type(temp[0])==list:
+	        for test in temp:
+      	            for testcase in test:
+	                if type(testcase)==int:
+		            testcase=[testcase]
+	                list1.extend(testcase)
+	    else :
+	    	temp=list(temp)
+      	        for testcase in temp:
 	            if type(testcase)==int:
 		        testcase=[testcase]
 	            list1.extend(testcase)
