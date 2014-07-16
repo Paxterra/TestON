@@ -594,16 +594,13 @@ def verifyTestCases(options):
             list1=[]
             if type(temp[0])==list:
 	        for test in temp:
-      	            for testcase in test:
-	                if type(testcase)==int:
-		            testcase=[testcase]
-	                list1.extend(testcase)
+      	            temp=test
 	    else :
 	    	temp=list(temp)
-      	        for testcase in temp:
-	            if type(testcase)==int:
-		        testcase=[testcase]
-	            list1.extend(testcase)
+      	    for testcase in temp:
+	        if type(testcase)==int:
+	            testcase=[testcase]
+	        list1.extend(testcase)
 	    main.testcases_list=list1	                                     
         else :
             print "testcases not specifed in params, please provide in params file or 'testcases' commandline argument"
